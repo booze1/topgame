@@ -10,11 +10,22 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Deck, PhotoCredit, StatDef } from '../shared/types';
 
-export type PhotoManifest = Record<string, Record<string, PhotoCredit & { image: string }>>;
+/**
+ * Shape of public/cards/attributions.json. Values are typed as `unknown`
+ * because the file is written by a script but read as untrusted input.
+ */
+export type PhotoManifest = Record<string, Record<string, Record<string, unknown>>>;
 
 function fail(file: string, message: string): never {
   throw new Error(`Invalid deck ${file}: ${message}`);
 }
+
+/**
+ * Deck and card ids end up in file paths (public/cards/<deck>/<card>.jpg) and
+ * in URLs, so they are restricted to a safe alphabet. A deck file copied from
+ * somewhere else should not be able to reach outside the cards directory.
+ */
+const SAFE_ID = /^[a-z0-9][a-z0-9_-]*$/i;
 
 function validateStat(file: string, value: unknown, index: number): StatDef {
   const stat = value as Partial<StatDef>;
@@ -30,6 +41,9 @@ function validateDeck(file: string, raw: unknown): Deck {
   for (const key of ['id', 'name', 'tagline', 'emoji'] as const) {
     if (typeof deck[key] !== 'string' || !deck[key]) fail(file, `missing "${key}"`);
   }
+  if (!SAFE_ID.test(deck.id as string)) {
+    fail(file, `id "${deck.id}" must be letters, digits, dashes or underscores`);
+  }
   if (!deck.theme?.primary || !deck.theme.accent || !deck.theme.ink) fail(file, 'missing theme');
   if (!Array.isArray(deck.stats) || deck.stats.length === 0) fail(file, 'needs at least one stat');
   const stats = deck.stats.map((s, i) => validateStat(file, s, i));
@@ -40,6 +54,9 @@ function validateDeck(file: string, raw: unknown): Deck {
   const seen = new Set<string>();
   for (const card of deck.cards) {
     if (!card?.id || typeof card.id !== 'string') fail(file, 'a card has no id');
+    if (!SAFE_ID.test(card.id)) {
+      fail(file, `card id "${card.id}" must be letters, digits, dashes or underscores`);
+    }
     if (seen.has(card.id)) fail(file, `duplicate card id "${card.id}"`);
     seen.add(card.id);
     for (const key of ['name', 'subtitle', 'emoji', 'wikipedia'] as const) {
@@ -96,7 +113,23 @@ export function loadDecks(rootDir: string): Deck[] {
     deck.cards = deck.cards.map((card) => {
       const photo = photos[card.id];
       if (!photo) return card;
-      const { image, ...credit } = photo;
+
+      // The manifest is generated, but it is also a plain file somebody can
+      // edit, so nothing from it is trusted: the image must be exactly the
+      // path shape the fetcher writes, and links must be https. Anything else
+      // falls back to generated art rather than failing the boot.
+      const text = (value: unknown): string => (typeof value === 'string' ? value : '');
+      const image = text(photo.image);
+      if (!image.startsWith(`/cards/${deck.id}/`) || image.includes('..')) return card;
+
+      const sourceUrl = text(photo.sourceUrl);
+      const credit: PhotoCredit = {
+        file: text(photo.file),
+        artist: text(photo.artist) || 'Unknown author',
+        licence: text(photo.licence),
+        licenceUrl: text(photo.licenceUrl),
+        sourceUrl: sourceUrl.startsWith('https://') ? sourceUrl : '',
+      };
       return { ...card, image, credit };
     });
     decks.push(deck);

@@ -51,9 +51,11 @@ export function Attributions({ decks, onClose }: AttributionsProps): JSX.Element
                     <span>
                       {card.credit!.artist} · {card.credit!.licence}
                     </span>
-                    <a href={card.credit!.sourceUrl} target="_blank" rel="noreferrer noopener">
-                      source
-                    </a>
+                    {card.credit!.sourceUrl && (
+                      <a href={card.credit!.sourceUrl} target="_blank" rel="noreferrer noopener">
+                        source
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
