@@ -1,0 +1,34 @@
+# Fly.io configuration. Deploy with:
+#   fly launch --no-deploy   (once, to claim an app name)
+#   fly deploy
+#
+# One shared-cpu machine is plenty: the server holds a few kilobytes per room
+# and does no disk work while a match is running.
+
+app = "top-trumps"
+primary_region = "lhr"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8787"
+
+[http_service]
+  internal_port = 8787
+  force_https = true
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  # Keeping one machine warm avoids a cold start on the first invite of the day.
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    grace_period = "5s"
+    interval = "30s"
+    method = "GET"
+    path = "/api/health"
+    timeout = "5s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

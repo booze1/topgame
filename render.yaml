@@ -1,0 +1,23 @@
+# Render blueprint. Push this repository, then in Render choose
+# "New > Blueprint" and point it at the repo - no dashboard fiddling needed.
+#
+# Render's free web services sleep after inactivity and take a few seconds to
+# wake. That is fine for the lobby, but a sleeping instance drops websockets,
+# so a game left open overnight will need a refresh.
+
+services:
+  - type: web
+    name: top-trumps
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      # Uncomment and set to your own origin to refuse websocket upgrades
+      # from anywhere else.
+      # - key: ALLOWED_ORIGINS
+      #   value: https://top-trumps.onrender.com

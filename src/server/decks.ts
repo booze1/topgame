@@ -1,0 +1,115 @@
+/**
+ * Deck loading.
+ *
+ * Decks are plain JSON in /decks so a new topic is a new file and nothing
+ * else. They are validated once at boot: a malformed deck should stop the
+ * server rather than surface as a strange bug three rounds into a match.
+ */
+
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
+import type { Deck, PhotoCredit, StatDef } from '../shared/types';
+
+export type PhotoManifest = Record<string, Record<string, PhotoCredit & { image: string }>>;
+
+function fail(file: string, message: string): never {
+  throw new Error(`Invalid deck ${file}: ${message}`);
+}
+
+function validateStat(file: string, value: unknown, index: number): StatDef {
+  const stat = value as Partial<StatDef>;
+  if (!stat || typeof stat.id !== 'string' || !stat.id) fail(file, `stat ${index} has no id`);
+  if (typeof stat.label !== 'string' || !stat.label) fail(file, `stat "${stat.id}" has no label`);
+  if (typeof stat.higherWins !== 'boolean') fail(file, `stat "${stat.id}" needs higherWins`);
+  return stat as StatDef;
+}
+
+function validateDeck(file: string, raw: unknown): Deck {
+  const deck = raw as Partial<Deck>;
+  if (!deck || typeof deck !== 'object') fail(file, 'not an object');
+  for (const key of ['id', 'name', 'tagline', 'emoji'] as const) {
+    if (typeof deck[key] !== 'string' || !deck[key]) fail(file, `missing "${key}"`);
+  }
+  if (!deck.theme?.primary || !deck.theme.accent || !deck.theme.ink) fail(file, 'missing theme');
+  if (!Array.isArray(deck.stats) || deck.stats.length === 0) fail(file, 'needs at least one stat');
+  const stats = deck.stats.map((s, i) => validateStat(file, s, i));
+
+  if (!Array.isArray(deck.cards) || deck.cards.length < 2) fail(file, 'needs at least two cards');
+  if (deck.cards.length % 2 !== 0) fail(file, 'needs an even number of cards so the deal is fair');
+
+  const seen = new Set<string>();
+  for (const card of deck.cards) {
+    if (!card?.id || typeof card.id !== 'string') fail(file, 'a card has no id');
+    if (seen.has(card.id)) fail(file, `duplicate card id "${card.id}"`);
+    seen.add(card.id);
+    for (const key of ['name', 'subtitle', 'emoji', 'wikipedia'] as const) {
+      if (typeof card[key] !== 'string') fail(file, `card "${card.id}" is missing "${key}"`);
+    }
+    for (const stat of stats) {
+      const value = card.stats?.[stat.id];
+      if (typeof value !== 'number' || !Number.isFinite(value)) {
+        fail(file, `card "${card.id}" has no numeric "${stat.id}"`);
+      }
+    }
+  }
+  return deck as Deck;
+}
+
+/**
+ * Photos live outside the repo (they belong to their photographers), so the
+ * manifest written by `npm run fetch-images` is optional. Without it every
+ * card falls back to generated art and the game plays exactly the same.
+ */
+function loadManifest(searchPaths: string[]): PhotoManifest {
+  for (const path of searchPaths) {
+    if (!existsSync(path)) continue;
+    try {
+      const parsed = JSON.parse(readFileSync(path, 'utf8')) as PhotoManifest;
+      if (parsed && typeof parsed === 'object') return parsed;
+    } catch (error) {
+      console.warn(`[decks] ignoring unreadable photo manifest at ${path}:`, error);
+    }
+  }
+  return {};
+}
+
+export function loadDecks(rootDir: string): Deck[] {
+  const dir = join(rootDir, 'decks');
+  const files = readdirSync(dir)
+    .filter((name) => name.endsWith('.json'))
+    .sort();
+  if (files.length === 0) throw new Error(`No decks found in ${dir}`);
+
+  const manifest = loadManifest([
+    join(rootDir, 'dist/client/cards/attributions.json'),
+    join(rootDir, 'public/cards/attributions.json'),
+  ]);
+
+  const decks: Deck[] = [];
+  const ids = new Set<string>();
+  for (const file of files) {
+    const deck = validateDeck(file, JSON.parse(readFileSync(join(dir, file), 'utf8')));
+    if (ids.has(deck.id)) throw new Error(`Two decks share the id "${deck.id}"`);
+    ids.add(deck.id);
+
+    const photos = manifest[deck.id] ?? {};
+    deck.cards = deck.cards.map((card) => {
+      const photo = photos[card.id];
+      if (!photo) return card;
+      const { image, ...credit } = photo;
+      return { ...card, image, credit };
+    });
+    decks.push(deck);
+  }
+
+  const withPhotos = decks.reduce(
+    (total, deck) => total + deck.cards.filter((c) => c.image).length,
+    0,
+  );
+  const totalCards = decks.reduce((total, deck) => total + deck.cards.length, 0);
+  console.log(
+    `[decks] loaded ${decks.length} decks, ${totalCards} cards, ${withPhotos} with photos` +
+      (withPhotos === 0 ? ' (run `npm run fetch-images` to add real photos)' : ''),
+  );
+  return decks;
+}

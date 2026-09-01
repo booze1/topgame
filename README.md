@@ -1,0 +1,210 @@
+# Top Trumps Online
+
+A two-player card battler in the Top Trumps mould. You each hold a pile of
+cards; the player on turn names a stat, both top cards turn face up, and the
+better number takes the pair. Draws build a pot that the next winner sweeps.
+Take every card and you win.
+
+Play it against a friend anywhere via a four-letter room code, or against the
+computer on your own.
+
+```
+npm install
+npm run fetch-images     # pulls real photographs (see below) - optional but recommended
+npm run dev              # http://localhost:5173
+```
+
+---
+
+## The rules, exactly as implemented
+
+| Situation | What happens |
+| --- | --- |
+| You win a round | You take the opponent's card and the pot. Your own card goes to the very back of your pile. You choose the stat next round. |
+| You lose a round | Your card goes to them. They choose next. |
+| A draw | Both cards go into the pot. The **same player picks again**, and whoever wins the next round takes the whole pot. |
+| A draw empties your hand | You lose. Anything of yours stranded in the pot goes to the survivor. |
+| A draw empties both hands at once | A genuine tie. |
+| 80 rounds played | The larger pile wins. This is a stalemate breaker, not the usual ending. |
+
+Some stats are won by the **lower** number — a 0-60 time, a kerb weight — and
+each card labels which. The deck browser in the lobby lists the direction of
+every stat before you commit to a deck.
+
+The dealer alternates between matches, so nobody keeps the advantage of
+choosing first over a rematch.
+
+## How it is put together
+
+```
+decks/                  four decks, plain JSON - add a file, get a deck
+src/
+  shared/               types and the rules engine, shared by both sides
+    rules.ts            pure functions: shuffle, compare, resolve a round, detect a win
+  server/
+    index.ts            one Node process: static files, /api, and the websocket
+    rooms.ts            rooms, seats, reconnection, the reveal clock, the computer player
+    decks.ts            deck loading and validation
+    static.ts           small static file handler
+  client/               React + TypeScript, hand-written CSS
+  tools/
+    fetch-images.ts     the photo fetcher
+scripts/
+  smoke.mjs             drives two real browsers through a full match
+```
+
+**The server is authoritative.** It holds the whole match and sends each player
+a view built for their seat. Before a reveal, the opponent's card is simply not
+in the payload — there is nothing to find in the browser console, and no move
+is accepted from a player whose turn it is not.
+
+**The reveal is timed by the server.** When a round resolves the server holds it
+face up for a fixed window and tells both clients when it will move on, so the
+two screens stay in step without either being trusted to advance the game. The
+client scales its animation to fit whatever window it is given.
+
+**Rules are pure functions.** `src/shared/rules.ts` touches no clock, socket or
+global, which is why the pot chains and the awkward endings can be tested
+directly.
+
+## Photographs
+
+Cards are meant to carry real photographs, and they arrive on your machine
+rather than in the repository:
+
+```bash
+npm run fetch-images
+```
+
+For each card this reads the `wikipedia` field in `decks/*.json`, asks
+Wikipedia for that article's lead image, asks Wikimedia Commons who took it and
+under what licence, keeps only freely licensed files, and saves them into
+`public/cards/`. It also writes `public/cards/attributions.json`, which the
+game reads to build its **Photo credits** page — most of these images are
+Creative Commons and require attribution, so that page is part of using them
+properly.
+
+Photos are `.gitignore`d deliberately: they are somebody else's work, and one
+command brings them back.
+
+| Flag | Effect |
+| --- | --- |
+| `--force` | re-download files already on disk |
+| `--deck=space` | limit to one deck (repeatable) |
+| `--width=1200` | request a larger image (default 900px) |
+| `--dry-run` | report what it would do, write nothing |
+
+Set `FETCH_IMAGES_CONTACT` to your email or repository URL; Wikimedia asks
+automated clients to identify themselves.
+
+**Any card without a usable photo falls back to generated art** derived from
+the card's own id, in the deck's colours. It is deterministic, so a card always
+looks the same, and a deck with no photos at all still looks deliberate rather
+than broken. If an image 404s at runtime the card quietly falls back too — a
+broken image icon never appears.
+
+If a card you care about is skipped, point its `wikipedia` field at an article
+whose lead image is freely licensed; the script names every card it skipped and
+why.
+
+## Adding a deck
+
+Drop a JSON file in `decks/`. It is validated at boot, so a mistake stops the
+server with a message rather than surfacing three rounds into a game.
+
+```jsonc
+{
+  "id": "guitars",
+  "name": "Guitars",
+  "tagline": "Six strings, sixty years",
+  "emoji": "🎸",
+  "theme": { "primary": "#3b0764", "accent": "#f0abfc", "ink": "#fae8ff" },
+  "stats": [
+    { "id": "year", "label": "Year", "higherWins": true },
+    { "id": "weight", "label": "Weight", "unit": " kg", "decimals": 1, "higherWins": false }
+    // ... six stats keeps every card the same shape
+  ],
+  "cards": [
+    {
+      "id": "strat",
+      "name": "Fender Stratocaster",
+      "subtitle": "Three pickups and a whammy bar",
+      "emoji": "🎸",
+      "wikipedia": "Fender Stratocaster",
+      "stats": { "year": 1954, "weight": 3.6 }
+    }
+    // ... an even number of cards, so the deal is fair
+  ]
+}
+```
+
+Six stats per deck is not enforced, but the card layout is designed around it.
+An even card count is enforced: an odd one deals a permanent one-card advantage.
+
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Vite dev server plus the game server, with reload |
+| `npm run build` | builds the client and bundles the server into `dist/` |
+| `npm start` | runs the built server (serves the client on the same port) |
+| `npm test` | the rules engine, the room manager and the photo fetcher's parsing |
+| `npm run typecheck` | TypeScript across client, server and tools |
+| `npm run smoke` | opens two real browsers and plays a full match end to end |
+| `npm run fetch-images` | downloads card photographs |
+
+`npm run smoke` needs a build first and Playwright's Chromium installed
+(`npx playwright install chromium`). Add `--shots` to write screenshots to
+`screenshots/`, or `--headed` to watch it play.
+
+## Configuration
+
+| Variable | Default | Notes |
+| --- | --- | --- |
+| `PORT` | `8787` | HTTP and websocket share it |
+| `HOST` | `0.0.0.0` | |
+| `ALLOWED_ORIGINS` | unset | Comma separated. When set, websocket upgrades from any other origin are refused. Worth setting once you have a real domain. |
+| `REVEAL_MS` | `3400` | How long both cards stay face up |
+| `RECONNECT_GRACE_MS` | `60000` | How long a dropped player has before forfeiting |
+
+## Deploying
+
+One process serves the client, the API and the websocket, so anywhere that runs
+a container or a Node process will do. Nothing is tied to a particular vendor.
+
+```bash
+# any host
+npm ci && npm run build && npm start
+
+# docker
+docker build -t top-trumps . && docker run -p 8787:8787 top-trumps
+```
+
+`render.yaml` and `fly.toml` are included and ready to use. Two things to know
+whichever host you pick:
+
+- **Websockets must be allowed.** Vercel and Netlify's serverless functions
+  cannot hold one open, which is why there is no config for them here.
+- **A restart ends every match in progress.** Rooms live in memory. That is a
+  deliberate trade — no database, nothing to back up — and players who refresh
+  after a restart land back in the lobby rather than in a broken game.
+
+Free tiers that sleep on inactivity (Render's included) will drop a game that is
+left open for a long time. Fly's config keeps one machine warm to avoid this.
+
+## What is deliberately not here
+
+- **No accounts, no database.** A room code is the whole identity model, and a
+  session token in `localStorage` is what lets you refresh without losing your
+  seat.
+- **No free-text chat.** Six emoji reactions instead: strangers get to be
+  playful without anyone needing to moderate a text box.
+- **No spectators, no more than two players.** The rules above are for two.
+
+## Accessibility
+
+Built for a phone in one hand first, opening into two columns on a larger
+screen. Every stat is a real button with a label that reads out its value and
+whether high or low wins. Reveals and results are announced through a live
+region. Focus is always visible, and `prefers-reduced-motion` replaces the whole
+reveal sequence with its result.
