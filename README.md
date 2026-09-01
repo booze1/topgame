@@ -8,6 +8,14 @@ Take every card and you win.
 Play it against a friend anywhere via a four-letter room code, or against the
 computer on your own.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/booze1/topgame)
+
+That button reads the `render.yaml` in this repository, builds the project and
+gives you a public URL on Render's free tier. It is the quickest way to get a
+link you can send to whoever you want to play against.
+
+Or run it locally:
+
 ```
 npm install
 npm run fetch-images     # pulls real photographs (see below) - optional but recommended
@@ -180,11 +188,29 @@ npm ci && npm run build && npm start
 docker build -t top-trumps . && docker run -p 8787:8787 top-trumps
 ```
 
-`render.yaml` and `fly.toml` are included and ready to use. Two things to know
-whichever host you pick:
+`render.yaml` and `fly.toml` are included and ready to use.
 
-- **Websockets must be allowed.** Vercel and Netlify's serverless functions
-  cannot hold one open, which is why there is no config for them here.
+### GitHub Pages will not work
+
+Worth saying plainly, because it is the obvious thing to reach for on a GitHub
+project: **this game cannot be hosted on GitHub Pages.** Pages serves static
+files. It cannot run a Node process, so there is nothing to hold the websocket
+open, nothing to deal the cards and nothing to answer `/api/decks`. Point Pages
+at this repository and a visitor gets a lobby that loads and then reports it
+cannot reach the server.
+
+The same goes for Vercel and Netlify's serverless functions, which cannot hold
+a websocket open either. You need somewhere that runs a long-lived process:
+Render, Fly, Railway, or any VPS.
+
+If you specifically want a `github.io` address, the client can be split from
+the server — Pages serving the static build, and the game server on Render with
+the client pointed at it. That needs a configurable server origin and CORS on
+`/api/decks`, neither of which is built yet.
+
+### Two things to know whichever host you pick
+
+- **Websockets must be allowed**, and not idle-timed-out aggressively.
 - **A restart ends every match in progress.** Rooms live in memory. That is a
   deliberate trade — no database, nothing to back up — and players who refresh
   after a restart land back in the lobby rather than in a broken game.
