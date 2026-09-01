@@ -41,6 +41,10 @@ export interface ExtMetadataResponse {
       missing?: boolean;
       imageinfo?: {
         descriptionurl?: string;
+        /** Full-size original. */
+        url?: string;
+        /** Scaled version, present when iiurlwidth was requested. */
+        thumburl?: string;
         extmetadata?: Record<string, { value?: string }>;
       }[];
     }[];
@@ -178,4 +182,27 @@ export function extensionFor(contentType: string | null, url: string): string {
 export function toFileTitle(pageImage: string): string {
   const bare = pageImage.replace(/^File:/i, '').replace(/_/g, ' ');
   return `File:${bare}`;
+}
+
+/**
+ * Reads a directly pinned Commons file: both where to download it and who owns
+ * it, from the single imageinfo request that asked for `url|extmetadata`.
+ *
+ * Returns null when the file does not exist, which is the common failure for a
+ * pinned name - Commons titles are exact, and a near miss is simply missing.
+ */
+export function readPinnedFile(
+  fileTitle: string,
+  response: ExtMetadataResponse,
+): { url: string; licence: Licence } | null {
+  const page = response.query?.pages?.find((candidate) => candidate.title === fileTitle);
+  const info = page?.imageinfo?.[0];
+  if (!page || page.missing || !info) return null;
+
+  const url = info.thumburl || info.url;
+  if (!url) return null;
+
+  const licence = readLicence(fileTitle, response);
+  if (!licence) return null;
+  return { url, licence };
 }

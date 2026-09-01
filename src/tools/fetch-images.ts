@@ -3,11 +3,22 @@
  *
  *   npm run fetch-images
  *
- * Each card in decks/*.json names an English Wikipedia article. This script
- * asks Wikipedia for that article's lead image, asks Wikimedia Commons who
- * took it and under what licence, keeps only freely licensed files, saves them
- * under public/cards/<deck>/<card>.jpg and writes public/cards/attributions.json
- * for the in-game credits page.
+ * Two ways a card gets its picture:
+ *
+ *  - `"commonsFile": "File:Something.jpg"` in decks/*.json downloads that exact
+ *    file. This is how a card is made permanently correct, and it is the only
+ *    way to be certain: lead images change, and for some subjects they are a
+ *    diagram, the wrong variant, or the wrong generation of a car entirely.
+ *  - Otherwise the script takes whatever the named Wikipedia article currently
+ *    leads with, which is usually right and sometimes is not.
+ *
+ * Either way the licence comes from Wikimedia Commons, anything not freely
+ * licensed is refused, and public/cards/attributions.json records who took each
+ * photo for the in-game credits page.
+ *
+ * It also writes public/cards/contact-sheet.html: every card at the exact crop
+ * the game uses, so the set can actually be checked rather than assumed. Open
+ * it after every run.
  *
  * Photos are not committed to the repository - they belong to their
  * photographers, and this brings them back in one command.
@@ -17,8 +28,7 @@
  *   --deck=<id>        only this deck (repeatable)
  *   --width=<px>       longest edge to request (default 900)
  *   --dry-run          report what would be fetched, write nothing
- *   --concurrency=<n>  parallel downloads (default 4)
- */
+ *   --concurrency=<n>  parallel downloads (default 4) */
 
 import { mkdir, readFile, readdir, writeFile, access } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -29,17 +39,20 @@ import {
   findImage,
   isFreeLicence,
   readLicence,
+  readPinnedFile,
   toFileTitle,
   type ExtMetadataResponse,
   type Licence,
   type WikiQueryResponse,
 } from './wikimedia';
+import { contactSheet } from './contact-sheet';
 import type { Deck } from '../shared/types';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DECK_DIR = join(ROOT, 'decks');
 const OUT_DIR = join(ROOT, 'public', 'cards');
 const MANIFEST = join(OUT_DIR, 'attributions.json');
+const CONTACT_SHEET = join(OUT_DIR, 'contact-sheet.html');
 
 const WIKI_API = 'https://en.wikipedia.org/w/api.php';
 const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
@@ -110,15 +123,67 @@ async function getJson<T>(api: string, params: Record<string, string>): Promise<
 
 interface Candidate {
   deckId: string;
+  deckName: string;
   cardId: string;
   cardName: string;
   title: string;
+  /** Exact Commons file to use instead of the article's lead image. */
+  commonsFile?: string;
 }
 
 interface Resolved extends Candidate {
   file: string;
   url: string;
   licence: Licence;
+  /** True when this came from an explicitly pinned file rather than a lead image. */
+  pinned: boolean;
+}
+
+/**
+ * Resolves cards that name an exact Commons file. Asking for `url` with
+ * `iiurlwidth` returns a scaled image and the licence in the same response, so
+ * a pinned card costs one request rather than two.
+ */
+async function findPinned(
+  candidates: Candidate[],
+  width: number,
+): Promise<{ resolved: Resolved[]; unusable: { candidate: Candidate; reason: string }[] }> {
+  const resolved: Resolved[] = [];
+  const unusable: { candidate: Candidate; reason: string }[] = [];
+
+  for (const batch of chunk(candidates, TITLES_PER_REQUEST)) {
+    const response = await getJson<ExtMetadataResponse>(COMMONS_API, {
+      action: 'query',
+      prop: 'imageinfo',
+      iiprop: 'url|extmetadata',
+      iiurlwidth: String(width),
+      iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|Credit',
+      titles: [...new Set(batch.map((c) => toFileTitle(c.commonsFile!)))].join('|'),
+    });
+
+    for (const candidate of batch) {
+      const fileTitle = toFileTitle(candidate.commonsFile!);
+      const found = readPinnedFile(fileTitle, response);
+      if (!found) {
+        // A pinned name is exact; a typo means the file simply is not there.
+        unusable.push({ candidate, reason: `pinned file not found on Commons: ${fileTitle}` });
+        continue;
+      }
+      if (!isFreeLicence(found.licence.licence, found.licence.licenceUrl)) {
+        unusable.push({ candidate, reason: `pinned file licence "${found.licence.licence}"` });
+        continue;
+      }
+      resolved.push({
+        ...candidate,
+        file: fileTitle.replace(/^File:/, ''),
+        url: found.url,
+        licence: found.licence,
+        pinned: true,
+      });
+    }
+    await sleep(REQUEST_GAP_MS);
+  }
+  return { resolved, unusable };
 }
 
 /** Asks Wikipedia for the lead image of every requested article. */
@@ -176,7 +241,13 @@ async function findLicences(
         unusable.push({ candidate: entry.candidate, reason: `licence "${licence.licence}"` });
         continue;
       }
-      resolved.push({ ...entry.candidate, file: entry.file, url: entry.url, licence });
+      resolved.push({
+        ...entry.candidate,
+        file: entry.file,
+        url: entry.url,
+        licence,
+        pinned: false,
+      });
     }
     await sleep(REQUEST_GAP_MS);
   }
@@ -234,22 +305,48 @@ async function main(): Promise<void> {
   const candidates: Candidate[] = decks.flatMap((deck) =>
     deck.cards.map((card) => ({
       deckId: deck.id,
+      deckName: deck.name,
       cardId: card.id,
       cardName: card.name,
       title: card.wikipedia,
+      commonsFile: card.commonsFile,
     })),
   );
+
+  const pinnedCandidates = candidates.filter((candidate) => candidate.commonsFile);
+  const leadCandidates = candidates.filter((candidate) => !candidate.commonsFile);
 
   console.log(
     `Fetching photos for ${candidates.length} cards across ${decks.length} deck(s)` +
       (options.dryRun ? ' (dry run)' : ''),
   );
+  console.log(
+    `  ${pinnedCandidates.length} pinned to an exact file, ${leadCandidates.length} using article lead images`,
+  );
 
-  const { found, missing } = await findImages(candidates, options.width);
-  console.log(`  ${found.length} articles have a lead image, ${missing.length} do not`);
+  // Pinned files first: they are the cards somebody has already decided about.
+  const pinned = pinnedCandidates.length
+    ? await findPinned(pinnedCandidates, options.width)
+    : { resolved: [], unusable: [] };
+  if (pinnedCandidates.length) {
+    console.log(`  ${pinned.resolved.length}/${pinnedCandidates.length} pinned files resolved`);
+  }
 
-  const { resolved, unusable } = await findLicences(found);
-  console.log(`  ${resolved.length} are freely licensed, ${unusable.length} are not usable`);
+  const { found, missing } = leadCandidates.length
+    ? await findImages(leadCandidates, options.width)
+    : { found: [], missing: [] };
+  const lead = found.length
+    ? await findLicences(found)
+    : { resolved: [], unusable: [] };
+  if (leadCandidates.length) {
+    console.log(
+      `  ${found.length} articles have a lead image, ${missing.length} do not; ` +
+        `${lead.resolved.length} are freely licensed`,
+    );
+  }
+
+  const resolved = [...pinned.resolved, ...lead.resolved];
+  const unusable = [...pinned.unusable, ...lead.unusable];
 
   // Start from the existing manifest so a per-deck run does not wipe the rest.
   let manifest: Record<string, Record<string, Record<string, string>>> = {};
@@ -289,28 +386,52 @@ async function main(): Promise<void> {
   });
   process.stdout.write('\n');
 
-  if (!options.dryRun) {
-    await mkdir(OUT_DIR, { recursive: true });
-    await writeFile(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`);
-    console.log(`  wrote ${MANIFEST}`);
-  }
-
   const skipped = [
     ...missing.map((candidate) => ({ candidate, reason: 'no lead image on Wikipedia' })),
     ...unusable,
     ...failures,
   ];
+
+  if (!options.dryRun) {
+    await mkdir(OUT_DIR, { recursive: true });
+    await writeFile(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`);
+    console.log(`  wrote ${MANIFEST}`);
+
+    await writeFile(
+      CONTACT_SHEET,
+      contactSheet(
+        decks,
+        manifest,
+        resolved.map((entry) => ({
+          deckId: entry.deckId,
+          cardId: entry.cardId,
+          pinned: entry.pinned,
+        })),
+        skipped.map((entry) => ({
+          deckId: entry.candidate.deckId,
+          cardId: entry.candidate.cardId,
+          reason: entry.reason,
+        })),
+      ),
+    );
+    console.log(`  wrote ${CONTACT_SHEET}`);
+  }
+
   if (skipped.length > 0) {
     console.log(`\n${skipped.length} card(s) will use generated art instead:`);
     for (const { candidate, reason } of skipped) {
       console.log(`  ${candidate.deckId}/${candidate.cardId} (${candidate.cardName}): ${reason}`);
     }
     console.log(
-      '\nTo fix one, point its "wikipedia" field in decks/*.json at an article whose lead image is freely licensed.',
+      '\nTo fix one, either point its "wikipedia" field at a better article or pin an exact\n' +
+        'image with "commonsFile": "File:Something.jpg" in decks/*.json.',
     );
   }
 
-  console.log(`\nDone. ${downloaded} photo(s) ready. Restart the server to pick them up.`);
+  console.log(
+    `\nDone. ${downloaded} photo(s) ready. Open public/cards/contact-sheet.html to check them,\n` +
+      'then restart the server to pick them up.',
+  );
 }
 
 main().catch((error) => {

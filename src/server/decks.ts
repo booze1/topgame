@@ -27,6 +27,15 @@ function fail(file: string, message: string): never {
  */
 const SAFE_ID = /^[a-z0-9][a-z0-9_-]*$/i;
 
+/**
+ * Allowed CSS object-position values for a card's focal point. Restricted to
+ * keywords and percentage pairs so nothing arbitrary reaches a style
+ * attribute, and so a typo is caught at boot rather than silently ignored by
+ * the browser.
+ */
+const SAFE_FOCUS =
+  /^(?:(?:top|bottom|left|right|center)(?: (?:top|bottom|left|right|center))?|\d{1,3}% \d{1,3}%)$/;
+
 function validateStat(file: string, value: unknown, index: number): StatDef {
   const stat = value as Partial<StatDef>;
   if (!stat || typeof stat.id !== 'string' || !stat.id) fail(file, `stat ${index} has no id`);
@@ -61,6 +70,12 @@ function validateDeck(file: string, raw: unknown): Deck {
     seen.add(card.id);
     for (const key of ['name', 'subtitle', 'emoji', 'wikipedia'] as const) {
       if (typeof card[key] !== 'string') fail(file, `card "${card.id}" is missing "${key}"`);
+    }
+    if (card.commonsFile !== undefined && typeof card.commonsFile !== 'string') {
+      fail(file, `card "${card.id}" has a non-string commonsFile`);
+    }
+    if (card.focus !== undefined && (typeof card.focus !== 'string' || !SAFE_FOCUS.test(card.focus))) {
+      fail(file, `card "${card.id}" has an invalid focus "${String(card.focus)}"`);
     }
     for (const stat of stats) {
       const value = card.stats?.[stat.id];

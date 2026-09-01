@@ -38,6 +38,22 @@ export interface CardDef {
    * fetch-images` uses it to pull the lead photo and its licence.
    */
   wikipedia: string;
+  /**
+   * An exact Wikimedia Commons file to use instead of whatever the article
+   * happens to lead with, e.g. "File:Tyrannosaurus BW.jpg".
+   *
+   * Lead images change, and for some subjects they are a diagram, the wrong
+   * variant, or the wrong generation of a car entirely. Pinning a file is how
+   * a card is made permanently correct.
+   */
+  commonsFile?: string;
+  /**
+   * Where to anchor the photo inside the card's 16:9 band, as a CSS
+   * object-position value ("top", "50% 20%"). Encyclopedia photographs are not
+   * composed for a letterbox, so a tall subject often needs anchoring high to
+   * avoid being cropped through the head.
+   */
+  focus?: string;
   stats: Record<StatId, number>;
   /**
    * Path to a fetched photo, filled in by the server from the attribution

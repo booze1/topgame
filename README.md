@@ -84,16 +84,57 @@ rather than in the repository:
 npm run fetch-images
 ```
 
-For each card this reads the `wikipedia` field in `decks/*.json`, asks
-Wikipedia for that article's lead image, asks Wikimedia Commons who took it and
-under what licence, keeps only freely licensed files, and saves them into
-`public/cards/`. It also writes `public/cards/attributions.json`, which the
-game reads to build its **Photo credits** page — most of these images are
-Creative Commons and require attribution, so that page is part of using them
-properly.
+A card gets its picture one of two ways.
+
+**Pinned to an exact file**, which is the only way to be certain:
+
+```jsonc
+{ "id": "gt", "name": "Ford GT", "commonsFile": "File:2017 Ford GT.jpg" }
+```
+
+**Or from the article's lead image**, when no `commonsFile` is set. Usually
+right, sometimes not: lead images change, and for some subjects they are a
+diagram, the wrong variant, or the wrong generation of a car entirely.
+
+Either way the licence comes from Wikimedia Commons, anything not freely
+licensed is refused, and `public/cards/attributions.json` records who took each
+photo for the in-game **Photo credits** page — most of these are Creative
+Commons and require attribution, so that page is part of using them properly.
 
 Photos are `.gitignore`d deliberately: they are somebody else's work, and one
 command brings them back.
+
+### Check the contact sheet
+
+Every run also writes `public/cards/contact-sheet.html`: all 120 cards on one
+page, each cropped exactly as the game crops it, labelled with its source
+article, its licence, and whether it came from a pinned file or a lead image.
+Cards with no photo are outlined in red with the reason.
+
+**Open it after every run.** A fetch can only tell you it got *an* image. It
+cannot tell you the Ford GT photo is the wrong generation, or that a dinosaur
+card came back as a size-comparison diagram instead of the animal. That needs
+eyes, and this is the page to use them on.
+
+When one is wrong, pin the right file and re-run:
+
+```bash
+npm run fetch-images -- --force --deck=supercars
+```
+
+### Cropping
+
+Encyclopedia photographs are not composed for a 16:9 card band, so a tall
+subject can end up cropped through the head. Set a focal point on any card that
+lands badly:
+
+```jsonc
+{ "id": "giraffe", "focus": "top" }
+```
+
+Accepts CSS `object-position` keywords (`top`, `bottom left`) or a percentage
+pair (`50% 20%`). Invalid values are rejected at boot rather than silently
+ignored by the browser.
 
 | Flag | Effect |
 | --- | --- |
@@ -101,9 +142,17 @@ command brings them back.
 | `--deck=space` | limit to one deck (repeatable) |
 | `--width=1200` | request a larger image (default 900px) |
 | `--dry-run` | report what it would do, write nothing |
+| `--concurrency=8` | parallel downloads (default 4) |
 
 Set `FETCH_IMAGES_CONTACT` to your email or repository URL; Wikimedia asks
 automated clients to identify themselves.
+
+### There are no photographs of dinosaurs
+
+Worth being straight about: every card in that deck is either a photograph of a
+museum skeleton or an artist's restoration of the living animal. No amount of
+tooling changes that. Pin whichever you prefer with `commonsFile` — mixing the
+two makes the deck look inconsistent card to card.
 
 **Any card without a usable photo falls back to generated art** derived from
 the card's own id, in the deck's colours. It is deterministic, so a card always

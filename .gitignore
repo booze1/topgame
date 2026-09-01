@@ -10,6 +10,7 @@ dist/
 # manifest that the script writes is ignored for the same reason.
 public/cards/*/
 public/cards/attributions.json
+public/cards/contact-sheet.html
 
 # Playwright artefacts from the smoke test
 screenshots/

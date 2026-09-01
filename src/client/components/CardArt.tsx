@@ -57,6 +57,9 @@ export function CardArt({ card, deck }: CardArtProps): JSX.Element {
           alt={card.name}
           loading="lazy"
           decoding="async"
+          // Anchors the crop for photographs that are not composed for a
+          // letterbox; the deck loader validates the value.
+          style={card.focus ? { objectPosition: card.focus } : undefined}
           onError={() => setFailed(true)}
         />
       ) : (
