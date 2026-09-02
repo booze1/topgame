@@ -19,8 +19,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=8787
 
-# Decks are read from disk at boot; public/ carries any photos baked into the
-# image by running `npm run fetch-images` before the build.
+# Decks are read from disk at boot; public/cards carries the committed card
+# photographs and their attribution manifest.
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/decks ./decks
 COPY --from=build /app/public ./public

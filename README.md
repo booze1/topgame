@@ -101,8 +101,16 @@ licensed is refused, and `public/cards/attributions.json` records who took each
 photo for the in-game **Photo credits** page — most of these are Creative
 Commons and require attribution, so that page is part of using them properly.
 
-Photos are `.gitignore`d deliberately: they are somebody else's work, and one
-command brings them back.
+**The photos are committed to this repository.** They have to be: a deployed
+instance only runs `npm ci && npm run build`, so anything fetched at development
+time would simply be missing in production and every card would fall back to
+generated art. Every image is Creative Commons or public domain, redistribution
+is permitted with attribution, and the in-game credits page provides it.
+
+They are downscaled to 900px and stored as JPEG, which keeps the whole set to
+about 12 MB. Re-running the fetcher replaces them at full size; the originals
+are large enough (a 3 MB PNG for a card that renders 330px wide) to be worth
+shrinking again before committing.
 
 ### Check the contact sheet
 

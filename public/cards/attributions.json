@@ -1,0 +1,938 @@
+{
+  "animals": {
+    "elephant": {
+      "image": "/cards/animals/elephant.jpg",
+      "file": "178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg"
+    },
+    "bluewhale": {
+      "image": "/cards/animals/bluewhale.jpg",
+      "file": "Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg",
+      "artist": "NOAA Photo Library",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg"
+    },
+    "greatwhite": {
+      "image": "/cards/animals/greatwhite.jpg",
+      "file": "White_shark.jpg",
+      "artist": "Pterantula (Terry Goss) at en.wikipedia",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_shark.jpg"
+    },
+    "orca": {
+      "image": "/cards/animals/orca.jpg",
+      "file": "Killerwhales_jumping.jpg",
+      "artist": "Robert Pittman",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Killerwhales_jumping.jpg"
+    },
+    "hippo": {
+      "image": "/cards/animals/hippo.jpg",
+      "file": "Portrait_Hippopotamus_in_the_water.jpg",
+      "artist": "Muhammad Mahdi Karim",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_Hippopotamus_in_the_water.jpg"
+    },
+    "lion": {
+      "image": "/cards/animals/lion.jpg",
+      "file": "020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg"
+    },
+    "rhino": {
+      "image": "/cards/animals/rhino.jpg",
+      "file": "109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:109_Male_White_rhinoceros_walking_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg"
+    },
+    "tiger": {
+      "image": "/cards/animals/tiger.jpg",
+      "file": "Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg",
+      "artist": "Charles J. Sharp",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg"
+    },
+    "saltwatercroc": {
+      "image": "/cards/animals/saltwatercroc.jpg",
+      "file": "SaltwaterCrocodile('Maximo').jpg",
+      "artist": "Obtained from Molly Ebersold of the St. Augustine Alligator Farm",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SaltwaterCrocodile(%27Maximo%27).jpg"
+    },
+    "jaguar": {
+      "image": "/cards/animals/jaguar.jpg",
+      "file": "Standing_jaguar.jpg",
+      "artist": "USFWS",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Standing_jaguar.jpg"
+    },
+    "cheetah": {
+      "image": "/cards/animals/cheetah.jpg",
+      "file": "Male_cheetah_facing_left_in_South_Africa.jpg",
+      "artist": "AfricanConservation",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_cheetah_facing_left_in_South_Africa.jpg"
+    },
+    "leopard": {
+      "image": "/cards/animals/leopard.jpg",
+      "file": "African_leopard_male_(cropped).jpg",
+      "artist": "Sumeet Moghe",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_leopard_male_(cropped).jpg"
+    },
+    "gorilla": {
+      "image": "/cards/animals/gorilla.jpg",
+      "file": "Male_gorilla_in_SF_zoo.jpg",
+      "artist": "Brocken Inaglory",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_gorilla_in_SF_zoo.jpg"
+    },
+    "ostrich": {
+      "image": "/cards/animals/ostrich.jpg",
+      "file": "Struthio_camelus_-_Etosha_2014_(3).jpg",
+      "artist": "Yathin S Krishnappa",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Struthio_camelus_-_Etosha_2014_(3).jpg"
+    },
+    "brownbear": {
+      "image": "/cards/animals/brownbear.jpg",
+      "file": "2010-kodiak-bear-1.jpg",
+      "artist": "Yathin S Krishnappa",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2010-kodiak-bear-1.jpg"
+    },
+    "polarbear": {
+      "image": "/cards/animals/polarbear.jpg",
+      "file": "Polar_Bear_-_Alaska_(cropped).jpg",
+      "artist": "Alan Wilson",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polar_Bear_-_Alaska_(cropped).jpg"
+    },
+    "chimpanzee": {
+      "image": "/cards/animals/chimpanzee.jpg",
+      "file": "015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg"
+    },
+    "wolf": {
+      "image": "/cards/animals/wolf.jpg",
+      "file": "Eurasian_wolf_2.jpg",
+      "artist": "User:Mas3cf",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg"
+    },
+    "hyena": {
+      "image": "/cards/animals/hyena.jpg",
+      "file": "Spotted_hyena_(Crocuta_crocuta).jpg",
+      "artist": "Charles J. Sharp",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_hyena_(Crocuta_crocuta).jpg"
+    },
+    "komodo": {
+      "image": "/cards/animals/komodo.jpg",
+      "file": "202306_Varanus_komodoensis.jpg",
+      "artist": "James Jolokia ( james1203 )",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:202306_Varanus_komodoensis.jpg"
+    },
+    "anaconda": {
+      "image": "/cards/animals/anaconda.jpg",
+      "file": "Sucuri_verde.jpg",
+      "artist": "MKAMPIS",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sucuri_verde.jpg"
+    },
+    "moose": {
+      "image": "/cards/animals/moose.jpg",
+      "file": "Alaska_moose.jpg",
+      "artist": "Paxson Woelber",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alaska_moose.jpg"
+    },
+    "peregrine": {
+      "image": "/cards/animals/peregrine.jpg",
+      "file": "Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg",
+      "artist": "Mykola Swarnyk",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg"
+    },
+    "wolverine": {
+      "image": "/cards/animals/wolverine.jpg",
+      "file": "Järv1.jpg",
+      "artist": "Esquilo",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:J%C3%A4rv1.jpg"
+    },
+    "honeybadger": {
+      "image": "/cards/animals/honeybadger.jpg",
+      "file": "Honey_Badger.jpg",
+      "artist": "Sumeet Moghe",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honey_Badger.jpg"
+    },
+    "kingcobra": {
+      "image": "/cards/animals/kingcobra.jpg",
+      "file": "12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+      "artist": "Michael Allen Smith from Seattle, USA",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg"
+    },
+    "capebuffalo": {
+      "image": "/cards/animals/capebuffalo.jpg",
+      "file": "African_buffalo_(Syncerus_caffer_caffer)_male_with_cattle_egret.jpg",
+      "artist": "Charles J. Sharp",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_buffalo_(Syncerus_caffer_caffer)_male_with_cattle_egret.jpg"
+    },
+    "goldeneagle": {
+      "image": "/cards/animals/goldeneagle.jpg",
+      "file": "015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
+      "artist": "Giles Laurent",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg"
+    },
+    "baldeagle": {
+      "image": "/cards/animals/baldeagle.jpg",
+      "file": "Bald_eagle_about_to_fly_in_Alaska_(2016).jpg",
+      "artist": "Andy Morffew from Itchen Abbas, Hampshire, UK",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bald_eagle_about_to_fly_in_Alaska_(2016).jpg"
+    },
+    "giraffe": {
+      "image": "/cards/animals/giraffe.jpg",
+      "file": "Giraffe Standing alone in Serengeti, Tanzania.jpg",
+      "artist": "Plasticdying",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giraffe_Standing_alone_in_Serengeti,_Tanzania.jpg"
+    }
+  },
+  "space": {
+    "sun": {
+      "image": "/cards/space/sun.jpg",
+      "file": "The_Sun_in_white_light.jpg",
+      "artist": "Matúš Motlo",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Sun_in_white_light.jpg"
+    },
+    "mercury": {
+      "image": "/cards/space/mercury.jpg",
+      "file": "Mercury_in_true_color.jpg",
+      "artist": "NASA/Johns Hopkins University Applied Physics Laboratory/Arizona State University/Carnegie Institution of Washington",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercury_in_true_color.jpg"
+    },
+    "venus": {
+      "image": "/cards/space/venus.jpg",
+      "file": "Venus_from_Mariner_10.jpg",
+      "artist": "NASA/JPL-Caltech",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Venus_from_Mariner_10.jpg"
+    },
+    "earth": {
+      "image": "/cards/space/earth.jpg",
+      "file": "Meteosat-12-fci-march-equinox-2025-noon.jpg",
+      "artist": "EUMETSAT",
+      "licence": "Attribution",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meteosat-12-fci-march-equinox-2025-noon.jpg"
+    },
+    "jupiter": {
+      "image": "/cards/space/jupiter.jpg",
+      "file": "Jupiter_OPAL_2024.png",
+      "artist": "NASA/STSCI (S.T.A.R.S)",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jupiter_OPAL_2024.png"
+    },
+    "uranus": {
+      "image": "/cards/space/uranus.jpg",
+      "file": "Uranus_Voyager2_color_calibrated.png",
+      "artist": "Ardenau4",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uranus_Voyager2_color_calibrated.png"
+    },
+    "pluto": {
+      "image": "/cards/space/pluto.jpg",
+      "file": "Pluto_in_True_Color_-_High-Res.png",
+      "artist": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute/Alex Parker",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pluto_in_True_Color_-_High-Res.png"
+    },
+    "moon": {
+      "image": "/cards/space/moon.jpg",
+      "file": "FullMoon2010.jpg",
+      "artist": "Gregory H. Revera",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg"
+    },
+    "ganymede": {
+      "image": "/cards/space/ganymede.jpg",
+      "file": "Ganymede_-_Perijove_34_Composite.png",
+      "artist": "NASA/JPL-Caltech/SwRI/MSSS/ Kevin M. Gill",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ganymede_-_Perijove_34_Composite.png"
+    },
+    "titan": {
+      "image": "/cards/space/titan.jpg",
+      "file": "Titan_in_true_color_by_Kevin_M._Gill.jpg",
+      "artist": "NASA/JPL-Caltech/SSI/Kevin M. Gill",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Titan_in_true_color_by_Kevin_M._Gill.jpg"
+    },
+    "europa": {
+      "image": "/cards/space/europa.jpg",
+      "file": "Europa_-_Perijove_45_(cropped).png",
+      "artist": "NASA/JPL-Caltech/SwRI/MSSS/Kevin M. Gill",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Europa_-_Perijove_45_(cropped).png"
+    },
+    "triton": {
+      "image": "/cards/space/triton.jpg",
+      "file": "Triton-usgs23-with-frame.jpg",
+      "artist": "Michael T. Bland, U.S. Geological Survey (USGS)",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triton-usgs23-with-frame.jpg"
+    },
+    "rhea": {
+      "image": "/cards/space/rhea.jpg",
+      "file": "PIA07763_Rhea_full_globe5.jpg",
+      "artist": "NASA / JPL / Space Science Institute",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PIA07763_Rhea_full_globe5.jpg"
+    },
+    "oberon": {
+      "image": "/cards/space/oberon.jpg",
+      "file": "Oberon_in_true_color_by_Kevin_M._Gill.jpg",
+      "artist": "Kevin M. Gill",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oberon_in_true_color_by_Kevin_M._Gill.jpg"
+    },
+    "iapetus": {
+      "image": "/cards/space/iapetus.jpg",
+      "file": "Iapetus_trailing_natural_color.jpg",
+      "artist": "NASA / JPL / SSI / Gordan Ugarkovic",
+      "licence": "CC BY-SA 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iapetus_trailing_natural_color.jpg"
+    },
+    "charon": {
+      "image": "/cards/space/charon.jpg",
+      "file": "Charon_in_True_Color_-_High-Res.png",
+      "artist": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute/Alex Parker",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charon_in_True_Color_-_High-Res.png"
+    },
+    "umbriel": {
+      "image": "/cards/space/umbriel.jpg",
+      "file": "PIA00040_Umbrielx2.47.jpg",
+      "artist": "NASA / Jet Propulsion Lab",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PIA00040_Umbrielx2.47.jpg"
+    },
+    "ariel": {
+      "image": "/cards/space/ariel.jpg",
+      "file": "Ariel_in_monochrome.jpg",
+      "artist": "Kevin M. Gill",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ariel_in_monochrome.jpg"
+    },
+    "dione": {
+      "image": "/cards/space/dione.jpg",
+      "file": "Dione_in_natural_light.jpg",
+      "artist": "NASA",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dione_in_natural_light.jpg"
+    },
+    "tethys": {
+      "image": "/cards/space/tethys.jpg",
+      "file": "Global_view_of_Tethys_from_Cassini.jpg",
+      "artist": "NASA / JPL-Caltech / SSI / Gordan Ugarkovic",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Global_view_of_Tethys_from_Cassini.jpg"
+    },
+    "ceres": {
+      "image": "/cards/space/ceres.jpg",
+      "file": "Ceres_-_RC3_-_Haulani_Crater_(22381131691)_(cropped).jpg",
+      "artist": "Justin Cowart",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceres_-_RC3_-_Haulani_Crater_(22381131691)_(cropped).jpg"
+    },
+    "enceladus": {
+      "image": "/cards/space/enceladus.jpg",
+      "file": "PIA17202_-_Approaching_Enceladus.jpg",
+      "artist": "National Aeronautics and Space Administration (NASA) / Jet Propulsion Laboratory (JPL)",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PIA17202_-_Approaching_Enceladus.jpg"
+    },
+    "mimas": {
+      "image": "/cards/space/mimas.jpg",
+      "file": "Mimas_Masked.jpg",
+      "artist": "NASA / JPL / Space Science Institute",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimas_Masked.jpg"
+    },
+    "mars": {
+      "image": "/cards/space/mars.jpg",
+      "file": "Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png",
+      "artist": "Kevin Gill from Los Angeles, CA, United States",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png"
+    },
+    "saturn": {
+      "image": "/cards/space/saturn.jpg",
+      "file": "Saturn_global_view_from_Cassini,_rings_open_Better_Colour.png",
+      "artist": "NASA / JPL-Caltech / SSI / color composite by Gordan Ugarkovic",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saturn_global_view_from_Cassini,_rings_open_Better_Colour.png"
+    },
+    "neptune": {
+      "image": "/cards/space/neptune.jpg",
+      "file": "Neptune_Voyager2_color_calibrated.png",
+      "artist": "NASA / Voyager 2 / PDS / OPUS / Ardenau4",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neptune_Voyager2_color_calibrated.png"
+    },
+    "eris": {
+      "image": "/cards/space/eris.jpg",
+      "file": "Artist's impression dwarf planet Eris.jpg",
+      "artist": "ESO/L. Calçada and Nick Risinger (skysurvey.org)",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Artist%27s_impression_dwarf_planet_Eris.jpg"
+    },
+    "callisto": {
+      "image": "/cards/space/callisto.jpg",
+      "file": "Callisto_VGR2_C2060635_OGB.png",
+      "artist": "zelario12",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Callisto_VGR2_C2060635_OGB.png"
+    },
+    "io": {
+      "image": "/cards/space/io.jpg",
+      "file": "Io_highest_resolution_true_color.jpg",
+      "artist": "NASA / JPL / University of Arizona",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Io_highest_resolution_true_color.jpg"
+    },
+    "titania": {
+      "image": "/cards/space/titania.jpg",
+      "file": "Titania_VGR2_C2684315.png",
+      "artist": "zelario12",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Titania_VGR2_C2684315.png"
+    }
+  },
+  "supercars": {
+    "918": {
+      "image": "/cards/supercars/918.jpg",
+      "file": "Porsche_918_Spyder_IAA_2013.jpg",
+      "artist": "Thomas Wolf , www.foto-tw.de",
+      "licence": "CC BY-SA 3.0 de",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porsche_918_Spyder_IAA_2013.jpg"
+    },
+    "chiron": {
+      "image": "/cards/supercars/chiron.jpg",
+      "file": "Bugatti_Chiron_1.jpg",
+      "artist": "Calreyn88",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bugatti_Chiron_1.jpg"
+    },
+    "veyron": {
+      "image": "/cards/supercars/veyron.jpg",
+      "file": "Bugatti_Veyron_16.4_–_Frontansicht_(1),_5._April_2012,_Düsseldorf.jpg",
+      "artist": "M 93",
+      "licence": "CC BY-SA 3.0 de",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bugatti_Veyron_16.4_%E2%80%93_Frontansicht_(1),_5._April_2012,_D%C3%BCsseldorf.jpg"
+    },
+    "jesko": {
+      "image": "/cards/supercars/jesko.jpg",
+      "file": "GIMS_2019,_Le_Grand-Saconnex_(GIMS0833).jpg",
+      "artist": "Matti Blume",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GIMS_2019,_Le_Grand-Saconnex_(GIMS0833).jpg"
+    },
+    "regera": {
+      "image": "/cards/supercars/regera.jpg",
+      "file": "Regera_(light_gradient).png",
+      "artist": "Aab254",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Regera_(light_gradient).png"
+    },
+    "tuatara": {
+      "image": "/cards/supercars/tuatara.jpg",
+      "file": "2019_SSC_Tuatara_at_Pebble_Beach_Press_Conference.jpg",
+      "artist": "SSCNA",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_SSC_Tuatara_at_Pebble_Beach_Press_Conference.jpg"
+    },
+    "venomgt": {
+      "image": "/cards/supercars/venomgt.jpg",
+      "file": "Hennessey_Venom_GT_(16040233465).jpg",
+      "artist": "Axion23",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hennessey_Venom_GT_(16040233465).jpg"
+    },
+    "nevera": {
+      "image": "/cards/supercars/nevera.jpg",
+      "file": "Rimac_Nevera.jpg",
+      "artist": "MrWalkr",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rimac_Nevera.jpg"
+    },
+    "valkyrie": {
+      "image": "/cards/supercars/valkyrie.jpg",
+      "file": "Aston_Martin_Valkyrie_Verification_Prototype_001_Genf_2019_1Y7A5569.jpg",
+      "artist": "Alexander Migl",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Valkyrie_Verification_Prototype_001_Genf_2019_1Y7A5569.jpg"
+    },
+    "amgone": {
+      "image": "/cards/supercars/amgone.jpg",
+      "file": "Mercedes-AMG_One_at_the_2022_Goodwood_Festival_of_Speed.jpg",
+      "artist": "Andrew Basterfield",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercedes-AMG_One_at_the_2022_Goodwood_Festival_of_Speed.jpg"
+    },
+    "mclarenf1": {
+      "image": "/cards/supercars/mclarenf1.jpg",
+      "file": "1996_McLaren_F1_Chassis_No_63_6.1_Front.jpg",
+      "artist": "Chelsea Jay",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:1996_McLaren_F1_Chassis_No_63_6.1_Front.jpg"
+    },
+    "mclarenp1": {
+      "image": "/cards/supercars/mclarenp1.jpg",
+      "file": "McLaren_P1.jpg",
+      "artist": "Axion23 (original) Tony Patt (cropped)",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:McLaren_P1.jpg"
+    },
+    "senna": {
+      "image": "/cards/supercars/senna.jpg",
+      "file": "McLaren_Senna_IMG_3279.jpg",
+      "artist": "Alexander Migl",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:McLaren_Senna_IMG_3279.jpg"
+    },
+    "laferrari": {
+      "image": "/cards/supercars/laferrari.jpg",
+      "file": "LaFerrari_in_Beverly_Hills_(14563979888).jpg",
+      "artist": "Axion23",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LaFerrari_in_Beverly_Hills_(14563979888).jpg"
+    },
+    "f40": {
+      "image": "/cards/supercars/f40.jpg",
+      "file": "F40_Ferrari_20090509.jpg",
+      "artist": "Will ainsworth",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:F40_Ferrari_20090509.jpg"
+    },
+    "enzo": {
+      "image": "/cards/supercars/enzo.jpg",
+      "file": "Orange_Enzo_Ferrari_(7191948164).jpg",
+      "artist": "Axion23",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Enzo_Ferrari_(7191948164).jpg"
+    },
+    "sf90": {
+      "image": "/cards/supercars/sf90.jpg",
+      "file": "Red_2019_Ferrari_SF90_Stradale_(48264238897)_(cropped).jpg",
+      "artist": "Alexandre Prevot from Nancy, France",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_2019_Ferrari_SF90_Stradale_(48264238897)_(cropped).jpg"
+    },
+    "aventador": {
+      "image": "/cards/supercars/aventador.jpg",
+      "file": "Lamborghini_Aventador_S_(44554).jpg",
+      "artist": "Calreyn88",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Aventador_S_(44554).jpg"
+    },
+    "huracan": {
+      "image": "/cards/supercars/huracan.jpg",
+      "file": "2017_Lamborghini_Huracan_LP610.jpg",
+      "artist": "MrWalkr",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2017_Lamborghini_Huracan_LP610.jpg"
+    },
+    "countach": {
+      "image": "/cards/supercars/countach.jpg",
+      "file": "Lamborghini_Countach_-_Flickr_-_exfordy_(2)_(cropped-2).jpg",
+      "artist": "Brian Snelson from Hockley, Essex, England",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Countach_-_Flickr_-_exfordy_(2)_(cropped-2).jpg"
+    },
+    "miura": {
+      "image": "/cards/supercars/miura.jpg",
+      "file": "1971_Lamborghini_Miura_P400_SV.jpg",
+      "artist": "Chelsea Jay",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:1971_Lamborghini_Miura_P400_SV.jpg"
+    },
+    "gt2rs": {
+      "image": "/cards/supercars/gt2rs.jpg",
+      "file": "Porsche_991_GT2_RS_(41654760692)_(cropped).jpg",
+      "artist": "Alexandre Prévot from Nancy, France",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porsche_991_GT2_RS_(41654760692)_(cropped).jpg"
+    },
+    "one77": {
+      "image": "/cards/supercars/one77.jpg",
+      "file": "2011_Aston_Martin_One-77_SCD_24.jpg",
+      "artist": "MrWalkr",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2011_Aston_Martin_One-77_SCD_24.jpg"
+    },
+    "slrmclaren": {
+      "image": "/cards/supercars/slrmclaren.jpg",
+      "file": "Mercedes-Benz_SLR_McLaren_(8615164079).jpg",
+      "artist": "Alexandre Prévot from Nancy, France",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_SLR_McLaren_(8615164079).jpg"
+    },
+    "zonda": {
+      "image": "/cards/supercars/zonda.jpg",
+      "file": "Pagani_Zonda_C12_'chassis_001'_Genf_2019_1Y7A5539.jpg",
+      "artist": "Alexander Migl",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pagani_Zonda_C12_%27chassis_001%27_Genf_2019_1Y7A5539.jpg"
+    },
+    "fordgt": {
+      "image": "/cards/supercars/fordgt.jpg",
+      "file": "Ford_GT_2018_and_Ford_GT_1968_at_Legendy_2019_in_Prague_(cropped).jpg",
+      "artist": "Jiří Sedláček",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ford_GT_2018_and_Ford_GT_1968_at_Legendy_2019_in_Prague_(cropped).jpg"
+    },
+    "gtr": {
+      "image": "/cards/supercars/gtr.jpg",
+      "file": "2009-2010_Nissan_GT-R_(R35)_coupe_01.jpg",
+      "artist": "OSX",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2009-2010_Nissan_GT-R_(R35)_coupe_01.jpg"
+    },
+    "carreragt": {
+      "image": "/cards/supercars/carreragt.jpg",
+      "file": "Porsche_Carrera_GT_-_Goodwood_Breakfast_Club_(July_2008).jpg",
+      "artist": "Brian Snelson from Hockley, Essex, England",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porsche_Carrera_GT_-_Goodwood_Breakfast_Club_(July_2008).jpg"
+    },
+    "xj220": {
+      "image": "/cards/supercars/xj220.jpg",
+      "file": "JaguarXJ220.jpg",
+      "artist": "Brian Snelson",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JaguarXJ220.jpg"
+    },
+    "huayra": {
+      "image": "/cards/supercars/huayra.jpg",
+      "file": "Pagani,_GIMS_2019,_Le_Grand-Saconnex_(GIMS0023).jpg",
+      "artist": "Matti Blume",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pagani,_GIMS_2019,_Le_Grand-Saconnex_(GIMS0023).jpg"
+    }
+  },
+  "dinosaurs": {
+    "tyrannosaurus": {
+      "image": "/cards/dinosaurs/tyrannosaurus.jpg",
+      "file": "Tyrannosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tyrannosaurus_BW.jpg"
+    },
+    "spinosaurus": {
+      "image": "/cards/dinosaurs/spinosaurus.jpg",
+      "file": "Spinosaurus BW.jpg",
+      "artist": "derivative work: Dinoguy2 ( talk ) Spinosaurus_BW.jpg : ArthurWeasley",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spinosaurus_BW2.png"
+    },
+    "giganotosaurus": {
+      "image": "/cards/dinosaurs/giganotosaurus.jpg",
+      "file": "Giganotosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Giganotosaurus_BW.jpg"
+    },
+    "carcharodontosaurus": {
+      "image": "/cards/dinosaurs/carcharodontosaurus.jpg",
+      "file": "Carcharodontosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carcharodontosaurus_BW.jpg"
+    },
+    "allosaurus": {
+      "image": "/cards/dinosaurs/allosaurus.jpg",
+      "file": "Allosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Allosaurus_BW.jpg"
+    },
+    "velociraptor": {
+      "image": "/cards/dinosaurs/velociraptor.jpg",
+      "file": "Velociraptor BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Velociraptor_mongoliensis.jpg"
+    },
+    "utahraptor": {
+      "image": "/cards/dinosaurs/utahraptor.jpg",
+      "file": "Utahraptor BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Utahraptor_BW.jpg"
+    },
+    "stegosaurus": {
+      "image": "/cards/dinosaurs/stegosaurus.jpg",
+      "file": "Stegosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stegosaurus_BW.jpg"
+    },
+    "ankylosaurus": {
+      "image": "/cards/dinosaurs/ankylosaurus.jpg",
+      "file": "Ankylosaurus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ankylosaurus_TD.png"
+    },
+    "brachiosaurus": {
+      "image": "/cards/dinosaurs/brachiosaurus.jpg",
+      "file": "Brachiosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachiosaurus_BW.jpg"
+    },
+    "argentinosaurus": {
+      "image": "/cards/dinosaurs/argentinosaurus.jpg",
+      "file": "Argentinosaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Argentinosaurus_BW.jpg"
+    },
+    "diplodocus": {
+      "image": "/cards/dinosaurs/diplodocus.jpg",
+      "file": "Diplodocus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diplodocus_TD.png"
+    },
+    "therizinosaurus": {
+      "image": "/cards/dinosaurs/therizinosaurus.jpg",
+      "file": "Therizinosaurus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Therizinosaurus_TD.png"
+    },
+    "parasaurolophus": {
+      "image": "/cards/dinosaurs/parasaurolophus.jpg",
+      "file": "Parasaurolophus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parasaurolophus_TD.png"
+    },
+    "iguanodon": {
+      "image": "/cards/dinosaurs/iguanodon.jpg",
+      "file": "Iguanodon TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iguanodon_TD.png"
+    },
+    "pachycephalosaurus": {
+      "image": "/cards/dinosaurs/pachycephalosaurus.jpg",
+      "file": "Pachycephalosaurus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pachycephalosaurus_TD.png"
+    },
+    "dilophosaurus": {
+      "image": "/cards/dinosaurs/dilophosaurus.jpg",
+      "file": "Life reconstruction of Dilophosaurus wetherilli.png",
+      "artist": "Connor Ashbridge",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Dilophosaurus_wetherilli.png"
+    },
+    "compsognathus": {
+      "image": "/cards/dinosaurs/compsognathus.jpg",
+      "file": "Compsognathus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Compsognathus_BW.jpg"
+    },
+    "microraptor": {
+      "image": "/cards/dinosaurs/microraptor.jpg",
+      "file": "Microraptor Restoration.png",
+      "artist": "Fred Wierum",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microraptor_Restoration.png"
+    },
+    "ceratosaurus": {
+      "image": "/cards/dinosaurs/ceratosaurus.jpg",
+      "file": "Ceratosaurus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratosaurus_TD.png"
+    },
+    "troodon": {
+      "image": "/cards/dinosaurs/troodon.jpg",
+      "file": "Troodon or Stenonychosaurus (update).png",
+      "artist": "Conty",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troodon_or_Stenonychosaurus_(update).png"
+    },
+    "gallimimus": {
+      "image": "/cards/dinosaurs/gallimimus.jpg",
+      "file": "Gallimimus Restoration.png",
+      "artist": "PaleoNeolitic",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gallimimus_Restoration.png"
+    },
+    "oviraptor": {
+      "image": "/cards/dinosaurs/oviraptor.jpg",
+      "file": "Oviraptor Restoration.png",
+      "artist": "PaleoNeolitic",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oviraptor_Restoration.png"
+    },
+    "protoceratops": {
+      "image": "/cards/dinosaurs/protoceratops.jpg",
+      "file": "Protoceratops BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protoceratops_BW.jpg"
+    },
+    "corythosaurus": {
+      "image": "/cards/dinosaurs/corythosaurus.jpg",
+      "file": "Corythosaurus TD.png",
+      "artist": "TotalDino",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corythosaurus_TD.png"
+    },
+    "carnotaurus": {
+      "image": "/cards/dinosaurs/carnotaurus.jpg",
+      "file": "Carnotaurus BW.jpg",
+      "artist": "Nobu Tamura ( http://spinops.blogspot.com )",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carnotaurus_BW.jpg"
+    }
+  }
+}

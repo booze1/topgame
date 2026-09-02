@@ -5,11 +5,12 @@ dist/
 .env
 .env.local
 
-# Photos fetched by `npm run fetch-images` are not committed: they belong to
-# their photographers and are re-fetchable in one command. The attribution
-# manifest that the script writes is ignored for the same reason.
-public/cards/*/
-public/cards/attributions.json
+# Card photos ARE committed. They have to be: a deployed instance only runs
+# `npm ci && npm run build`, so anything fetched at development time would be
+# missing in production and every card would fall back to generated art.
+# Every image is CC or public domain, redistribution is permitted with
+# attribution, and the in-game credits page provides it.
+# The contact sheet is a local review artefact, not part of the game.
 public/cards/contact-sheet.html
 
 # Playwright artefacts from the smoke test
