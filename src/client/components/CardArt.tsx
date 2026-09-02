@@ -16,12 +16,20 @@ export function CardArt({ card, deck }: CardArtProps): JSX.Element {
   const [failed, setFailed] = useState(false);
   const art = generateArt(card.id, deck.theme);
   const gradientId = `art-${deck.id}-${card.id}`;
+  const fit = card.fit ?? deck.art?.fit ?? 'cover';
+  const showPhoto = Boolean(card.image) && !failed;
+  // The flat band belongs to a contained photograph only. Without a photo the
+  // card falls back to generated art, which should look the same in every deck
+  // rather than becoming an empty pale rectangle.
+  const contained = showPhoto && fit === 'contain';
+  const band = contained ? (deck.art?.background ?? '#f4f6fb') : undefined;
 
   // A new photo path (deck switch, rematch) deserves a fresh attempt.
   useEffect(() => setFailed(false), [card.image]);
 
   return (
-    <div className="card__art">
+    <div className="card__art" style={band ? { background: band } : undefined}>
+      {!contained && (
       <svg
         className="card__art-generated"
         viewBox="0 0 100 100"
@@ -49,8 +57,9 @@ export function CardArt({ card, deck }: CardArtProps): JSX.Element {
           ))}
         </g>
       </svg>
+      )}
 
-      {card.image && !failed ? (
+      {showPhoto ? (
         <img
           className="card__photo"
           src={card.image}
@@ -59,7 +68,10 @@ export function CardArt({ card, deck }: CardArtProps): JSX.Element {
           decoding="async"
           // Anchors the crop for photographs that are not composed for a
           // letterbox; the deck loader validates the value.
-          style={card.focus ? { objectPosition: card.focus } : undefined}
+          style={{
+            objectFit: fit,
+            ...(card.focus ? { objectPosition: card.focus } : {}),
+          }}
           onError={() => setFailed(true)}
         />
       ) : (

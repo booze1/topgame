@@ -8,7 +8,7 @@
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import type { Deck, PhotoCredit, StatDef } from '../shared/types';
+import type { ArtFit, Deck, PhotoCredit, StatDef } from '../shared/types';
 
 /**
  * Shape of public/cards/attributions.json. Values are typed as `unknown`
@@ -33,6 +33,10 @@ const SAFE_ID = /^[a-z0-9][a-z0-9_-]*$/i;
  * attribute, and so a typo is caught at boot rather than silently ignored by
  * the browser.
  */
+/** Colours reach a style attribute, so only plain hex is accepted. */
+const isColour = (value: unknown): boolean =>
+  typeof value === 'string' && /^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(value);
+
 const SAFE_FOCUS =
   /^(?:(?:top|bottom|left|right|center)(?: (?:top|bottom|left|right|center))?|\d{1,3}% \d{1,3}%)$/;
 
@@ -54,6 +58,16 @@ function validateDeck(file: string, raw: unknown): Deck {
     fail(file, `id "${deck.id}" must be letters, digits, dashes or underscores`);
   }
   if (!deck.theme?.primary || !deck.theme.accent || !deck.theme.ink) fail(file, 'missing theme');
+  if (deck.art !== undefined) {
+    const fit = deck.art.fit;
+    if (fit !== undefined && fit !== 'cover' && fit !== 'contain') {
+      fail(file, `art.fit must be "cover" or "contain", not "${String(fit)}"`);
+    }
+    const background = deck.art.background;
+    if (background !== undefined && !isColour(background)) {
+      fail(file, `art.background "${String(background)}" is not a colour`);
+    }
+  }
   if (!Array.isArray(deck.stats) || deck.stats.length === 0) fail(file, 'needs at least one stat');
   const stats = deck.stats.map((s, i) => validateStat(file, s, i));
 
@@ -76,6 +90,10 @@ function validateDeck(file: string, raw: unknown): Deck {
     }
     if (card.focus !== undefined && (typeof card.focus !== 'string' || !SAFE_FOCUS.test(card.focus))) {
       fail(file, `card "${card.id}" has an invalid focus "${String(card.focus)}"`);
+    }
+    const fit: ArtFit | undefined = card.fit;
+    if (fit !== undefined && fit !== 'cover' && fit !== 'contain') {
+      fail(file, `card "${card.id}" has an invalid fit "${String(fit)}"`);
     }
     for (const stat of stats) {
       const value = card.stats?.[stat.id];

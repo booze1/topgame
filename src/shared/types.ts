@@ -54,6 +54,8 @@ export interface CardDef {
    * avoid being cropped through the head.
    */
   focus?: string;
+  /** Overrides the deck's art fit for this one card. */
+  fit?: ArtFit;
   stats: Record<StatId, number>;
   /**
    * Path to a fetched photo, filled in by the server from the attribution
@@ -75,6 +77,19 @@ export interface PhotoCredit {
   sourceUrl: string;
 }
 
+/**
+ * How a picture sits in the card's 16:9 band. Photographs suit `cover`, which
+ * fills the band and crops. Wide illustrations - a sauropod in side profile -
+ * need `contain`, or the head and tail are cropped away.
+ */
+export type ArtFit = 'cover' | 'contain';
+
+export interface DeckArt {
+  fit?: ArtFit;
+  /** Band colour behind a `contain` image, where the picture does not reach. */
+  background?: string;
+}
+
 export interface DeckTheme {
   /** Dominant deck colour. */
   primary: string;
@@ -90,6 +105,8 @@ export interface Deck {
   tagline: string;
   emoji: string;
   theme: DeckTheme;
+  /** Defaults for how this deck's pictures are framed. */
+  art?: DeckArt;
   /** Always six, so every card in the game has the same shape. */
   stats: StatDef[];
   cards: CardDef[];

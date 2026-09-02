@@ -66,15 +66,21 @@ export function contactSheet(
               ? '<span class="badge">lead</span>'
               : '';
 
+          const fit = card.fit ?? deck.art?.fit ?? 'cover';
+          const band = fit === 'contain' ? (deck.art?.background ?? '#f4f6fb') : '#0b1020';
+          const style = [
+            `object-fit:${fit}`,
+            card.focus ? `object-position:${escapeHtml(card.focus)}` : '',
+          ]
+            .filter(Boolean)
+            .join(';');
           const art = photo?.['image']
-            ? `<img src="..${escapeHtml(photo['image'])}" alt="" loading="lazy"` +
-              (card.focus ? ` style="object-position:${escapeHtml(card.focus)}"` : '') +
-              ' />'
+            ? `<img src="..${escapeHtml(photo['image'])}" alt="" loading="lazy" style="${style}" />`
             : `<div class="missing">${escapeHtml(reason ?? 'no photo')}</div>`;
 
           return `
       <figure class="tile${photo ? '' : ' tile--missing'}">
-        <div class="art">${art}</div>
+        <div class="art" style="background:${escapeHtml(band)}">${art}</div>
         <figcaption>
           <strong>${escapeHtml(card.name)}</strong>${badge}
           <span class="meta">${escapeHtml(card.wikipedia)}</span>
@@ -114,7 +120,7 @@ export function contactSheet(
   /* Same 16:9 band and centre-crop the real card uses, so what you see here
      is what the card shows. */
   .art { aspect-ratio: 16 / 9; background: #0b1020; }
-  .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .art img { width: 100%; height: 100%; display: block; }
   .missing { display: grid; place-items: center; height: 100%; padding: 8px; text-align: center;
              color: #f87171; font-size: 11px; }
   figcaption { padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; }

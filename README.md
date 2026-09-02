@@ -122,6 +122,35 @@ When one is wrong, pin the right file and re-run:
 npm run fetch-images -- --force --deck=supercars
 ```
 
+### Rate limits
+
+Wikimedia rate-limits bulk downloads, and a fresh run of all 120 cards will
+usually hit it. The fetcher backs off and retries, and reports whatever it
+could not get. **Just run it again** - anything already on disk is skipped, so
+each pass only picks up the stragglers, and a card with no photo falls back to
+generated art in the meantime.
+
+Node's built-in `fetch` ignores `HTTPS_PROXY`, unlike curl and most other
+tooling, so behind a corporate proxy every request would silently leave the
+machine the wrong way. The fetcher installs a proxy dispatcher when a proxy is
+configured, and says so on startup.
+
+### Framing
+
+Photographs suit the card's 16:9 band. Wide illustrations do not - cropping a
+sauropod in side profile to fill the band cuts off its head and tail. Set the
+fit per deck, and override it on any single card:
+
+```jsonc
+{
+  "art": { "fit": "contain", "background": "#f4f6fb" },
+  "cards": [{ "id": "trex", "fit": "cover" }]
+}
+```
+
+`cover` fills the band and crops; `contain` shows the whole picture against
+`background`.
+
 ### Cropping
 
 Encyclopedia photographs are not composed for a 16:9 card band, so a tall
@@ -151,8 +180,13 @@ automated clients to identify themselves.
 
 Worth being straight about: every card in that deck is either a photograph of a
 museum skeleton or an artist's restoration of the living animal. No amount of
-tooling changes that. Pin whichever you prefer with `commonsFile` — mixing the
-two makes the deck look inconsistent card to card.
+tooling changes that.
+
+Left to itself the fetcher produces a deck of **skeletons**, because that is
+what those Wikipedia articles lead with. This repository instead pins a
+palaeoart life restoration to every dinosaur card, so the deck is consistent
+rather than a mix of mounted skeletons, fossil slabs and the odd close-up of a
+claw. Change them with `commonsFile` if you prefer skeletons.
 
 **Any card without a usable photo falls back to generated art** derived from
 the card's own id, in the deck's colours. It is deterministic, so a card always

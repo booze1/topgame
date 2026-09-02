@@ -14,3 +14,8 @@ public/cards/contact-sheet.html
 
 # Playwright artefacts from the smoke test
 screenshots/
+
+# Scratch scripts used while curating card photos
+*.tmp.mjs
+*.tmp.html
+cand-thumbs.tmp/

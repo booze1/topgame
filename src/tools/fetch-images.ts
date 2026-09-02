@@ -30,14 +30,16 @@
  *   --dry-run          report what would be fetched, write nothing
  *   --concurrency=<n>  parallel downloads (default 4) */
 
-import { mkdir, readFile, readdir, writeFile, access } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm, writeFile, access } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { EnvHttpProxyAgent, setGlobalDispatcher } from 'undici';
 import {
   chunk,
   extensionFor,
   findImage,
   isFreeLicence,
+  canReuseDownload,
   readLicence,
   readPinnedFile,
   toFileTitle,
@@ -68,6 +70,8 @@ const USER_AGENT = `topgame-card-fetcher/1.0 (${CONTACT})`;
 const TITLES_PER_REQUEST = 40;
 /** Politeness gap between API calls. */
 const REQUEST_GAP_MS = 250;
+/** Pause between image downloads, so a whole deck does not arrive as a burst. */
+const DOWNLOAD_GAP_MS = 200;
 const MAX_BYTES = 4 * 1024 * 1024;
 
 interface Options {
@@ -81,7 +85,7 @@ interface Options {
 function parseOptions(argv: string[]): Options {
   const decks: string[] = [];
   let width = 900;
-  let concurrency = 4;
+  let concurrency = 2;
 
   for (const arg of argv) {
     if (arg.startsWith('--deck=')) decks.push(arg.slice('--deck='.length));
@@ -99,6 +103,27 @@ function parseOptions(argv: string[]): Options {
   };
 }
 
+/**
+ * Route requests through an HTTP proxy when one is configured.
+ *
+ * Node's built-in fetch ignores HTTPS_PROXY entirely, unlike curl and most
+ * other tooling. Behind a corporate proxy that silently means every request
+ * leaves the machine the wrong way and comes back as a connection error or a
+ * 403, which looks like Wikipedia refusing us rather than a proxy we never
+ * used. Installing the dispatcher up front makes fetch behave like everything
+ * else on the machine; with no proxy set it is a no-op.
+ */
+function useProxyIfConfigured(): void {
+  const proxy =
+    process.env.HTTPS_PROXY ??
+    process.env.https_proxy ??
+    process.env.HTTP_PROXY ??
+    process.env.http_proxy;
+  if (!proxy) return;
+  setGlobalDispatcher(new EnvHttpProxyAgent());
+  console.log(`Using proxy ${proxy}`);
+}
+
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function exists(path: string): Promise<boolean> {
@@ -110,15 +135,49 @@ async function exists(path: string): Promise<boolean> {
   }
 }
 
-async function getJson<T>(api: string, params: Record<string, string>): Promise<T> {
+/**
+ * Calls a MediaWiki API endpoint, backing off when it asks us to.
+ *
+ * The APIs rate-limit as readily as the image servers do, and a run that dies
+ * on the first 429 loses every card. Wikimedia also answers an over-eager
+ * client with a plain-text notice rather than JSON, so a body that will not
+ * parse is treated as the same signal.
+ */
+async function getJson<T>(
+  api: string,
+  params: Record<string, string>,
+  attempts = 5,
+): Promise<T> {
   const url = new URL(api);
   url.search = new URLSearchParams({ format: 'json', formatversion: '2', ...params }).toString();
 
-  const response = await fetch(url, {
-    headers: { 'user-agent': USER_AGENT, accept: 'application/json' },
-  });
-  if (!response.ok) throw new Error(`${url.host} answered ${response.status}`);
-  return (await response.json()) as T;
+  let wait = 5000;
+  for (let attempt = 1; ; attempt++) {
+    const response = await fetch(url, {
+      headers: { 'user-agent': USER_AGENT, accept: 'application/json' },
+    });
+    const body = await response.text();
+
+    if (response.ok) {
+      try {
+        return JSON.parse(body) as T;
+      } catch {
+        if (attempt >= attempts) {
+          throw new Error(`${url.host} sent a non-JSON reply: ${body.slice(0, 80)}`);
+        }
+      }
+    } else if (response.status !== 429 && response.status !== 503) {
+      throw new Error(`${url.host} answered ${response.status}`);
+    } else if (attempt >= attempts) {
+      throw new Error(`${url.host} answered ${response.status} after ${attempts} attempts`);
+    }
+
+    const header = Number(response.headers.get('retry-after'));
+    const delay = Number.isFinite(header) && header > 0 ? header * 1000 : wait;
+    console.log(`  ${url.host} is rate limiting; waiting ${Math.round(delay / 1000)}s`);
+    await sleep(Math.min(delay, 60_000));
+    wait *= 2;
+  }
 }
 
 interface Candidate {
@@ -254,15 +313,53 @@ async function findLicences(
   return { resolved, unusable };
 }
 
-async function download(entry: Resolved, options: Options): Promise<string | null> {
-  const deckDir = join(OUT_DIR, entry.deckId);
-  const existingJpg = join(deckDir, `${entry.cardId}.jpg`);
+/**
+ * Fetches with backoff on the responses that mean "not now".
+ *
+ * Wikimedia rate-limits bulk image downloads, and a whole deck fetched flat out
+ * gets a wall of 429s. Retrying politely - honouring Retry-After when it is
+ * given - turns that from a failed run into a slightly slower one.
+ */
+async function fetchWithRetry(url: string, attempts = 4): Promise<Response> {
+  let wait = 1000;
+  for (let attempt = 1; ; attempt++) {
+    const response = await fetch(url, { headers: { 'user-agent': USER_AGENT } });
+    if (response.ok) return response;
 
-  if (!options.force && (await exists(existingJpg))) {
-    return `/cards/${entry.deckId}/${entry.cardId}.jpg`;
+    const retryable = response.status === 429 || response.status === 503;
+    if (!retryable || attempt >= attempts) return response;
+
+    const header = Number(response.headers.get('retry-after'));
+    const delay = Number.isFinite(header) && header > 0 ? header * 1000 : wait;
+    await sleep(Math.min(delay, 30_000));
+    wait *= 2;
+  }
+}
+
+/** Any already-downloaded file for this card, whatever extension it has. */
+async function existingFile(deckDir: string, cardId: string): Promise<string | null> {
+  try {
+    const names = await readdir(deckDir);
+    return names.find((name) => name.replace(/\.[^.]+$/, '') === cardId) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function download(
+  entry: Resolved,
+  options: Options,
+  previous: Record<string, string> | undefined,
+): Promise<string | null> {
+  const deckDir = join(OUT_DIR, entry.deckId);
+  const existing = await existingFile(deckDir, entry.cardId);
+
+  // Keep what is on disk only when it came from the same Commons file.
+  if (!options.force && existing && canReuseDownload(previous?.['file'], entry.file)) {
+    return `/cards/${entry.deckId}/${existing}`;
   }
 
-  const response = await fetch(entry.url, { headers: { 'user-agent': USER_AGENT } });
+  const response = await fetchWithRetry(entry.url);
   if (!response.ok) throw new Error(`image download answered ${response.status}`);
 
   const buffer = Buffer.from(await response.arrayBuffer());
@@ -275,23 +372,35 @@ async function download(entry: Resolved, options: Options): Promise<string | nul
   if (options.dryRun) return relative;
 
   await mkdir(deckDir, { recursive: true });
+  // Commons serves some PNG originals as JPEG thumbnails, so the extension can
+  // change between runs; drop the old file rather than leaving both behind.
+  if (existing && existing !== `${entry.cardId}${extension}`) {
+    await rm(join(deckDir, existing), { force: true });
+  }
   await writeFile(join(deckDir, `${entry.cardId}${extension}`), buffer);
   return relative;
 }
 
 /** Runs `worker` over `items`, at most `limit` at a time. */
-async function pooled<T>(items: T[], limit: number, worker: (item: T) => Promise<void>) {
+async function pooled<T>(
+  items: T[],
+  limit: number,
+  worker: (item: T) => Promise<void>,
+  gapMs = 0,
+) {
   let next = 0;
   const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
     while (next < items.length) {
       const index = next++;
       await worker(items[index]!);
+      if (gapMs > 0) await sleep(gapMs);
     }
   });
   await Promise.all(runners);
 }
 
 async function main(): Promise<void> {
+  useProxyIfConfigured();
   const options = parseOptions(process.argv.slice(2));
 
   const files = (await readdir(DECK_DIR)).filter((name) => name.endsWith('.json')).sort();
@@ -362,28 +471,33 @@ async function main(): Promise<void> {
   const failures: { candidate: Candidate; reason: string }[] = [];
   let downloaded = 0;
 
-  await pooled(resolved, options.concurrency, async (entry) => {
-    try {
-      const relative = await download(entry, options);
-      if (!relative) return;
-      manifest[entry.deckId] ??= {};
-      manifest[entry.deckId]![entry.cardId] = {
-        image: relative,
-        file: entry.file,
-        artist: entry.licence.artist,
-        licence: entry.licence.licence,
-        licenceUrl: entry.licence.licenceUrl,
-        sourceUrl: entry.licence.sourceUrl,
-      };
-      downloaded += 1;
-      process.stdout.write(`\r  downloaded ${downloaded}/${resolved.length}`);
-    } catch (error) {
-      failures.push({
-        candidate: entry,
-        reason: error instanceof Error ? error.message : String(error),
-      });
-    }
-  });
+  await pooled(
+    resolved,
+    options.concurrency,
+    async (entry) => {
+      try {
+          const relative = await download(entry, options, manifest[entry.deckId]?.[entry.cardId]);
+        if (!relative) return;
+        manifest[entry.deckId] ??= {};
+        manifest[entry.deckId]![entry.cardId] = {
+          image: relative,
+          file: entry.file,
+          artist: entry.licence.artist,
+          licence: entry.licence.licence,
+          licenceUrl: entry.licence.licenceUrl,
+          sourceUrl: entry.licence.sourceUrl,
+        };
+        downloaded += 1;
+        process.stdout.write(`\r  downloaded ${downloaded}/${resolved.length}`);
+      } catch (error) {
+        failures.push({
+          candidate: entry,
+          reason: error instanceof Error ? error.message : String(error),
+        });
+      }
+    },
+    DOWNLOAD_GAP_MS,
+  );
   process.stdout.write('\n');
 
   const skipped = [

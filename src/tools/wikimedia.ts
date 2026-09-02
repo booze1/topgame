@@ -206,3 +206,18 @@ export function readPinnedFile(
   if (!licence) return null;
   return { url, licence };
 }
+
+/**
+ * Whether a card's already-downloaded image may be kept.
+ *
+ * Only when it came from the same Commons file. Re-pointing a card at a new
+ * file and reusing the old download would leave the old picture on the card
+ * while the manifest records the new photographer - crediting one person's
+ * work to another. Cheap to re-download; not cheap to get wrong.
+ */
+export function canReuseDownload(
+  previousFile: string | undefined,
+  nextFile: string,
+): boolean {
+  return Boolean(previousFile) && previousFile === nextFile;
+}

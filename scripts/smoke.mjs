@@ -241,8 +241,14 @@ async function main() {
     const headline = await host.locator('.overlay__title').innerText();
     const guestHeadline = await guest.locator('.overlay__title').innerText();
     log('result:', headline, '/', guestHeadline);
-    if (headline === guestHeadline && headline !== 'Dead heat') {
+    // A tie is a legitimate ending, and then both players do see the same
+    // headline. The text is uppercased by CSS, so compare case-insensitively.
+    const tied = /dead heat/i.test(headline);
+    if (headline === guestHeadline && !tied) {
       throw new Error(`both players were told "${headline}"`);
+    }
+    if (!tied && !/you (win|lose)/i.test(headline)) {
+      throw new Error(`unexpected result headline "${headline}"`);
     }
 
     // ------------------------------------------------------------------ reconnect

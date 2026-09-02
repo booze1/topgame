@@ -78,9 +78,33 @@ describe('contactSheet', () => {
     expect(html).toContain('2/3 with photos');
   });
 
-  it('crops previews the same 16:9 way the game does', () => {
+  it('previews at the same 16:9 band the game uses', () => {
     expect(html).toContain('aspect-ratio: 16 / 9');
-    expect(html).toContain('object-fit: cover');
+  });
+
+  it('frames each image the way the card will frame it', () => {
+    // Default deck: photographs fill the band.
+    expect(html).toContain('object-fit:cover');
+
+    // A deck of wide illustrations must not be cropped to fill.
+    const contained = contactSheet(
+      [{ ...deck, art: { fit: 'contain', background: '#f4f6fb' } }],
+      manifest,
+      [{ deckId: 'cars', cardId: 'gt', pinned: true }],
+      [],
+    );
+    expect(contained).toContain('object-fit:contain');
+    expect(contained).toContain('background:#f4f6fb');
+  });
+
+  it('lets a single card override the deck framing', () => {
+    const mixed = contactSheet(
+      [{ ...deck, art: { fit: 'contain' }, cards: [{ ...deck.cards[0]!, fit: 'cover' }] }],
+      manifest,
+      [],
+      [],
+    );
+    expect(mixed).toContain('object-fit:cover');
   });
 
   it('escapes card names rather than injecting them raw', () => {

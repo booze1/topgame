@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  canReuseDownload,
   chunk,
   extensionFor,
   findImage,
@@ -206,5 +207,22 @@ describe('chunk', () => {
 
   it('refuses a nonsense size', () => {
     expect(() => chunk([1], 0)).toThrow();
+  });
+});
+
+describe('canReuseDownload', () => {
+  it('keeps a download that came from the same file', () => {
+    expect(canReuseDownload('Trex.jpg', 'Trex.jpg')).toBe(true);
+  });
+
+  it('refuses to reuse when the card has been re-pointed at another file', () => {
+    // The failure this prevents: the old picture stays on the card while the
+    // manifest records the new photographer, crediting the wrong person.
+    expect(canReuseDownload('Trex skeleton.jpg', 'Tyrannosaurus BW.jpg')).toBe(false);
+  });
+
+  it('refuses to reuse when nothing was recorded before', () => {
+    expect(canReuseDownload(undefined, 'Trex.jpg')).toBe(false);
+    expect(canReuseDownload('', 'Trex.jpg')).toBe(false);
   });
 });
