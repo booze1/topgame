@@ -74,8 +74,23 @@ describe('contactSheet', () => {
     expect(html).toContain('object-position:top');
   });
 
-  it('reports how many cards in each deck ended up with a photo', () => {
-    expect(html).toContain('2/3 with photos');
+  it('reports how many cards in each deck ended up with a picture', () => {
+    expect(html).toContain('2/3 with pictures');
+  });
+
+  it('shows drawn art, which needs checking as much as a photograph does', () => {
+    const drawn = contactSheet(
+      [{ ...deck, cards: [{ ...deck.cards[2]!, localArt: 'missing_car.svg' }] }],
+      {},
+      [],
+      // The fetcher never saw this card, so it is neither resolved nor skipped.
+      [],
+    );
+    expect(drawn).toContain('src="../cards/cars/missing_car.svg"');
+    expect(drawn).toContain('badge--drawn');
+    expect(drawn).toContain('1/1 with pictures');
+    // Not outlined in red: it has art, just not a photograph.
+    expect(drawn).not.toContain('class="tile tile--missing"');
   });
 
   it('previews at the same 16:9 band the game uses', () => {

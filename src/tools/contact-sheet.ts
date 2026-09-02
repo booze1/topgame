@@ -58,13 +58,19 @@ export function contactSheet(
       const tiles = deck.cards
         .map((card) => {
           const key = `${deck.id}/${card.id}`;
-          const photo = manifest[deck.id]?.[card.id];
-          const reason = skippedById.get(key);
-          const badge = pinnedIds.has(key)
-            ? '<span class="badge badge--pin">pinned</span>'
-            : photo
-              ? '<span class="badge">lead</span>'
-              : '';
+          // A card with a drawing committed next to the deck never goes near
+          // the fetcher, so it has no manifest entry - but it still belongs on
+          // the sheet, because drawn art can be wrong too.
+          const drawn = card.localArt ? `/cards/${deck.id}/${card.localArt}` : '';
+          const photo = drawn ? undefined : manifest[deck.id]?.[card.id];
+          const reason = drawn ? undefined : skippedById.get(key);
+          const badge = drawn
+            ? '<span class="badge badge--drawn">drawn</span>'
+            : pinnedIds.has(key)
+              ? '<span class="badge badge--pin">pinned</span>'
+              : photo
+                ? '<span class="badge">lead</span>'
+                : '';
 
           const fit = card.fit ?? deck.art?.fit ?? 'cover';
           const band = fit === 'contain' ? (deck.art?.background ?? '#f4f6fb') : '#0b1020';
@@ -74,26 +80,29 @@ export function contactSheet(
           ]
             .filter(Boolean)
             .join(';');
-          const art = photo?.['image']
-            ? `<img src="..${escapeHtml(photo['image'])}" alt="" loading="lazy" style="${style}" />`
+          const source = drawn || photo?.['image'] || '';
+          const art = source
+            ? `<img src="..${escapeHtml(source)}" alt="" loading="lazy" style="${style}" />`
             : `<div class="missing">${escapeHtml(reason ?? 'no photo')}</div>`;
 
           return `
-      <figure class="tile${photo ? '' : ' tile--missing'}">
+      <figure class="tile${source ? '' : ' tile--missing'}">
         <div class="art" style="background:${escapeHtml(band)}">${art}</div>
         <figcaption>
           <strong>${escapeHtml(card.name)}</strong>${badge}
-          <span class="meta">${escapeHtml(card.wikipedia)}</span>
-          <span class="meta">${escapeHtml(photo?.['licence'] ?? '')} ${escapeHtml(photo?.['artist'] ?? '')}</span>
+          <span class="meta">${escapeHtml(drawn ? card.localArt! : card.wikipedia)}</span>
+          <span class="meta">${escapeHtml(drawn ? 'drawn for this deck' : `${photo?.['licence'] ?? ''} ${photo?.['artist'] ?? ''}`)}</span>
         </figcaption>
       </figure>`;
         })
         .join('');
 
-      const withPhotos = deck.cards.filter((card) => manifest[deck.id]?.[card.id]).length;
+      const withArt = deck.cards.filter(
+        (card) => card.localArt || manifest[deck.id]?.[card.id],
+      ).length;
       return `
   <section>
-    <h2>${escapeHtml(deck.name)} <small>${withPhotos}/${deck.cards.length} with photos</small></h2>
+    <h2>${escapeHtml(deck.name)} <small>${withArt}/${deck.cards.length} with pictures</small></h2>
     <div class="grid">${tiles}</div>
   </section>`;
     })
@@ -129,6 +138,7 @@ export function contactSheet(
   .badge { margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: #26314a;
            color: #93a1bd; font-size: 10px; }
   .badge--pin { background: #3b2f0b; color: #f5c451; }
+  .badge--drawn { background: #2a1145; color: #d8b4fe; }
 </style>
 </head>
 <body>
@@ -138,6 +148,8 @@ export function contactSheet(
     the right subject, not just a picture. A card marked <span class="badge badge--pin">pinned</span>
     came from an exact <code>commonsFile</code>; one marked <span class="badge">lead</span> came from
     whatever the Wikipedia article leads with and is the more likely to be wrong.
+    One marked <span class="badge badge--drawn">drawn</span> is artwork committed with the deck,
+    for subjects that have no freely licensed photograph at all.
     To correct one, set <code>"commonsFile"</code> on that card in <code>decks/*.json</code>
     and re-run <code>npm run fetch-images --force</code>. If a subject is cropped badly,
     set <code>"focus"</code> (for example <code>"top"</code>).

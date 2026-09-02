@@ -45,7 +45,7 @@ choosing first over a rematch.
 ## How it is put together
 
 ```
-decks/                  four decks, plain JSON - add a file, get a deck
+decks/                  eight decks, plain JSON - add a file, get a deck
 src/
   shared/               types and the rules engine, shared by both sides
     rules.ts            pure functions: shuffle, compare, resolve a round, detect a win
@@ -57,6 +57,7 @@ src/
   client/               React + TypeScript, hand-written CSS
   tools/
     fetch-images.ts     the photo fetcher
+    fortnite-art.ts     draws the Fortnite deck, which has no photographs to fetch
 scripts/
   smoke.mjs             drives two real browsers through a full match
 ```
@@ -108,13 +109,13 @@ generated art. Every image is Creative Commons or public domain, redistribution
 is permitted with attribution, and the in-game credits page provides it.
 
 They are downscaled to 900px and stored as JPEG, which keeps the whole set to
-about 12 MB. Re-running the fetcher replaces them at full size; the originals
+about 25 MB. Re-running the fetcher replaces them at full size; the originals
 are large enough (a 3 MB PNG for a card that renders 330px wide) to be worth
 shrinking again before committing.
 
 ### Check the contact sheet
 
-Every run also writes `public/cards/contact-sheet.html`: all 120 cards on one
+Every run also writes `public/cards/contact-sheet.html`: all 240 cards on one
 page, each cropped exactly as the game crops it, labelled with its source
 article, its licence, and whether it came from a pinned file or a lead image.
 Cards with no photo are outlined in red with the reason.
@@ -132,7 +133,7 @@ npm run fetch-images -- --force --deck=supercars
 
 ### Rate limits
 
-Wikimedia rate-limits bulk downloads, and a fresh run of all 120 cards will
+Wikimedia rate-limits bulk downloads, and a fresh run of all 240 cards will
 usually hit it. The fetcher backs off and retries, and reports whatever it
 could not get. **Just run it again** - anything already on disk is skipped, so
 each pass only picks up the stragglers, and a card with no photo falls back to
@@ -184,6 +185,30 @@ ignored by the browser.
 Set `FETCH_IMAGES_CONTACT` to your email or repository URL; Wikimedia asks
 automated clients to identify themselves.
 
+### Cards that are drawn rather than photographed
+
+Some subjects have no freely licensed photograph, and never will. Every image
+of a Fortnite weapon - every screenshot, every asset, every render - belongs to
+Epic Games, so the fetcher has nothing it may legally bring back.
+
+Those cards carry a drawing committed alongside the deck instead:
+
+```jsonc
+{ "id": "scar", "name": "SCAR", "localArt": "scar.svg" }
+```
+
+The file lives at `public/cards/<deck>/<name>`, is used in preference to
+anything the fetcher found, and is skipped by `npm run fetch-images` entirely.
+It appears on the contact sheet marked **drawn**, because art can be wrong as
+easily as a photograph can. It carries no photo credit, because there is no
+photographer to credit.
+
+The Fortnite deck's thirty weapons are drawn by `npm run fortnite-art`, which
+composes each one from labelled parts - barrel, receiver, magazine, scope - over
+its rarity colour. It is deterministic, so regenerating produces byte-identical
+files and a change to the drawing shows up as a reviewable diff rather than
+thirty replaced binaries.
+
 ### There are no photographs of dinosaurs
 
 Worth being straight about: every card in that deck is either a photograph of a
@@ -220,7 +245,9 @@ server with a message rather than surfacing three rounds into a game.
   "theme": { "primary": "#3b0764", "accent": "#f0abfc", "ink": "#fae8ff" },
   "stats": [
     { "id": "year", "label": "Year", "higherWins": true },
-    { "id": "weight", "label": "Weight", "unit": " kg", "decimals": 1, "higherWins": false }
+    { "id": "weight", "label": "Weight", "unit": " kg", "decimals": 1, "higherWins": false },
+    // `grouped: false` drops the thousands separator - a year is not "1,954"
+    { "id": "founded", "label": "Founded", "grouped": false, "higherWins": false }
     // ... six stats keeps every card the same shape
   ],
   "cards": [
@@ -251,6 +278,7 @@ An even card count is enforced: an odd one deals a permanent one-card advantage.
 | `npm run typecheck` | TypeScript across client, server and tools |
 | `npm run smoke` | opens two real browsers and plays a full match end to end |
 | `npm run fetch-images` | downloads card photographs |
+| `npm run fortnite-art` | redraws the Fortnite deck's weapon art |
 
 `npm run smoke` needs a build first and Playwright's Chromium installed
 (`npx playwright install chromium`). Add `--shots` to write screenshots to

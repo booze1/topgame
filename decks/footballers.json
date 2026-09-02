@@ -1,0 +1,513 @@
+{
+  "id": "footballers",
+  "name": "Footballers",
+  "tagline": "Thirty of the greatest, from Puskás to Haaland",
+  "emoji": "⚽",
+  "theme": {
+    "primary": "#052e16",
+    "accent": "#86efac",
+    "ink": "#f0fdf4"
+  },
+  "stats": [
+    {
+      "id": "goals",
+      "label": "Career goals",
+      "higherWins": true,
+      "description": "Senior competitive goals for club and country"
+    },
+    {
+      "id": "apps",
+      "label": "Appearances",
+      "higherWins": true,
+      "description": "Senior competitive matches for club and country"
+    },
+    {
+      "id": "caps",
+      "label": "Caps",
+      "higherWins": true,
+      "description": "Full international appearances"
+    },
+    {
+      "id": "trophies",
+      "label": "Major trophies",
+      "higherWins": true,
+      "description": "Leagues, domestic cups, continental and world honours"
+    },
+    {
+      "id": "career",
+      "label": "Years at the top",
+      "unit": " yrs",
+      "higherWins": true,
+      "description": "Length of the senior professional career"
+    },
+    {
+      "id": "legend",
+      "label": "Legend",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How the game as a whole remembers them"
+    }
+  ],
+  "cards": [
+    {
+      "id": "messi",
+      "name": "Lionel Messi",
+      "subtitle": "Argentina · eight Ballons d'Or and a World Cup at the end",
+      "emoji": "🇦🇷",
+      "wikipedia": "Lionel Messi",
+      "focus": "top",
+      "stats": {
+        "goals": 850,
+        "apps": 1100,
+        "caps": 195,
+        "trophies": 46,
+        "career": 21,
+        "legend": 100
+      }
+    },
+    {
+      "id": "ronaldo",
+      "name": "Cristiano Ronaldo",
+      "subtitle": "Portugal · the most relentless goalscorer the game has had",
+      "emoji": "🇵🇹",
+      "wikipedia": "Cristiano Ronaldo",
+      "focus": "top",
+      "stats": {
+        "goals": 930,
+        "apps": 1250,
+        "caps": 220,
+        "trophies": 34,
+        "career": 23,
+        "legend": 99
+      }
+    },
+    {
+      "id": "pele",
+      "name": "Pelé",
+      "subtitle": "Brazil · the only man to win three World Cups",
+      "emoji": "🇧🇷",
+      "wikipedia": "Pelé",
+      "focus": "top",
+      "stats": {
+        "goals": 767,
+        "apps": 812,
+        "caps": 92,
+        "trophies": 26,
+        "career": 21,
+        "legend": 98
+      }
+    },
+    {
+      "id": "maradona",
+      "name": "Diego Maradona",
+      "subtitle": "Argentina · carried Napoli and a nation on his own",
+      "emoji": "🇦🇷",
+      "wikipedia": "Diego Maradona",
+      "focus": "top",
+      "stats": {
+        "goals": 312,
+        "apps": 679,
+        "caps": 91,
+        "trophies": 9,
+        "career": 21,
+        "legend": 97
+      }
+    },
+    {
+      "id": "cruyff",
+      "name": "Johan Cruyff",
+      "subtitle": "Netherlands · invented the turn, then invented Barcelona",
+      "emoji": "🇳🇱",
+      "wikipedia": "Johan Cruyff",
+      "stats": {
+        "goals": 292,
+        "apps": 663,
+        "caps": 48,
+        "trophies": 22,
+        "career": 20,
+        "legend": 95
+      }
+    },
+    {
+      "id": "zidane",
+      "name": "Zinedine Zidane",
+      "subtitle": "France · a World Cup final volley and a World Cup final headbutt",
+      "emoji": "🇫🇷",
+      "wikipedia": "Zinedine Zidane",
+      "stats": {
+        "goals": 156,
+        "apps": 809,
+        "caps": 108,
+        "trophies": 16,
+        "career": 17,
+        "legend": 94
+      }
+    },
+    {
+      "id": "beckenbauer",
+      "name": "Franz Beckenbauer",
+      "subtitle": "Germany · der Kaiser, who made the sweeper an attacker",
+      "emoji": "🇩🇪",
+      "wikipedia": "Franz Beckenbauer",
+      "stats": {
+        "goals": 82,
+        "apps": 776,
+        "caps": 103,
+        "trophies": 20,
+        "career": 19,
+        "legend": 93
+      }
+    },
+    {
+      "id": "ronaldo_r9",
+      "name": "Ronaldo Nazário",
+      "subtitle": "Brazil · O Fenômeno, unplayable before the knees went",
+      "emoji": "🇧🇷",
+      "wikipedia": "Ronaldo (Brazilian footballer)",
+      "stats": {
+        "goals": 414,
+        "apps": 615,
+        "caps": 98,
+        "trophies": 16,
+        "career": 18,
+        "legend": 93
+      }
+    },
+    {
+      "id": "distefano",
+      "name": "Alfredo Di Stéfano",
+      "subtitle": "Argentina · five European Cups in a row, and scored in all five finals",
+      "emoji": "🇦🇷",
+      "wikipedia": "Alfredo Di Stéfano",
+      "stats": {
+        "goals": 377,
+        "apps": 521,
+        "caps": 41,
+        "trophies": 18,
+        "career": 21,
+        "legend": 92
+      }
+    },
+    {
+      "id": "maldini",
+      "name": "Paolo Maldini",
+      "subtitle": "Italy · twenty-five seasons, one club, no dive",
+      "emoji": "🇮🇹",
+      "wikipedia": "Paolo Maldini",
+      "stats": {
+        "goals": 40,
+        "apps": 1028,
+        "caps": 126,
+        "trophies": 26,
+        "career": 25,
+        "legend": 90
+      }
+    },
+    {
+      "id": "puskas",
+      "name": "Ferenc Puskás",
+      "subtitle": "Hungary · the Galloping Major, and the best left foot ever seen",
+      "emoji": "🇭🇺",
+      "wikipedia": "Ferenc Puskás",
+      "stats": {
+        "goals": 725,
+        "apps": 754,
+        "caps": 89,
+        "trophies": 20,
+        "career": 23,
+        "legend": 90
+      }
+    },
+    {
+      "id": "gerdmuller",
+      "name": "Gerd Müller",
+      "subtitle": "Germany · Der Bomber, all of it from inside six yards",
+      "emoji": "🇩🇪",
+      "wikipedia": "Gerd Müller",
+      "stats": {
+        "goals": 735,
+        "apps": 794,
+        "caps": 62,
+        "trophies": 20,
+        "career": 18,
+        "legend": 90
+      }
+    },
+    {
+      "id": "mbappe",
+      "name": "Kylian Mbappé",
+      "subtitle": "France · a World Cup winner at 19, a final hat-trick at 23",
+      "emoji": "🇫🇷",
+      "wikipedia": "Kylian Mbappé",
+      "focus": "top",
+      "stats": {
+        "goals": 400,
+        "apps": 570,
+        "caps": 95,
+        "trophies": 20,
+        "career": 10,
+        "legend": 90
+      }
+    },
+    {
+      "id": "modric",
+      "name": "Luka Modrić",
+      "subtitle": "Croatia · the smallest man on the pitch, running it",
+      "emoji": "🇭🇷",
+      "wikipedia": "Luka Modrić",
+      "focus": "top",
+      "stats": {
+        "goals": 110,
+        "apps": 1000,
+        "caps": 190,
+        "trophies": 30,
+        "career": 22,
+        "legend": 89
+      }
+    },
+    {
+      "id": "ronaldinho",
+      "name": "Ronaldinho",
+      "subtitle": "Brazil · got a standing ovation at the Bernabéu",
+      "emoji": "🇧🇷",
+      "wikipedia": "Ronaldinho",
+      "stats": {
+        "goals": 208,
+        "apps": 605,
+        "caps": 97,
+        "trophies": 14,
+        "career": 17,
+        "legend": 89
+      }
+    },
+    {
+      "id": "yashin",
+      "name": "Lev Yashin",
+      "subtitle": "Soviet Union · the Black Spider, the only keeper to win the Ballon d'Or",
+      "emoji": "🧤",
+      "wikipedia": "Lev Yashin",
+      "stats": {
+        "goals": 0,
+        "apps": 442,
+        "caps": 74,
+        "trophies": 7,
+        "career": 21,
+        "legend": 88
+      }
+    },
+    {
+      "id": "bobbycharlton",
+      "name": "Bobby Charlton",
+      "subtitle": "England · survived Munich, won everything after it",
+      "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "wikipedia": "Bobby Charlton",
+      "stats": {
+        "goals": 249,
+        "apps": 758,
+        "caps": 106,
+        "trophies": 8,
+        "career": 19,
+        "legend": 88
+      }
+    },
+    {
+      "id": "iniesta",
+      "name": "Andrés Iniesta",
+      "subtitle": "Spain · scored the goal that won Spain a World Cup",
+      "emoji": "🇪🇸",
+      "wikipedia": "Andrés Iniesta",
+      "stats": {
+        "goals": 96,
+        "apps": 1000,
+        "caps": 131,
+        "trophies": 39,
+        "career": 22,
+        "legend": 88
+      }
+    },
+    {
+      "id": "eusebio",
+      "name": "Eusébio",
+      "subtitle": "Portugal · the Black Panther, nine Portuguese Golden Boots",
+      "emoji": "🇵🇹",
+      "wikipedia": "Eusébio",
+      "stats": {
+        "goals": 473,
+        "apps": 614,
+        "caps": 64,
+        "trophies": 15,
+        "career": 22,
+        "legend": 87
+      }
+    },
+    {
+      "id": "xavi",
+      "name": "Xavi",
+      "subtitle": "Spain · never lost the ball, and never stopped moving",
+      "emoji": "🇪🇸",
+      "wikipedia": "Xavi",
+      "commonsFile": "File:Xavi Hernández Spain 2009 (cropped).jpg",
+      "stats": {
+        "goals": 85,
+        "apps": 973,
+        "caps": 133,
+        "trophies": 33,
+        "career": 21,
+        "legend": 87
+      }
+    },
+    {
+      "id": "henry",
+      "name": "Thierry Henry",
+      "subtitle": "France · the Invincibles' centre forward, playing off the left",
+      "emoji": "🇫🇷",
+      "wikipedia": "Thierry Henry",
+      "stats": {
+        "goals": 360,
+        "apps": 792,
+        "caps": 123,
+        "trophies": 17,
+        "career": 20,
+        "legend": 87
+      }
+    },
+    {
+      "id": "garrincha",
+      "name": "Garrincha",
+      "subtitle": "Brazil · one leg shorter than the other, and nobody could stop him",
+      "emoji": "🇧🇷",
+      "wikipedia": "Garrincha",
+      "stats": {
+        "goals": 232,
+        "apps": 581,
+        "caps": 50,
+        "trophies": 12,
+        "career": 19,
+        "legend": 86
+      }
+    },
+    {
+      "id": "vanbasten",
+      "name": "Marco van Basten",
+      "subtitle": "Netherlands · that volley in 1988, then an ankle ended it at 28",
+      "emoji": "🇳🇱",
+      "wikipedia": "Marco van Basten",
+      "stats": {
+        "goals": 300,
+        "apps": 483,
+        "caps": 58,
+        "trophies": 15,
+        "career": 14,
+        "legend": 86
+      }
+    },
+    {
+      "id": "baggio",
+      "name": "Roberto Baggio",
+      "subtitle": "Italy · the Divine Ponytail, and one penalty over the bar",
+      "emoji": "🇮🇹",
+      "wikipedia": "Roberto Baggio",
+      "stats": {
+        "goals": 291,
+        "apps": 699,
+        "caps": 56,
+        "trophies": 9,
+        "career": 22,
+        "legend": 86
+      }
+    },
+    {
+      "id": "platini",
+      "name": "Michel Platini",
+      "subtitle": "France · three Ballons d'Or in a row, from midfield",
+      "emoji": "🇫🇷",
+      "wikipedia": "Michel Platini",
+      "commonsFile": "File:Michel Platini 2008.jpg",
+      "stats": {
+        "goals": 312,
+        "apps": 646,
+        "caps": 72,
+        "trophies": 9,
+        "career": 15,
+        "legend": 88
+      }
+    },
+    {
+      "id": "zico",
+      "name": "Zico",
+      "subtitle": "Brazil · the white Pelé, and the best free kick of his generation",
+      "emoji": "🇧🇷",
+      "wikipedia": "Zico",
+      "commonsFile": "File:Zico 2011.jpg",
+      "stats": {
+        "goals": 527,
+        "apps": 754,
+        "caps": 71,
+        "trophies": 16,
+        "career": 23,
+        "legend": 85
+      }
+    },
+    {
+      "id": "georgebest",
+      "name": "George Best",
+      "subtitle": "Northern Ireland · the first footballer to be a pop star",
+      "emoji": "🇬🇧",
+      "wikipedia": "George Best",
+      "stats": {
+        "goals": 205,
+        "apps": 579,
+        "caps": 37,
+        "trophies": 4,
+        "career": 21,
+        "legend": 85
+      }
+    },
+    {
+      "id": "baresi",
+      "name": "Franco Baresi",
+      "subtitle": "Italy · ran Milan's offside line for twenty years",
+      "emoji": "🇮🇹",
+      "wikipedia": "Franco Baresi",
+      "stats": {
+        "goals": 33,
+        "apps": 719,
+        "caps": 81,
+        "trophies": 20,
+        "career": 20,
+        "legend": 85
+      }
+    },
+    {
+      "id": "giggs",
+      "name": "Ryan Giggs",
+      "subtitle": "Wales · thirteen league titles, more than any other player",
+      "emoji": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+      "wikipedia": "Ryan Giggs",
+      "stats": {
+        "goals": 168,
+        "apps": 1088,
+        "caps": 64,
+        "trophies": 36,
+        "career": 24,
+        "legend": 84
+      }
+    },
+    {
+      "id": "haaland",
+      "name": "Erling Haaland",
+      "subtitle": "Norway · scoring at a rate the record books were not built for",
+      "emoji": "🇳🇴",
+      "wikipedia": "Erling Haaland",
+      "focus": "top",
+      "stats": {
+        "goals": 320,
+        "apps": 470,
+        "caps": 45,
+        "trophies": 12,
+        "career": 9,
+        "legend": 84
+      }
+    }
+  ]
+}

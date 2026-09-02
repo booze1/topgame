@@ -1,0 +1,521 @@
+{
+  "id": "skiresorts",
+  "name": "Ski Resorts",
+  "tagline": "Thirty European mountains, one connected lift pass each",
+  "emoji": "🎿",
+  "theme": {
+    "primary": "#0c4a6e",
+    "accent": "#7dd3fc",
+    "ink": "#f0f9ff"
+  },
+  "stats": [
+    {
+      "id": "altitude",
+      "label": "Top altitude",
+      "unit": " m",
+      "higherWins": true,
+      "description": "The highest point you can be carried to by lift"
+    },
+    {
+      "id": "area",
+      "label": "Ski area",
+      "unit": " km",
+      "higherWins": true,
+      "description": "Pisted runs across the whole connected area the lift pass covers"
+    },
+    {
+      "id": "lifts",
+      "label": "Lifts",
+      "higherWins": true,
+      "description": "Lifts in that same connected area"
+    },
+    {
+      "id": "snow",
+      "label": "Snow sureness",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How reliably it has cover from December to April"
+    },
+    {
+      "id": "apres",
+      "label": "Après",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "What happens once the lifts stop"
+    },
+    {
+      "id": "prestige",
+      "label": "Prestige",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How impressed people are when you say where you skied"
+    }
+  ],
+  "cards": [
+    {
+      "id": "zermatt",
+      "name": "Zermatt",
+      "subtitle": "Switzerland · under the Matterhorn, no cars",
+      "emoji": "🇨🇭",
+      "wikipedia": "Zermatt",
+      "commonsFile": "File:Matterhorn winter.jpg",
+      "stats": {
+        "altitude": 3883,
+        "area": 360,
+        "lifts": 53,
+        "snow": 98,
+        "apres": 78,
+        "prestige": 96
+      }
+    },
+    {
+      "id": "chamonix",
+      "name": "Chamonix",
+      "subtitle": "France · where mountaineering was invented",
+      "emoji": "🇫🇷",
+      "wikipedia": "Chamonix",
+      "commonsFile": "File:Chamonix winter (6743471939).jpg",
+      "stats": {
+        "altitude": 3842,
+        "area": 170,
+        "lifts": 49,
+        "snow": 88,
+        "apres": 80,
+        "prestige": 92
+      }
+    },
+    {
+      "id": "lesdeuxalpes",
+      "name": "Les Deux Alpes",
+      "subtitle": "France · the biggest skiable glacier in Europe",
+      "emoji": "🇫🇷",
+      "wikipedia": "Les Deux Alpes",
+      "stats": {
+        "altitude": 3600,
+        "area": 200,
+        "lifts": 45,
+        "snow": 88,
+        "apres": 78,
+        "prestige": 65
+      }
+    },
+    {
+      "id": "saasfee",
+      "name": "Saas-Fee",
+      "subtitle": "Switzerland · thirteen four-thousanders overhead",
+      "emoji": "🇨🇭",
+      "wikipedia": "Saas-Fee",
+      "stats": {
+        "altitude": 3600,
+        "area": 100,
+        "lifts": 22,
+        "snow": 96,
+        "apres": 68,
+        "prestige": 66
+      }
+    },
+    {
+      "id": "valdisere",
+      "name": "Val d'Isère",
+      "subtitle": "France · half of the Espace Killy",
+      "emoji": "🇫🇷",
+      "wikipedia": "Val-d'Isère",
+      "commonsFile": "File:Solaise à Val-d'Isère depuis Barrage de Tignes (février 2026).JPG",
+      "stats": {
+        "altitude": 3456,
+        "area": 300,
+        "lifts": 78,
+        "snow": 94,
+        "apres": 88,
+        "prestige": 88
+      }
+    },
+    {
+      "id": "solden",
+      "name": "Sölden",
+      "subtitle": "Austria · two glaciers and a Bond villain's lair",
+      "emoji": "🇦🇹",
+      "wikipedia": "Sölden",
+      "stats": {
+        "altitude": 3340,
+        "area": 144,
+        "lifts": 31,
+        "snow": 92,
+        "apres": 90,
+        "prestige": 70
+      }
+    },
+    {
+      "id": "alpedhuez",
+      "name": "Alpe d'Huez",
+      "subtitle": "France · the Sarenne, 16 km of it",
+      "emoji": "🇫🇷",
+      "wikipedia": "Alpe d'Huez",
+      "commonsFile": "File:Alpe d'Huez resort seen from Mine de l'Herpie winter 2009.JPG",
+      "stats": {
+        "altitude": 3330,
+        "area": 250,
+        "lifts": 68,
+        "snow": 85,
+        "apres": 72,
+        "prestige": 70
+      }
+    },
+    {
+      "id": "verbier",
+      "name": "Verbier",
+      "subtitle": "Switzerland · off-piste and a very long night",
+      "emoji": "🇨🇭",
+      "wikipedia": "Verbier",
+      "commonsFile": "File:Ski Slopes of Verbier.jpg",
+      "stats": {
+        "altitude": 3330,
+        "area": 410,
+        "lifts": 82,
+        "snow": 85,
+        "apres": 95,
+        "prestige": 90
+      }
+    },
+    {
+      "id": "stmoritz",
+      "name": "St. Moritz",
+      "subtitle": "Switzerland · furs, the Cresta Run, two Olympics",
+      "emoji": "🇨🇭",
+      "wikipedia": "St. Moritz",
+      "stats": {
+        "altitude": 3303,
+        "area": 350,
+        "lifts": 56,
+        "snow": 88,
+        "apres": 80,
+        "prestige": 98
+      }
+    },
+    {
+      "id": "laplagne",
+      "name": "La Plagne",
+      "subtitle": "France · half of Paradiski, and the bobsleigh track",
+      "emoji": "🇫🇷",
+      "wikipedia": "La Plagne",
+      "stats": {
+        "altitude": 3250,
+        "area": 425,
+        "lifts": 129,
+        "snow": 90,
+        "apres": 70,
+        "prestige": 68
+      }
+    },
+    {
+      "id": "valthorens",
+      "name": "Val Thorens",
+      "subtitle": "France · the highest resort in Europe, in the Three Valleys",
+      "emoji": "🇫🇷",
+      "wikipedia": "Val Thorens",
+      "stats": {
+        "altitude": 3230,
+        "area": 600,
+        "lifts": 156,
+        "snow": 95,
+        "apres": 82,
+        "prestige": 80
+      }
+    },
+    {
+      "id": "obergurgl",
+      "name": "Obergurgl",
+      "subtitle": "Austria · the highest parish in Austria, snow until May",
+      "emoji": "🇦🇹",
+      "wikipedia": "Obergurgl",
+      "commonsFile": "File:Chairlift in Ski Area Obergurgl-Hochgurgl in Tirol.jpg",
+      "stats": {
+        "altitude": 3082,
+        "area": 112,
+        "lifts": 25,
+        "snow": 94,
+        "apres": 66,
+        "prestige": 68
+      }
+    },
+    {
+      "id": "zellamsee",
+      "name": "Zell am See-Kaprun",
+      "subtitle": "Austria · a lake below, the Kitzsteinhorn glacier above",
+      "emoji": "🇦🇹",
+      "wikipedia": "Zell am See",
+      "commonsFile": "File:Zell am See im Winter 04.JPG",
+      "stats": {
+        "altitude": 3029,
+        "area": 138,
+        "lifts": 53,
+        "snow": 86,
+        "apres": 80,
+        "prestige": 66
+      }
+    },
+    {
+      "id": "laax",
+      "name": "Laax",
+      "subtitle": "Switzerland · the best-built park on the continent",
+      "emoji": "🇨🇭",
+      "wikipedia": "Laax",
+      "commonsFile": "File:Skigebiet Laax - panoramio.jpg",
+      "stats": {
+        "altitude": 3018,
+        "area": 224,
+        "lifts": 28,
+        "snow": 84,
+        "apres": 76,
+        "prestige": 72
+      }
+    },
+    {
+      "id": "andermatt",
+      "name": "Andermatt",
+      "subtitle": "Switzerland · a quiet army town that got very rich",
+      "emoji": "🇨🇭",
+      "wikipedia": "Andermatt",
+      "commonsFile": "File:Andermatt Winter.jpg",
+      "stats": {
+        "altitude": 2961,
+        "area": 180,
+        "lifts": 33,
+        "snow": 90,
+        "apres": 60,
+        "prestige": 70
+      }
+    },
+    {
+      "id": "grindelwald",
+      "name": "Grindelwald",
+      "subtitle": "Switzerland · in the shadow of the Eiger north face",
+      "emoji": "🇨🇭",
+      "wikipedia": "Grindelwald",
+      "stats": {
+        "altitude": 2970,
+        "area": 206,
+        "lifts": 44,
+        "snow": 78,
+        "apres": 70,
+        "prestige": 82
+      }
+    },
+    {
+      "id": "cortina",
+      "name": "Cortina d'Ampezzo",
+      "subtitle": "Italy · the Dolomites at their most photogenic",
+      "emoji": "🇮🇹",
+      "wikipedia": "Cortina d'Ampezzo",
+      "stats": {
+        "altitude": 2930,
+        "area": 120,
+        "lifts": 34,
+        "snow": 72,
+        "apres": 78,
+        "prestige": 92
+      }
+    },
+    {
+      "id": "cransmontana",
+      "name": "Crans-Montana",
+      "subtitle": "Switzerland · a sun terrace above the Rhône",
+      "emoji": "🇨🇭",
+      "wikipedia": "Crans-Montana",
+      "commonsFile": "File:SnowIng in Crans Montana (49299399603).jpg",
+      "stats": {
+        "altitude": 2927,
+        "area": 140,
+        "lifts": 26,
+        "snow": 74,
+        "apres": 72,
+        "prestige": 80
+      }
+    },
+    {
+      "id": "ischgl",
+      "name": "Ischgl",
+      "subtitle": "Austria · a stadium concert at the bottom of the hill",
+      "emoji": "🇦🇹",
+      "wikipedia": "Ischgl",
+      "commonsFile": "File:Snowboarding in ischgl גלישה בגלשן שלג באישגיל.jpg",
+      "stats": {
+        "altitude": 2872,
+        "area": 239,
+        "lifts": 45,
+        "snow": 90,
+        "apres": 97,
+        "prestige": 78
+      }
+    },
+    {
+      "id": "sestriere",
+      "name": "Sestriere",
+      "subtitle": "Italy · purpose-built by Fiat, part of the Milky Way",
+      "emoji": "🇮🇹",
+      "wikipedia": "Sestriere",
+      "commonsFile": "File:Sestriere Ski Station (ITA) 2012.jpg",
+      "stats": {
+        "altitude": 2823,
+        "area": 400,
+        "lifts": 69,
+        "snow": 70,
+        "apres": 70,
+        "prestige": 64
+      }
+    },
+    {
+      "id": "stanton",
+      "name": "St. Anton am Arlberg",
+      "subtitle": "Austria · the cradle of alpine skiing, and the MooserWirt",
+      "emoji": "🇦🇹",
+      "wikipedia": "St. Anton am Arlberg",
+      "stats": {
+        "altitude": 2811,
+        "area": 305,
+        "lifts": 88,
+        "snow": 88,
+        "apres": 98,
+        "prestige": 86
+      }
+    },
+    {
+      "id": "livigno",
+      "name": "Livigno",
+      "subtitle": "Italy · duty-free, high, and cold enough to keep it",
+      "emoji": "🇮🇹",
+      "wikipedia": "Livigno",
+      "stats": {
+        "altitude": 2797,
+        "area": 115,
+        "lifts": 31,
+        "snow": 88,
+        "apres": 76,
+        "prestige": 62
+      }
+    },
+    {
+      "id": "davos",
+      "name": "Davos Klosters",
+      "subtitle": "Switzerland · six mountains and the World Economic Forum",
+      "emoji": "🇨🇭",
+      "wikipedia": "Davos",
+      "commonsFile": "File:Wintertraum im schönen Davos.jpg",
+      "stats": {
+        "altitude": 2844,
+        "area": 300,
+        "lifts": 55,
+        "snow": 86,
+        "apres": 70,
+        "prestige": 78
+      }
+    },
+    {
+      "id": "baqueira",
+      "name": "Baqueira Beret",
+      "subtitle": "Spain · the Pyrenees, and where the royals go",
+      "emoji": "🇪🇸",
+      "wikipedia": "Baqueira Beret",
+      "commonsFile": "File:Baqueira 1800.jpg",
+      "stats": {
+        "altitude": 2610,
+        "area": 167,
+        "lifts": 36,
+        "snow": 72,
+        "apres": 74,
+        "prestige": 72
+      }
+    },
+    {
+      "id": "valgardena",
+      "name": "Val Gardena",
+      "subtitle": "Italy · one ticket for the whole Sella Ronda",
+      "emoji": "🇮🇹",
+      "wikipedia": "Val Gardena",
+      "stats": {
+        "altitude": 2518,
+        "area": 175,
+        "lifts": 79,
+        "snow": 76,
+        "apres": 74,
+        "prestige": 76
+      }
+    },
+    {
+      "id": "mayrhofen",
+      "name": "Mayrhofen",
+      "subtitle": "Austria · the Harakiri, steepest piste in the country",
+      "emoji": "🇦🇹",
+      "wikipedia": "Mayrhofen",
+      "stats": {
+        "altitude": 2500,
+        "area": 142,
+        "lifts": 36,
+        "snow": 72,
+        "apres": 92,
+        "prestige": 62
+      }
+    },
+    {
+      "id": "megeve",
+      "name": "Megève",
+      "subtitle": "France · built by a Rothschild who found St. Moritz too busy",
+      "emoji": "🇫🇷",
+      "wikipedia": "Megève",
+      "commonsFile": "File:Evasion Mont Blanc, Megève (P1080011).jpg",
+      "stats": {
+        "altitude": 2350,
+        "area": 400,
+        "lifts": 79,
+        "snow": 68,
+        "apres": 74,
+        "prestige": 85
+      }
+    },
+    {
+      "id": "saalbach",
+      "name": "Saalbach-Hinterglemm",
+      "subtitle": "Austria · a circuit you can ski all day without repeating",
+      "emoji": "🇦🇹",
+      "wikipedia": "Saalbach-Hinterglemm",
+      "stats": {
+        "altitude": 2096,
+        "area": 270,
+        "lifts": 70,
+        "snow": 70,
+        "apres": 94,
+        "prestige": 68
+      }
+    },
+    {
+      "id": "kitzbuhel",
+      "name": "Kitzbühel",
+      "subtitle": "Austria · a medieval town and the Hahnenkamm",
+      "emoji": "🇦🇹",
+      "wikipedia": "Kitzbühel",
+      "stats": {
+        "altitude": 2000,
+        "area": 233,
+        "lifts": 57,
+        "snow": 62,
+        "apres": 88,
+        "prestige": 90
+      }
+    },
+    {
+      "id": "are",
+      "name": "Åre",
+      "subtitle": "Sweden · low, dark, freezing, and enormous fun",
+      "emoji": "🇸🇪",
+      "wikipedia": "Åre",
+      "stats": {
+        "altitude": 1274,
+        "area": 91,
+        "lifts": 41,
+        "snow": 74,
+        "apres": 90,
+        "prestige": 58
+      }
+    }
+  ]
+}

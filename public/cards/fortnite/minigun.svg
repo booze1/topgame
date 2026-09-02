@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="minigun">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a371f7"/>
+      <stop offset="1" stop-color="#3b1a78"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <g opacity="0.14" fill="#000000">
+    <rect x="0" y="0" width="18" height="180"/>
+    <rect x="36" y="0" width="18" height="180"/>
+    <rect x="72" y="0" width="18" height="180"/>
+    <rect x="108" y="0" width="18" height="180"/>
+    <rect x="144" y="0" width="18" height="180"/>
+    <rect x="180" y="0" width="18" height="180"/>
+    <rect x="216" y="0" width="18" height="180"/>
+    <rect x="252" y="0" width="18" height="180"/>
+    <rect x="288" y="0" width="18" height="180"/>
+  </g>
+  <g>
+    <rect x="46" y="74" width="66" height="44" rx="4" fill="#12161f"/>
+    <circle cx="120" cy="96" r="24" fill="#12161f"/>
+    <rect x="140" y="76" width="106" height="5" rx="1" fill="#12161f"/>
+    <rect x="140" y="84" width="106" height="5" rx="1" fill="#12161f"/>
+    <rect x="140" y="92" width="106" height="5" rx="1" fill="#12161f"/>
+    <rect x="140" y="100" width="106" height="5" rx="1" fill="#12161f"/>
+    <rect x="140" y="108" width="106" height="5" rx="1" fill="#12161f"/>
+    <rect x="140" y="74" width="10" height="44" rx="2" fill="#12161f"/>
+    <rect x="240" y="72" width="12" height="48" rx="3" fill="#12161f"/>
+    <rect x="60" y="118" width="12" height="26" rx="2" fill="#12161f"/>
+    <rect x="96" y="118" width="12" height="26" rx="2" fill="#12161f"/>
+    <circle cx="120" cy="96" r="8" fill="#e2e8f0"/>
+    <polygon points="256,96 274,87 269,96 274,105" fill="#a371f7"/><circle cx="258" cy="96" r="4" fill="#a371f7"/>
+  </g>
+</svg>

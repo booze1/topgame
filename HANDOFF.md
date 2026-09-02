@@ -14,14 +14,18 @@ the repo owner.
 - **Repo**: `booze1/topgame` — public
 - **Branch**: `claude/top-trumps-card-game-8y1dyr` (this is GitHub's default
   branch; there is no `main`)
-- **Last commit**: `9d3710b` Commit the card photographs so deployed instances have them
-- 131 tests passing, typecheck clean, end-to-end smoke test passing
-- 116 of 120 cards have real photographs
+- **Eight decks, 240 cards.** The original four (animals, dinosaurs, space,
+  supercars) plus four added since: **Fortnite Guns**, **Footballers**,
+  **Alcohol**, **Ski Resorts**
+- 139 tests, typecheck clean, end-to-end smoke test passing. One test is
+  flaky — see "The flaky test" below; it is not new and not a product bug
+- 236 of 240 cards have a picture. All four new decks are complete; the four
+  gaps are the same dinosaur cards as before
 
 ```bash
 npm install
 npm run dev            # http://localhost:5173
-npm test               # 131 tests
+npm test               # 139 tests
 npm run build && npm run smoke   # drives two real browsers through a full match
 ```
 
@@ -37,7 +41,10 @@ say-so, not yours.
 | Multiplayer | Authoritative Node + WebSocket server, four-letter room codes |
 | Rules | Classic: winner picks next, draws build a pot, take every card to win |
 | Stalemate breaker | 80-round cap, larger hand wins |
-| Decks | Data-driven JSON, four decks of 30 cards, 6 stats each |
+| Decks | Data-driven JSON, 30 cards and 6 stats each. Every deck keeps that shape |
+| Fortnite art | **Drawn, not photographed** — no free image of a Fortnite weapon exists |
+| Alcohol "age" | Year the **brand, brewery or distillery** was founded, oldest wins. Not the bottle's age statement |
+| Footballers | **All eras**, not just the modern game, accepting that pre-1990 photos are scarcer |
 | Client | React + TypeScript + Vite, hand-written CSS (no framework) |
 | Deploy | One Node process serving client + API + websocket |
 | Dinosaur art | **Palaeoart life restorations**, not skeletons |
@@ -45,6 +52,28 @@ say-so, not yours.
 | Photos | Fetched from Wikipedia/Commons, free licences only, committed to the repo |
 
 ---
+
+## The four newer decks
+
+| Deck | Pictures | Worth knowing |
+| --- | --- | --- |
+| `fortnite` | 30 drawn SVGs | Ranged weapons only. The Minigun's magazine and reload are genuinely `0` — it has neither |
+| `footballers` | 30 photos | Eight cards carry `focus: "top"`; without it the 16:9 crop takes the head off |
+| `alcohol` | 30 photos | `founded` is `higherWins: false` and `grouped: false`, so 1759 sorts oldest-wins and renders without a comma |
+| `skiresorts` | 30 photos | Ski area and lift counts are for the **connected** domain, so no two cards share one (only Val Thorens for the Three Valleys, and so on) |
+
+**Fortnite art is drawn, and that was a deliberate decision.** Every image of a
+Fortnite weapon belongs to Epic Games, so there is nothing the fetcher may
+legally bring back. `npm run fortnite-art` composes each weapon from labelled
+parts (barrel, receiver, magazine, scope) over its rarity colour and writes
+`public/cards/fortnite/*.svg`. It is deterministic — regenerate and you get
+byte-identical files, so a change to the drawing is a readable diff. To change a
+weapon, edit its entry in `src/tools/fortnite-art.ts` and re-run.
+
+A card points at drawn art with `"localArt": "scar.svg"`. That file must sit in
+`public/cards/<deck>/`, it beats anything in the photo manifest, `fetch-images`
+skips it entirely, and it carries no photo credit because nobody photographed
+it. The contact sheet shows it badged **drawn**.
 
 ## Things that will cost you an hour if you don't know them
 
@@ -85,6 +114,36 @@ client scales its reveal animation to whatever window the server advertises.
 
 ---
 
+**Half the ski photos came back as summer.** Wikipedia's lead image for an
+alpine village is very often a green valley in July, which is no use on a deck
+called Ski Resorts. Fourteen of the thirty are pinned to a winter file found by
+searching the resort's **Commons category** rather than by keyword — category
+listing is far more reliable for this, since filenames like
+`Laax Winter.JPG` say what keyword search cannot. Three are still summer
+(Sölden, Mayrhofen, Megève have no good winter file on Commons); they are the
+right resorts, so they were left.
+
+**Brand articles usually have no lead image**, because their infobox logo is
+non-free and therefore not in `pageimages`. Nine alcohol cards hit this and are
+pinned by hand. Worse, several that *did* resolve came back as the distillery
+buildings or the visitor centre car park rather than the drink — the contact
+sheet is the only reason that was caught.
+
+## The flaky test
+
+`src/server/rooms.test.ts` → "never sends the opponent card while a player is
+choosing" fails roughly one run in three. **It predates the new decks** — it
+fails at the same rate on commit `13c454b` — and it is a bug in the test, not a
+leak in the server.
+
+The test scans *every* message the host has ever received for the guest's card
+id. But the host is dealt a card in the lobby, before `start` reshuffles, so
+their own earlier card is in that history; when the reshuffle happens to hand
+that same card to the guest, the assertion matches the host's own card and
+fails. Scoping the scan to messages sent after the match starts would fix it.
+Left alone deliberately: it is the owner's information-hiding guard and not
+what this session was asked to touch.
+
 ## Outstanding work
 
 **Four dinosaur cards have no photo** — `deinonychus`, `triceratops`,
@@ -104,29 +163,47 @@ broken on a card. Flagged to the owner; they may want the honest dot instead.
 `decks/space.json`, card `eris`.
 
 **Photo sizes.** The fetcher saves what Commons returns, which is wasteful for a
-card rendering ~330px wide (one PNG was 3 MB). The committed set was downscaled
-to 900px and converted to JPEG, with transparent images flattened onto the
-colour their card shows behind them. Anything newly fetched should get the same
-treatment before committing. This is currently a manual step using Pillow — a
-worthwhile improvement would be folding it into `fetch-images` itself.
+card rendering ~330px wide. Anything newly fetched needs shrinking before it is
+committed. This is still a manual Pillow step — folding it into `fetch-images`
+remains the worthwhile improvement. What the new decks were shrunk with:
 
-**Ideas not started**: an in-app deck editor, more decks, spectators, a
-Pages-hosted client talking to a remote server (needs a configurable server
-origin plus CORS on `/api/decks`).
+```python
+# cap the longest edge at 900, flatten transparency, save JPEG q=82
+im = Image.open(path)
+if im.mode in ('RGBA', 'LA', 'P'):
+    im = im.convert('RGBA')
+    # a light logo needs a dark ground and vice versa - pick by mean luminance
+    ground = (0, 0, 0) if mean_luminance(im) < 110 else (255, 255, 255)
+    flat = Image.new('RGB', im.size, ground); flat.paste(im, mask=im.split()[3]); im = flat
+im.thumbnail((900, 900), Image.LANCZOS)
+im.save(out, 'JPEG', quality=82, optimize=True, progressive=True)
+```
+
+**If that changes a `.png` to a `.jpg`, rewrite `attributions.json` too** — the
+manifest records the path, and the deck loader refuses one that does not point
+at a real file. Three cards needed this (`aperol`, `domperignon`, `stanton`).
+
+**Three ski cards are still summer photographs** — `solden`, `mayrhofen`,
+`megeve`. The right resorts, the wrong season; Commons has no better free file
+that was findable. Fixable by pinning a `commonsFile` if one ever appears.
+
+**Ideas not started**: an in-app deck editor, spectators, a Pages-hosted client
+talking to a remote server (needs a configurable server origin plus CORS on
+`/api/decks`).
 
 ---
 
 ## Map of the code
 
 ```
-decks/*.json          the four decks; add a file, get a deck (validated at boot)
+decks/*.json          the eight decks; add a file, get a deck (validated at boot)
 src/shared/rules.ts   the whole rule set as pure functions — start here
 src/shared/types.ts   types shared by client and server, including the wire protocol
 src/server/rooms.ts   rooms, seats, reconnection, the reveal clock, the computer player
 src/server/decks.ts   deck loading, validation, photo manifest handling
 src/server/index.ts   one process: static files, /api, websocket
 src/client/           React app; components/Table.tsx is the game screen
-src/tools/            the photo fetcher and the contact sheet generator
+src/tools/            the photo fetcher, the contact sheet, the Fortnite weapon art
 scripts/smoke.mjs     two real browsers, a full match, screenshots
 ```
 

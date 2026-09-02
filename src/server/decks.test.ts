@@ -11,7 +11,23 @@ import { loadDecks } from './decks';
  */
 let root: string;
 
-const validDeck = () => ({
+const validDeck = (): {
+  id: string;
+  name: string;
+  tagline: string;
+  emoji: string;
+  theme: { primary: string; accent: string; ink: string };
+  stats: { id: string; label: string; higherWins: boolean }[];
+  cards: {
+    id: string;
+    name: string;
+    subtitle: string;
+    emoji: string;
+    wikipedia: string;
+    stats: Record<string, number>;
+    localArt?: string;
+  }[];
+} => ({
   id: 'test',
   name: 'Test',
   tagline: 'A deck',
@@ -171,6 +187,47 @@ describe('photo manifest', () => {
       },
     });
     expect(loadDecks(root)[0]?.cards[0]?.credit?.sourceUrl).toBe('');
+  });
+
+  it('resolves a drawing committed with the deck', () => {
+    const deck = validDeck();
+    deck.cards[0]!.localArt = 'a.svg';
+    writeDeck(deck);
+    const card = loadDecks(root)[0]?.cards[0];
+    expect(card?.image).toBe('/cards/test/a.svg');
+    // Nobody to credit: it was drawn for the deck, not taken by a photographer.
+    expect(card?.credit).toBeUndefined();
+  });
+
+  it('prefers a drawing to whatever the fetcher found', () => {
+    const deck = validDeck();
+    deck.cards[0]!.localArt = 'a.svg';
+    writeDeck(deck);
+    writeManifest({
+      test: {
+        a: {
+          image: '/cards/test/a.jpg',
+          file: 'A.jpg',
+          artist: 'Ann',
+          licence: 'CC0',
+          licenceUrl: '',
+          sourceUrl: 'https://example.com',
+        },
+      },
+    });
+    expect(loadDecks(root)[0]?.cards[0]?.image).toBe('/cards/test/a.svg');
+  });
+
+  it.each([
+    ['a path', '../../etc/passwd.svg'],
+    ['a subdirectory', 'guns/a.svg'],
+    ['an executable extension', 'a.html'],
+    ['no extension', 'a'],
+  ])('refuses localArt that is %s', (_label, art) => {
+    const deck = validDeck();
+    deck.cards[0]!.localArt = art;
+    writeDeck(deck);
+    expect(() => loadDecks(root)).toThrow(/invalid localArt/);
   });
 
   it('carries on when the manifest is corrupt', () => {

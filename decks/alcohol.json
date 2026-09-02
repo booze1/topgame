@@ -1,0 +1,527 @@
+{
+  "id": "alcohol",
+  "name": "Alcohol",
+  "tagline": "Beer, wine and spirits, sorted by strength and by seniority",
+  "emoji": "🥃",
+  "theme": {
+    "primary": "#451a03",
+    "accent": "#fbbf24",
+    "ink": "#fffbeb"
+  },
+  "stats": [
+    {
+      "id": "strength",
+      "label": "Strength",
+      "unit": "% ABV",
+      "decimals": 1,
+      "higherWins": true,
+      "description": "Alcohol by volume in the standard bottling"
+    },
+    {
+      "id": "founded",
+      "label": "Founded",
+      "higherWins": false,
+      "grouped": false,
+      "description": "The year the brand, brewery or distillery was first established. The oldest wins."
+    },
+    {
+      "id": "price",
+      "label": "Price",
+      "prefix": "£",
+      "decimals": 2,
+      "higherWins": true,
+      "description": "Typical UK shelf price for a bottle: 700 ml of a spirit, 750 ml of a wine, 500 ml of a beer"
+    },
+    {
+      "id": "popularity",
+      "label": "Popularity",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How widely it is actually drunk around the world"
+    },
+    {
+      "id": "calories",
+      "label": "Calories",
+      "unit": " kcal",
+      "higherWins": true,
+      "description": "Per 100 ml, neat"
+    },
+    {
+      "id": "hangover",
+      "label": "Hangover",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How much you regret it in the morning"
+    }
+  ],
+  "cards": [
+    {
+      "id": "chartreuse",
+      "name": "Chartreuse",
+      "subtitle": "France · 130 herbs, and only two monks know which",
+      "emoji": "🌿",
+      "wikipedia": "Chartreuse (liqueur)",
+      "commonsFile": "File:Chartreuse bottles.jpg",
+      "stats": {
+        "strength": 55,
+        "founded": 1737,
+        "price": 48,
+        "popularity": 34,
+        "calories": 350,
+        "hangover": 80
+      }
+    },
+    {
+      "id": "tanqueray",
+      "name": "Tanqueray",
+      "subtitle": "England · four botanicals and nothing else",
+      "emoji": "🍸",
+      "wikipedia": "Tanqueray",
+      "commonsFile": "File:Tanqueray bottle.JPG",
+      "stats": {
+        "strength": 43.1,
+        "founded": 1830,
+        "price": 24,
+        "popularity": 70,
+        "calories": 263,
+        "hangover": 61
+      }
+    },
+    {
+      "id": "macallan",
+      "name": "The Macallan",
+      "subtitle": "Scotland · sherry casks and auction records",
+      "emoji": "🥃",
+      "wikipedia": "The Macallan distillery",
+      "commonsFile": "File:Macallan whisky, 12-15-18 years.jpg",
+      "stats": {
+        "strength": 43,
+        "founded": 1824,
+        "price": 90,
+        "popularity": 62,
+        "calories": 260,
+        "hangover": 65
+      }
+    },
+    {
+      "id": "jackdaniels",
+      "name": "Jack Daniel's",
+      "subtitle": "USA · charcoal-mellowed in Lynchburg, a dry county",
+      "emoji": "🥃",
+      "wikipedia": "Jack Daniel's",
+      "commonsFile": "File:Jack daniels bottle.jpg",
+      "stats": {
+        "strength": 40,
+        "founded": 1866,
+        "price": 28,
+        "popularity": 92,
+        "calories": 250,
+        "hangover": 72
+      }
+    },
+    {
+      "id": "johnniewalker",
+      "name": "Johnnie Walker",
+      "subtitle": "Scotland · a grocer's blend that conquered the world",
+      "emoji": "🚶",
+      "wikipedia": "Johnnie Walker",
+      "commonsFile": "File:Johnnie Walker Red Label Blended Scotch Whisky 01.jpg",
+      "stats": {
+        "strength": 40,
+        "founded": 1820,
+        "price": 26,
+        "popularity": 90,
+        "calories": 250,
+        "hangover": 70
+      }
+    },
+    {
+      "id": "jameson",
+      "name": "Jameson",
+      "subtitle": "Ireland · triple distilled, deliberately smooth",
+      "emoji": "☘️",
+      "wikipedia": "Jameson Irish Whiskey",
+      "commonsFile": "File:Bottles of Jameson Irish Whiskey.JPG",
+      "stats": {
+        "strength": 40,
+        "founded": 1780,
+        "price": 25,
+        "popularity": 82,
+        "calories": 250,
+        "hangover": 68
+      }
+    },
+    {
+      "id": "glenfiddich",
+      "name": "Glenfiddich",
+      "subtitle": "Scotland · the single malt that made single malts sell",
+      "emoji": "🦌",
+      "wikipedia": "Glenfiddich",
+      "commonsFile": "File:Bottle of Glenfiddich 12yo.jpg",
+      "stats": {
+        "strength": 40,
+        "founded": 1887,
+        "price": 35,
+        "popularity": 70,
+        "calories": 250,
+        "hangover": 64
+      }
+    },
+    {
+      "id": "absolut",
+      "name": "Absolut",
+      "subtitle": "Sweden · one winter wheat field, one advertising campaign",
+      "emoji": "🧊",
+      "wikipedia": "Absolut Vodka",
+      "commonsFile": "File:Absolut Vodka 01.jpg",
+      "stats": {
+        "strength": 40,
+        "founded": 1879,
+        "price": 22,
+        "popularity": 84,
+        "calories": 250,
+        "hangover": 63
+      }
+    },
+    {
+      "id": "hennessy",
+      "name": "Hennessy",
+      "subtitle": "France · an Irish officer's cognac house, now the largest",
+      "emoji": "🍷",
+      "wikipedia": "Hennessy",
+      "stats": {
+        "strength": 40,
+        "founded": 1765,
+        "price": 45,
+        "popularity": 76,
+        "calories": 250,
+        "hangover": 68
+      }
+    },
+    {
+      "id": "patron",
+      "name": "Patrón",
+      "subtitle": "Mexico · tequila as a luxury good",
+      "emoji": "🌵",
+      "wikipedia": "Patrón",
+      "stats": {
+        "strength": 40,
+        "founded": 1989,
+        "price": 45,
+        "popularity": 62,
+        "calories": 250,
+        "hangover": 76
+      }
+    },
+    {
+      "id": "cointreau",
+      "name": "Cointreau",
+      "subtitle": "France · bitter and sweet oranges, in a margarita near you",
+      "emoji": "🍊",
+      "wikipedia": "Cointreau",
+      "stats": {
+        "strength": 40,
+        "founded": 1875,
+        "price": 28,
+        "popularity": 60,
+        "calories": 250,
+        "hangover": 60
+      }
+    },
+    {
+      "id": "josecuervo",
+      "name": "José Cuervo",
+      "subtitle": "Mexico · licensed to distil agave by the King of Spain",
+      "emoji": "🌵",
+      "wikipedia": "Jose Cuervo",
+      "commonsFile": "File:Jose cuervo.jpg",
+      "stats": {
+        "strength": 38,
+        "founded": 1795,
+        "price": 24,
+        "popularity": 80,
+        "calories": 231,
+        "hangover": 82
+      }
+    },
+    {
+      "id": "bacardi",
+      "name": "Bacardi",
+      "subtitle": "Cuba · filtered through charcoal, exiled to Puerto Rico",
+      "emoji": "🦇",
+      "wikipedia": "Bacardi",
+      "stats": {
+        "strength": 37.5,
+        "founded": 1862,
+        "price": 20,
+        "popularity": 88,
+        "calories": 231,
+        "hangover": 66
+      }
+    },
+    {
+      "id": "smirnoff",
+      "name": "Smirnoff",
+      "subtitle": "Russia · the best-selling spirit brand on earth",
+      "emoji": "❄️",
+      "wikipedia": "Smirnoff",
+      "commonsFile": "File:Smirnoff Red Label 8213.jpg",
+      "stats": {
+        "strength": 37.5,
+        "founded": 1864,
+        "price": 18,
+        "popularity": 94,
+        "calories": 231,
+        "hangover": 62
+      }
+    },
+    {
+      "id": "gordons",
+      "name": "Gordon's",
+      "subtitle": "England · the gin in most gin and tonics",
+      "emoji": "🍋",
+      "wikipedia": "Gordon's Gin",
+      "stats": {
+        "strength": 37.5,
+        "founded": 1769,
+        "price": 16,
+        "popularity": 78,
+        "calories": 231,
+        "hangover": 60
+      }
+    },
+    {
+      "id": "captainmorgan",
+      "name": "Captain Morgan",
+      "subtitle": "Jamaica · spiced rum named after an actual privateer",
+      "emoji": "🏴‍☠️",
+      "wikipedia": "Captain Morgan",
+      "commonsFile": "File:Bottle of Captain Morgan Rum 01.jpg",
+      "stats": {
+        "strength": 35,
+        "founded": 1944,
+        "price": 20,
+        "popularity": 80,
+        "calories": 220,
+        "hangover": 74
+      }
+    },
+    {
+      "id": "jagermeister",
+      "name": "Jägermeister",
+      "subtitle": "Germany · 56 botanicals, served far too cold and far too fast",
+      "emoji": "🦌",
+      "wikipedia": "Jägermeister",
+      "stats": {
+        "strength": 35,
+        "founded": 1935,
+        "price": 22,
+        "popularity": 76,
+        "calories": 233,
+        "hangover": 88
+      }
+    },
+    {
+      "id": "campari",
+      "name": "Campari",
+      "subtitle": "Italy · bitter, red, and once coloured with beetles",
+      "emoji": "🍒",
+      "wikipedia": "Campari",
+      "commonsFile": "File:Bouteille de Campari.JPG",
+      "stats": {
+        "strength": 25,
+        "founded": 1860,
+        "price": 18,
+        "popularity": 62,
+        "calories": 200,
+        "hangover": 55
+      }
+    },
+    {
+      "id": "sandeman",
+      "name": "Sandeman",
+      "subtitle": "Portugal · port in a cloak and a wide black hat",
+      "emoji": "🍇",
+      "wikipedia": "Sandeman (port)",
+      "commonsFile": "File:Sandeman ruby port.jpg",
+      "stats": {
+        "strength": 20,
+        "founded": 1790,
+        "price": 18,
+        "popularity": 48,
+        "calories": 160,
+        "hangover": 70
+      }
+    },
+    {
+      "id": "baileys",
+      "name": "Baileys",
+      "subtitle": "Ireland · invented in a Soho office, drunk every Christmas",
+      "emoji": "🥛",
+      "wikipedia": "Baileys Irish Cream",
+      "stats": {
+        "strength": 17,
+        "founded": 1974,
+        "price": 16,
+        "popularity": 80,
+        "calories": 327,
+        "hangover": 70
+      }
+    },
+    {
+      "id": "domperignon",
+      "name": "Dom Pérignon",
+      "subtitle": "France · named for a monk who died 220 years before the first bottle",
+      "emoji": "🍾",
+      "wikipedia": "Dom Pérignon (wine)",
+      "stats": {
+        "strength": 12.5,
+        "founded": 1936,
+        "price": 180,
+        "popularity": 55,
+        "calories": 82,
+        "hangover": 60
+      }
+    },
+    {
+      "id": "moet",
+      "name": "Moët & Chandon",
+      "subtitle": "France · the champagne that supplied Napoleon",
+      "emoji": "🥂",
+      "wikipedia": "Moët & Chandon",
+      "stats": {
+        "strength": 12,
+        "founded": 1743,
+        "price": 45,
+        "popularity": 78,
+        "calories": 80,
+        "hangover": 58
+      }
+    },
+    {
+      "id": "bollinger",
+      "name": "Bollinger",
+      "subtitle": "France · James Bond's, and it never stopped being good",
+      "emoji": "🍾",
+      "wikipedia": "Bollinger",
+      "stats": {
+        "strength": 12,
+        "founded": 1829,
+        "price": 55,
+        "popularity": 60,
+        "calories": 80,
+        "hangover": 58
+      }
+    },
+    {
+      "id": "codorniu",
+      "name": "Codorníu",
+      "subtitle": "Spain · cava from a family making wine since the Tudors",
+      "emoji": "🇪🇸",
+      "wikipedia": "Codorníu",
+      "commonsFile": "File:Cava (5481523370).jpg",
+      "stats": {
+        "strength": 11.5,
+        "founded": 1551,
+        "price": 12,
+        "popularity": 40,
+        "calories": 78,
+        "hangover": 54
+      }
+    },
+    {
+      "id": "aperol",
+      "name": "Aperol",
+      "subtitle": "Italy · weak, orange, and unavoidable in summer",
+      "emoji": "🍹",
+      "wikipedia": "Aperol",
+      "stats": {
+        "strength": 11,
+        "founded": 1919,
+        "price": 14,
+        "popularity": 74,
+        "calories": 150,
+        "hangover": 44
+      }
+    },
+    {
+      "id": "asahi",
+      "name": "Asahi Super Dry",
+      "subtitle": "Japan · brewing since 1889, dry since 1987",
+      "emoji": "🇯🇵",
+      "wikipedia": "Asahi Breweries",
+      "commonsFile": "File:Asahi superdry japan.JPG",
+      "stats": {
+        "strength": 5.2,
+        "founded": 1889,
+        "price": 2.7,
+        "popularity": 68,
+        "calories": 45,
+        "hangover": 46
+      }
+    },
+    {
+      "id": "peroni",
+      "name": "Peroni Nastro Azzurro",
+      "subtitle": "Italy · sold as fashion, brewed as lager",
+      "emoji": "🇮🇹",
+      "wikipedia": "Birra Peroni",
+      "commonsFile": "File:Peroni Nastro Azzurro Beer Oct 2012.jpg",
+      "stats": {
+        "strength": 5.1,
+        "founded": 1846,
+        "price": 2.6,
+        "popularity": 70,
+        "calories": 43,
+        "hangover": 44
+      }
+    },
+    {
+      "id": "heineken",
+      "name": "Heineken",
+      "subtitle": "Netherlands · a green bottle in 190 countries",
+      "emoji": "🇳🇱",
+      "wikipedia": "Heineken",
+      "commonsFile": "File:CreativeTools.se - PackshotCreator - Heineken beer bottle v01 (4290167332).jpg",
+      "stats": {
+        "strength": 5,
+        "founded": 1873,
+        "price": 2.2,
+        "popularity": 92,
+        "calories": 42,
+        "hangover": 45
+      }
+    },
+    {
+      "id": "stellaartois",
+      "name": "Stella Artois",
+      "subtitle": "Belgium · brewed on a Leuven site first recorded in 1366",
+      "emoji": "🇧🇪",
+      "wikipedia": "Stella Artois",
+      "stats": {
+        "strength": 4.6,
+        "founded": 1366,
+        "price": 2.3,
+        "popularity": 78,
+        "calories": 41,
+        "hangover": 52
+      }
+    },
+    {
+      "id": "guinness",
+      "name": "Guinness",
+      "subtitle": "Ireland · Arthur signed a 9,000 year lease and meant it",
+      "emoji": "🖤",
+      "wikipedia": "Guinness",
+      "commonsFile": "File:Guinness Glass 2010.jpg",
+      "stats": {
+        "strength": 4.2,
+        "founded": 1759,
+        "price": 2.5,
+        "popularity": 88,
+        "calories": 35,
+        "hangover": 40
+      }
+    }
+  ]
+}

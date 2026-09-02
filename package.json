@@ -19,6 +19,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "fetch-images": "tsx src/tools/fetch-images.ts",
+    "fortnite-art": "tsx src/tools/fortnite-art.ts",
     "smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {

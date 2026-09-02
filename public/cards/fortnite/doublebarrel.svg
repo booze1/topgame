@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="doublebarrel">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0883e"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <g opacity="0.14" fill="#000000">
+    <rect x="0" y="0" width="18" height="180"/>
+    <rect x="36" y="0" width="18" height="180"/>
+    <rect x="72" y="0" width="18" height="180"/>
+    <rect x="108" y="0" width="18" height="180"/>
+    <rect x="144" y="0" width="18" height="180"/>
+    <rect x="180" y="0" width="18" height="180"/>
+    <rect x="216" y="0" width="18" height="180"/>
+    <rect x="252" y="0" width="18" height="180"/>
+    <rect x="288" y="0" width="18" height="180"/>
+  </g>
+  <g>
+    <path d="M 46 128 q -10 -16 4 -32 q 12 -14 30 -14 l 30 0 l 0 30 l -30 4 q -14 2 -14 14 Z" fill="#12161f"/>
+    <rect x="104" y="78" width="40" height="34" rx="3" fill="#12161f"/>
+    <circle cx="122" cy="112" r="5" fill="#0b0e14"/>
+    <rect x="146" y="78" width="96" height="12" rx="1" fill="#12161f"/>
+    <rect x="146" y="98" width="96" height="12" rx="1" fill="#12161f"/>
+    <rect x="238" y="76" width="12" height="36" rx="3" fill="#12161f"/>
+    <circle cx="244" cy="84" r="4" fill="#0b0e14"/>
+    <circle cx="244" cy="104" r="4" fill="#0b0e14"/>
+    <circle cx="126" cy="104" r="9" fill="none" stroke="#12161f" stroke-width="4"/>
+    <polygon points="250,94 268,85 263,94 268,103" fill="#f0883e"/><circle cx="252" cy="94" r="4" fill="#f0883e"/>
+  </g>
+</svg>

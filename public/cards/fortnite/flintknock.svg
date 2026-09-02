@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="flintknock">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a371f7"/>
+      <stop offset="1" stop-color="#3b1a78"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <g opacity="0.14" fill="#000000">
+    <rect x="0" y="0" width="18" height="180"/>
+    <rect x="36" y="0" width="18" height="180"/>
+    <rect x="72" y="0" width="18" height="180"/>
+    <rect x="108" y="0" width="18" height="180"/>
+    <rect x="144" y="0" width="18" height="180"/>
+    <rect x="180" y="0" width="18" height="180"/>
+    <rect x="216" y="0" width="18" height="180"/>
+    <rect x="252" y="0" width="18" height="180"/>
+    <rect x="288" y="0" width="18" height="180"/>
+  </g>
+  <g>
+    <path d="M 62 128 q -12 -14 2 -30 q 12 -14 30 -14 l 34 0 l 0 26 l -32 4 q -14 2 -14 14 Z" fill="#12161f"/>
+    <rect x="122" y="80" width="52" height="20" rx="3" fill="#12161f"/>
+    <path d="M 132 80 q 2 -18 18 -18 q -8 6 -8 18 Z" fill="#12161f"/>
+    <rect x="146" y="72" width="14" height="5" rx="1" fill="#12161f"/>
+    <rect x="174" y="85.5" width="92" height="9" rx="1" fill="#12161f"/>
+    <rect x="174" y="84" width="60" height="5" rx="1" fill="#12161f"/>
+    <rect x="258" y="83.5" width="10" height="13" rx="2" fill="#12161f"/>
+    <circle cx="140" cy="104" r="9" fill="none" stroke="#12161f" stroke-width="4"/>
+    <polygon points="268,90 286,81 281,90 286,99" fill="#a371f7"/><circle cx="270" cy="90" r="4" fill="#a371f7"/>
+  </g>
+</svg>

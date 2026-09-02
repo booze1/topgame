@@ -934,5 +934,731 @@
       "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carnotaurus_BW.jpg"
     }
+  },
+  "alcohol": {
+    "tanqueray": {
+      "image": "/cards/alcohol/tanqueray.jpg",
+      "file": "Tanqueray bottle.JPG",
+      "artist": "Argus fin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanqueray_bottle.JPG"
+    },
+    "johnniewalker": {
+      "image": "/cards/alcohol/johnniewalker.jpg",
+      "file": "Johnnie Walker Red Label Blended Scotch Whisky 01.jpg",
+      "artist": "Indrajit Das",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johnnie_Walker_Red_Label_Blended_Scotch_Whisky_01.jpg"
+    },
+    "josecuervo": {
+      "image": "/cards/alcohol/josecuervo.jpg",
+      "file": "Jose cuervo.jpg",
+      "artist": "Belenois",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jose_cuervo.jpg"
+    },
+    "captainmorgan": {
+      "image": "/cards/alcohol/captainmorgan.jpg",
+      "file": "Bottle of Captain Morgan Rum 01.jpg",
+      "artist": "Pinakpani",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bottle_of_Captain_Morgan_Rum_01.jpg"
+    },
+    "campari": {
+      "image": "/cards/alcohol/campari.jpg",
+      "file": "Bouteille de Campari.JPG",
+      "artist": "Khayman",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bouteille_de_Campari.JPG"
+    },
+    "smirnoff": {
+      "image": "/cards/alcohol/smirnoff.jpg",
+      "file": "Smirnoff Red Label 8213.jpg",
+      "artist": "Ashley Pomeroy",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smirnoff_Red_Label_8213.jpg"
+    },
+    "heineken": {
+      "image": "/cards/alcohol/heineken.jpg",
+      "file": "CreativeTools.se - PackshotCreator - Heineken beer bottle v01 (4290167332).jpg",
+      "artist": "Creative Tools from Halmstad, Sweden",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:CreativeTools.se_-_PackshotCreator_-_Heineken_beer_bottle_v01_(4290167332).jpg"
+    },
+    "guinness": {
+      "image": "/cards/alcohol/guinness.jpg",
+      "file": "Guinness Glass 2010.jpg",
+      "artist": "User:ArchiveCarrickfergus",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guinness_Glass_2010.jpg"
+    },
+    "sandeman": {
+      "image": "/cards/alcohol/sandeman.jpg",
+      "file": "Sandeman ruby port.jpg",
+      "artist": "inspector_81",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandeman_ruby_port.jpg"
+    },
+    "chartreuse": {
+      "image": "/cards/alcohol/chartreuse.jpg",
+      "file": "Chartreuse bottles.jpg",
+      "artist": "Ɱ",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chartreuse_bottles.jpg"
+    },
+    "macallan": {
+      "image": "/cards/alcohol/macallan.jpg",
+      "file": "Macallan whisky, 12-15-18 years.jpg",
+      "artist": "Ssu",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macallan_whisky,_12-15-18_years.jpg"
+    },
+    "jackdaniels": {
+      "image": "/cards/alcohol/jackdaniels.jpg",
+      "file": "Jack daniels bottle.jpg",
+      "artist": "safaritravelplus",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jack_daniels_bottle.jpg"
+    },
+    "glenfiddich": {
+      "image": "/cards/alcohol/glenfiddich.jpg",
+      "file": "Bottle of Glenfiddich 12yo.jpg",
+      "artist": "Blueye",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bottle_of_Glenfiddich_12yo.jpg"
+    },
+    "hennessy": {
+      "image": "/cards/alcohol/hennessy.jpg",
+      "file": "Hennesy_XO_close.jpg",
+      "artist": "Dmitrij Rodionov",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hennesy_XO_close.jpg"
+    },
+    "cointreau": {
+      "image": "/cards/alcohol/cointreau.jpg",
+      "file": "Cointreau_original_v4.jpg",
+      "artist": "GaelCate",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cointreau_original_v4.jpg"
+    },
+    "gordons": {
+      "image": "/cards/alcohol/gordons.jpg",
+      "file": "Gordons_London_Dry_Gin_im_Regal.jpg",
+      "artist": "AxelHH",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gordons_London_Dry_Gin_im_Regal.jpg"
+    },
+    "jagermeister": {
+      "image": "/cards/alcohol/jagermeister.jpg",
+      "file": "17-03-16-Jägermeister-Miniaturen-RR7_8310.jpg",
+      "artist": "Ralf Roletschek",
+      "licence": "CC BY-SA 3.0 at",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:17-03-16-J%C3%A4germeister-Miniaturen-RR7_8310.jpg"
+    },
+    "domperignon": {
+      "image": "/cards/alcohol/domperignon.jpg",
+      "file": "Logo_-_Dom_Pérignon.svg",
+      "artist": "Dom Pérignon",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logo_-_Dom_P%C3%A9rignon.svg"
+    },
+    "bollinger": {
+      "image": "/cards/alcohol/bollinger.jpg",
+      "file": "Bollinger_NV.jpg",
+      "artist": "Geographer",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bollinger_NV.jpg"
+    },
+    "moet": {
+      "image": "/cards/alcohol/moet.jpg",
+      "file": "Moët_et_Chandon.jpg",
+      "artist": "Andreas Levers from Potsdam, Germany",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mo%C3%ABt_et_Chandon.jpg"
+    },
+    "aperol": {
+      "image": "/cards/alcohol/aperol.jpg",
+      "file": "Aperol_Logo.svg",
+      "artist": "Davide Campari-Milano N.V. - upload: Giov.c",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aperol_Logo.svg"
+    },
+    "stellaartois": {
+      "image": "/cards/alcohol/stellaartois.jpg",
+      "file": "Stella_Artois_chalice_filled.jpg",
+      "artist": "Anheuser-Busch InBev UK",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stella_Artois_chalice_filled.jpg"
+    },
+    "asahi": {
+      "image": "/cards/alcohol/asahi.jpg",
+      "file": "Asahi superdry japan.JPG",
+      "artist": "森 康哲 / Yoshinori Mori",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asahi_superdry_japan.JPG"
+    },
+    "jameson": {
+      "image": "/cards/alcohol/jameson.jpg",
+      "file": "Bottles of Jameson Irish Whiskey.JPG",
+      "artist": "Brian Adler 12:26, 31 May 2007 (UTC)",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bottles_of_Jameson_Irish_Whiskey.JPG"
+    },
+    "absolut": {
+      "image": "/cards/alcohol/absolut.jpg",
+      "file": "Absolut Vodka 01.jpg",
+      "artist": "Indrajit Das",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Absolut_Vodka_01.jpg"
+    },
+    "patron": {
+      "image": "/cards/alcohol/patron.jpg",
+      "file": "PatronGoldBottle.jpg",
+      "artist": "Broncinbuck at English Wikipedia",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PatronGoldBottle.jpg"
+    },
+    "bacardi": {
+      "image": "/cards/alcohol/bacardi.jpg",
+      "file": "Bacardi_Rum.jpg",
+      "artist": "Julia Fraedrich from California",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bacardi_Rum.jpg"
+    },
+    "baileys": {
+      "image": "/cards/alcohol/baileys.jpg",
+      "file": "Glass_of_Baileys.jpg",
+      "artist": "Christine Sponchia",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glass_of_Baileys.jpg"
+    },
+    "peroni": {
+      "image": "/cards/alcohol/peroni.jpg",
+      "file": "Peroni Nastro Azzurro Beer Oct 2012.jpg",
+      "artist": "WestportWiki",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peroni_Nastro_Azzurro_Beer_Oct_2012.jpg"
+    },
+    "codorniu": {
+      "image": "/cards/alcohol/codorniu.jpg",
+      "file": "Cava (5481523370).jpg",
+      "artist": "cyclonebill from Copenhagen, Denmark",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cava_(5481523370).jpg"
+    }
+  },
+  "footballers": {
+    "xavi": {
+      "image": "/cards/footballers/xavi.jpg",
+      "file": "Xavi Hernández Spain 2009 (cropped).jpg",
+      "artist": "Steindy ( talk ) 13:11, 13 July 2010 (UTC)",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xavi_Hern%C3%A1ndez_Spain_2009_(cropped).jpg"
+    },
+    "platini": {
+      "image": "/cards/footballers/platini.jpg",
+      "file": "Michel Platini 2008.jpg",
+      "artist": "Anders Vindegg",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michel_Platini_2008.jpg"
+    },
+    "zico": {
+      "image": "/cards/footballers/zico.jpg",
+      "file": "Zico 2011.jpg",
+      "artist": "Doha Stadium Plus Qatar",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zico_2011.jpg"
+    },
+    "messi": {
+      "image": "/cards/footballers/messi.jpg",
+      "file": "Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg",
+      "artist": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg"
+    },
+    "ronaldo": {
+      "image": "/cards/footballers/ronaldo.jpg",
+      "file": "Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg",
+      "artist": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_(cropped).jpg"
+    },
+    "pele": {
+      "image": "/cards/footballers/pele.jpg",
+      "file": "Pele_con_brasil_(cropped).jpg",
+      "artist": "Unknown author Unknown author",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pele_con_brasil_(cropped).jpg"
+    },
+    "maradona": {
+      "image": "/cards/footballers/maradona.jpg",
+      "file": "Argentina_celebrando_copa_(cropped).jpg",
+      "artist": "Unknown author Unknown author",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Argentina_celebrando_copa_(cropped).jpg"
+    },
+    "cruyff": {
+      "image": "/cards/footballers/cruyff.jpg",
+      "file": "Johan_Cruijff_(1974).jpg",
+      "artist": "Rob Mieremet / Anefo",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_(1974).jpg"
+    },
+    "zidane": {
+      "image": "/cards/footballers/zidane.jpg",
+      "file": "Zinedine_Zidane_by_Tasnim_03.jpg",
+      "artist": "Hadi Abyar",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zinedine_Zidane_by_Tasnim_03.jpg"
+    },
+    "beckenbauer": {
+      "image": "/cards/footballers/beckenbauer.jpg",
+      "file": "Franz_Beckenbauer_(1975).jpg",
+      "artist": "Panini Group",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Franz_Beckenbauer_(1975).jpg"
+    },
+    "distefano": {
+      "image": "/cards/footballers/distefano.jpg",
+      "file": "Di_stefano_argentina_(cropped).jpg",
+      "artist": "Unknown author Unknown author",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Di_stefano_argentina_(cropped).jpg"
+    },
+    "puskas": {
+      "image": "/cards/footballers/puskas.jpg",
+      "file": "Ferenc_Puskas_en_1965.jpg",
+      "artist": "Panini",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ferenc_Puskas_en_1965.jpg"
+    },
+    "gerdmuller": {
+      "image": "/cards/footballers/gerdmuller.jpg",
+      "file": "Gerd_Müller_c1973_(cropped).jpg",
+      "artist": "Unknown author Unknown author",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gerd_M%C3%BCller_c1973_(cropped).jpg"
+    },
+    "mbappe": {
+      "image": "/cards/footballers/mbappe.jpg",
+      "file": "Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg",
+      "artist": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg"
+    },
+    "modric": {
+      "image": "/cards/footballers/modric.jpg",
+      "file": "Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg",
+      "artist": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luka_Modric_Croatia_v_Portugal_2_July_2026-055.jpg"
+    },
+    "ronaldinho": {
+      "image": "/cards/footballers/ronaldinho.jpg",
+      "file": "Ronaldinho_in_2019.jpg",
+      "artist": "Marcos Corrêa/PR",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ronaldinho_in_2019.jpg"
+    },
+    "bobbycharlton": {
+      "image": "/cards/footballers/bobbycharlton.jpg",
+      "file": "LondonHouseAmsterdam1966_Bobby_Charlton.jpg",
+      "artist": "ANEFO",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LondonHouseAmsterdam1966_Bobby_Charlton.jpg"
+    },
+    "iniesta": {
+      "image": "/cards/footballers/iniesta.jpg",
+      "file": "Andrés_Iniesta_Argentina_v_Spain_19_July_2026-034_(cropped).jpg",
+      "artist": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andr%C3%A9s_Iniesta_Argentina_v_Spain_19_July_2026-034_(cropped).jpg"
+    },
+    "eusebio": {
+      "image": "/cards/footballers/eusebio.jpg",
+      "file": "Eusebio_en_1973.jpg",
+      "artist": "Panini",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eusebio_en_1973.jpg"
+    },
+    "henry": {
+      "image": "/cards/footballers/henry.jpg",
+      "file": "Thierry_Henry_(51649035951)_(cropped).jpg",
+      "artist": "Web Summit",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thierry_Henry_(51649035951)_(cropped).jpg"
+    },
+    "garrincha": {
+      "image": "/cards/footballers/garrincha.jpg",
+      "file": "Manoel_Francisco_dos_Santos-Garrincha.jpg",
+      "artist": "El Gráfico, n° 2233",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manoel_Francisco_dos_Santos-Garrincha.jpg"
+    },
+    "vanbasten": {
+      "image": "/cards/footballers/vanbasten.jpg",
+      "file": "Marco_van_Basten_(2)_(cropped).jpg",
+      "artist": "Paul Blank",
+      "licence": "CC BY 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marco_van_Basten_(2)_(cropped).jpg"
+    },
+    "baggio": {
+      "image": "/cards/footballers/baggio.jpg",
+      "file": "روبرتو_باجو_(cropped).jpg",
+      "artist": "AbolfaZl0990",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D8%B1%D9%88%D8%A8%D8%B1%D8%AA%D9%88_%D8%A8%D8%A7%D8%AC%D9%88_(cropped).jpg"
+    },
+    "georgebest": {
+      "image": "/cards/footballers/georgebest.jpg",
+      "file": "George_best_1976.jpg",
+      "artist": "Bert Verhoeff for Anefo , NL-HaNA, ANEFO / neg. stroken, 1945-1989",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_best_1976.jpg"
+    },
+    "baresi": {
+      "image": "/cards/footballers/baresi.jpg",
+      "file": "Franco_baresi_panini_card_1979.jpg",
+      "artist": "Unknown author Unknown author",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Franco_baresi_panini_card_1979.jpg"
+    },
+    "giggs": {
+      "image": "/cards/footballers/giggs.jpg",
+      "file": "Ryan_Giggs_2015_(cropped).jpg",
+      "artist": "Дмитрий Голубович",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryan_Giggs_2015_(cropped).jpg"
+    },
+    "haaland": {
+      "image": "/cards/footballers/haaland.jpg",
+      "file": "Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg",
+      "artist": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg"
+    },
+    "yashin": {
+      "image": "/cards/footballers/yashin.jpg",
+      "file": "LevYashin.JPG",
+      "artist": "Kroon, Ron for Anefo",
+      "licence": "CC BY-SA 3.0 nl",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:LevYashin.JPG"
+    },
+    "ronaldo_r9": {
+      "image": "/cards/footballers/ronaldo_r9.jpg",
+      "file": "12.12.2025_–_Cerimônia_de_lançamento_do_SBT_News_-_54980664160_(cropped2).jpg",
+      "artist": "Lula Oficial",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:12.12.2025_%E2%80%93_Cerim%C3%B4nia_de_lan%C3%A7amento_do_SBT_News_-_54980664160_(cropped2).jpg"
+    },
+    "maldini": {
+      "image": "/cards/footballers/maldini.jpg",
+      "file": "Paolo_Maldini_AC_Milan_Technical_director_2018.jpg",
+      "artist": "GOAL TV",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paolo_Maldini_AC_Milan_Technical_director_2018.jpg"
+    }
+  },
+  "skiresorts": {
+    "baqueira": {
+      "image": "/cards/skiresorts/baqueira.jpg",
+      "file": "Baqueira 1800.jpg",
+      "artist": "Faras",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baqueira_1800.jpg"
+    },
+    "verbier": {
+      "image": "/cards/skiresorts/verbier.jpg",
+      "file": "Ski Slopes of Verbier.jpg",
+      "artist": "Realleok",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ski_Slopes_of_Verbier.jpg"
+    },
+    "lesdeuxalpes": {
+      "image": "/cards/skiresorts/lesdeuxalpes.jpg",
+      "file": "Les2Alpes.jpg",
+      "artist": "Data 2 Alpes",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Les2Alpes.jpg"
+    },
+    "chamonix": {
+      "image": "/cards/skiresorts/chamonix.jpg",
+      "file": "Chamonix winter (6743471939).jpg",
+      "artist": "eGuide Travel",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chamonix_winter_(6743471939).jpg"
+    },
+    "valdisere": {
+      "image": "/cards/skiresorts/valdisere.jpg",
+      "file": "Solaise à Val-d'Isère depuis Barrage de Tignes (février 2026).JPG",
+      "artist": "Florian Pépellin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Solaise_%C3%A0_Val-d%27Is%C3%A8re_depuis_Barrage_de_Tignes_(f%C3%A9vrier_2026).JPG"
+    },
+    "solden": {
+      "image": "/cards/skiresorts/solden.jpg",
+      "file": "Soelden.jpg",
+      "artist": "Leo-setä",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soelden.jpg"
+    },
+    "alpedhuez": {
+      "image": "/cards/skiresorts/alpedhuez.jpg",
+      "file": "Alpe d'Huez resort seen from Mine de l'Herpie winter 2009.JPG",
+      "artist": "Marcin Floryan",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alpe_d%27Huez_resort_seen_from_Mine_de_l%27Herpie_winter_2009.JPG"
+    },
+    "stmoritz": {
+      "image": "/cards/skiresorts/stmoritz.jpg",
+      "file": "Exterior_Winter_2016_17_Fotograf_Romano_Salis_(21).jpg",
+      "artist": "Travelleronthego49",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Exterior_Winter_2016_17_Fotograf_Romano_Salis_(21).jpg"
+    },
+    "laplagne": {
+      "image": "/cards/skiresorts/laplagne.jpg",
+      "file": "Plagne_Centre,_April_2017_(crop).jpg",
+      "artist": "DimiTalen",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plagne_Centre,_April_2017_(crop).jpg"
+    },
+    "saasfee": {
+      "image": "/cards/skiresorts/saasfee.jpg",
+      "file": "Saas-Fee_Ort,_Januar_2009.jpg",
+      "artist": "Saas-Fee",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saas-Fee_Ort,_Januar_2009.jpg"
+    },
+    "obergurgl": {
+      "image": "/cards/skiresorts/obergurgl.jpg",
+      "file": "Chairlift in Ski Area Obergurgl-Hochgurgl in Tirol.jpg",
+      "artist": "Jan Czeczotka",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chairlift_in_Ski_Area_Obergurgl-Hochgurgl_in_Tirol.jpg"
+    },
+    "valthorens": {
+      "image": "/cards/skiresorts/valthorens.jpg",
+      "file": "View_of_Val_Thorens_in_the_morning_from_Boismint_1.jpg",
+      "artist": "DimiTalen",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Val_Thorens_in_the_morning_from_Boismint_1.jpg"
+    },
+    "andermatt": {
+      "image": "/cards/skiresorts/andermatt.jpg",
+      "file": "Andermatt Winter.jpg",
+      "artist": "Unknown author",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andermatt_Winter.jpg"
+    },
+    "grindelwald": {
+      "image": "/cards/skiresorts/grindelwald.jpg",
+      "file": "Grindelwald_View_02.jpg",
+      "artist": "Cristo Vlahos",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grindelwald_View_02.jpg"
+    },
+    "cortina": {
+      "image": "/cards/skiresorts/cortina.jpg",
+      "file": "Faloria_Cortina_d'Ampezzo_10.jpg",
+      "artist": "kallerna",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Faloria_Cortina_d%27Ampezzo_10.jpg"
+    },
+    "cransmontana": {
+      "image": "/cards/skiresorts/cransmontana.jpg",
+      "file": "SnowIng in Crans Montana (49299399603).jpg",
+      "artist": "Paolo Gamba from Paris, France",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SnowIng_in_Crans_Montana_(49299399603).jpg"
+    },
+    "sestriere": {
+      "image": "/cards/skiresorts/sestriere.jpg",
+      "file": "Sestriere Ski Station (ITA) 2012.jpg",
+      "artist": "Ainars Brūvelis",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sestriere_Ski_Station_(ITA)_2012.jpg"
+    },
+    "ischgl": {
+      "image": "/cards/skiresorts/ischgl.jpg",
+      "file": "Snowboarding in ischgl גלישה בגלשן שלג באישגיל.jpg",
+      "artist": "Yuval perez",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snowboarding_in_ischgl_%D7%92%D7%9C%D7%99%D7%A9%D7%94_%D7%91%D7%92%D7%9C%D7%A9%D7%9F_%D7%A9%D7%9C%D7%92_%D7%91%D7%90%D7%99%D7%A9%D7%92%D7%99%D7%9C.jpg"
+    },
+    "livigno": {
+      "image": "/cards/skiresorts/livigno.jpg",
+      "file": "Livigno_sera.jpg",
+      "artist": "Maurizio Moro5153",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Livigno_sera.jpg"
+    },
+    "davos": {
+      "image": "/cards/skiresorts/davos.jpg",
+      "file": "Wintertraum im schönen Davos.jpg",
+      "artist": "snow-world.ch",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wintertraum_im_sch%C3%B6nen_Davos.jpg"
+    },
+    "valgardena": {
+      "image": "/cards/skiresorts/valgardena.jpg",
+      "file": "Val_Gardena.jpg",
+      "artist": "Dmitry A. Mottl",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Val_Gardena.jpg"
+    },
+    "mayrhofen": {
+      "image": "/cards/skiresorts/mayrhofen.jpg",
+      "file": "Mayrhofen.jpg",
+      "artist": "JohnnyB",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mayrhofen.jpg"
+    },
+    "megeve": {
+      "image": "/cards/skiresorts/megeve.jpg",
+      "file": "Evasion Mont Blanc, Megève (P1080011).jpg",
+      "artist": "Matti Blume",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Evasion_Mont_Blanc,_Meg%C3%A8ve_(P1080011).jpg"
+    },
+    "stanton": {
+      "image": "/cards/skiresorts/stanton.jpg",
+      "file": "St_anton_skiroute_3_galzigbahn_v2.png",
+      "artist": "24seven",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_anton_skiroute_3_galzigbahn_v2.png"
+    },
+    "kitzbuhel": {
+      "image": "/cards/skiresorts/kitzbuhel.jpg",
+      "file": "Kitzbuehel03.JPG",
+      "artist": "Wolfgang Glock",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitzbuehel03.JPG"
+    },
+    "are": {
+      "image": "/cards/skiresorts/are.jpg",
+      "file": "Åresjön_Dcastor_2003.jpg",
+      "artist": "This image was produced by me, David Castor ( user:dcastor ). The pictures I submit to the Wikipedia Project are released to the public domain. This gives you the right to use them in any way you like, without any kind of notification. This said, I would still appreciate to be mentioned as the originator whenever you think it complies well with your use of the picture. A message to me about how it has been used would also be welcome. You are obviously not required to respond to these wishes of mine, just in a friendly manner encouraged to. (All my photos are placed in Category:Images by David Castor or a subcategory thereof.)",
+      "licence": "Public domain",
+      "licenceUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%85resj%C3%B6n_Dcastor_2003.jpg"
+    },
+    "zermatt": {
+      "image": "/cards/skiresorts/zermatt.jpg",
+      "file": "Matterhorn winter.jpg",
+      "artist": "dibaer",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matterhorn_winter.jpg"
+    },
+    "zellamsee": {
+      "image": "/cards/skiresorts/zellamsee.jpg",
+      "file": "Zell am See im Winter 04.JPG",
+      "artist": "Wald1siedel",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zell_am_See_im_Winter_04.JPG"
+    },
+    "laax": {
+      "image": "/cards/skiresorts/laax.jpg",
+      "file": "Skigebiet Laax - panoramio.jpg",
+      "artist": "qwesy qwesy",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skigebiet_Laax_-_panoramio.jpg"
+    },
+    "saalbach": {
+      "image": "/cards/skiresorts/saalbach.jpg",
+      "file": "Saalbach_hinterglemm_above.JPG",
+      "artist": "667NotB",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saalbach_hinterglemm_above.JPG"
+    }
   }
 }

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="boombow">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd400"/>
+      <stop offset="1" stop-color="#7a5c00"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <g opacity="0.14" fill="#000000">
+    <rect x="0" y="0" width="18" height="180"/>
+    <rect x="36" y="0" width="18" height="180"/>
+    <rect x="72" y="0" width="18" height="180"/>
+    <rect x="108" y="0" width="18" height="180"/>
+    <rect x="144" y="0" width="18" height="180"/>
+    <rect x="180" y="0" width="18" height="180"/>
+    <rect x="216" y="0" width="18" height="180"/>
+    <rect x="252" y="0" width="18" height="180"/>
+    <rect x="288" y="0" width="18" height="180"/>
+  </g>
+  <g>
+    <path d="M 108 34 q 44 26 44 62 q 0 36 -44 62 l -10 -6 q 38 -24 38 -56 q 0 -32 -38 -56 Z" fill="#12161f"/>
+    <line x1="102" y1="40" x2="102" y2="152" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round"/>
+    <line x1="102" y1="96" x2="156" y2="96" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round"/>
+    <rect x="120" y="92" width="118" height="8" rx="1" fill="#12161f"/>
+    <polygon points="238,84 262,96 238,108" fill="#12161f"/>
+    <circle cx="228" cy="96" r="12" fill="#12161f"/>
+    <circle cx="228" cy="96" r="5" fill="#e2e8f0"/>
+    <rect x="112" y="100" width="16" height="34" rx="3" fill="#12161f"/>
+    <polygon points="264,96 282,87 277,96 282,105" fill="#ffd400"/><circle cx="266" cy="96" r="4" fill="#ffd400"/>
+  </g>
+</svg>

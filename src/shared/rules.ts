@@ -258,6 +258,8 @@ export function formatStatValue(stat: StatDef, value: number): string {
   const body = value.toLocaleString('en-GB', {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
+    // A year is not written "1,759". Decks say so per stat.
+    useGrouping: stat.grouped ?? true,
   });
   return `${stat.prefix ?? ''}${body}${stat.unit ?? ''}`;
 }

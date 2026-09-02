@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="heavyar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a371f7"/>
+      <stop offset="1" stop-color="#3b1a78"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <g opacity="0.14" fill="#000000">
+    <rect x="0" y="0" width="18" height="180"/>
+    <rect x="36" y="0" width="18" height="180"/>
+    <rect x="72" y="0" width="18" height="180"/>
+    <rect x="108" y="0" width="18" height="180"/>
+    <rect x="144" y="0" width="18" height="180"/>
+    <rect x="180" y="0" width="18" height="180"/>
+    <rect x="216" y="0" width="18" height="180"/>
+    <rect x="252" y="0" width="18" height="180"/>
+    <rect x="288" y="0" width="18" height="180"/>
+  </g>
+  <g>
+    <polygon points="36,86 86,84 86,108 36,105" fill="#12161f"/>
+    <rect x="82" y="82" width="84" height="26" rx="3" fill="#12161f"/>
+    <rect x="166" y="90" width="88" height="8" rx="1" fill="#12161f"/>
+    <rect x="166" y="80" width="46" height="10" rx="1" fill="#12161f"/>
+    <rect x="254" y="86.5" width="14" height="15" rx="2" fill="#12161f"/>
+    <polygon points="124,108 138,108 131,134 116,134" fill="#12161f"/>
+    <path d="M 148 108 L 170 108 L 182 142 L 158 145 Z" fill="#12161f"/>
+    <rect x="100" y="72" width="3" height="6" rx="1" fill="#12161f"/><rect x="236" y="73" width="3" height="5" rx="1" fill="#12161f"/>
+    <polygon points="268,94 286,85 281,94 286,103" fill="#a371f7"/><circle cx="270" cy="94" r="4" fill="#a371f7"/>
+  </g>
+</svg>

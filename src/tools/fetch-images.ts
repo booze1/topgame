@@ -411,15 +411,25 @@ async function main(): Promise<void> {
   }
   if (decks.length === 0) throw new Error('No decks matched');
 
+  // Cards with a drawing committed next to the deck have nothing to fetch.
+  // The Fortnite weapons are all of these: every real image of one is Epic's
+  // copyright, so they are drawn rather than photographed.
+  const drawn = decks.reduce(
+    (total, deck) => total + deck.cards.filter((card) => card.localArt).length,
+    0,
+  );
+
   const candidates: Candidate[] = decks.flatMap((deck) =>
-    deck.cards.map((card) => ({
-      deckId: deck.id,
-      deckName: deck.name,
-      cardId: card.id,
-      cardName: card.name,
-      title: card.wikipedia,
-      commonsFile: card.commonsFile,
-    })),
+    deck.cards
+      .filter((card) => !card.localArt)
+      .map((card) => ({
+        deckId: deck.id,
+        deckName: deck.name,
+        cardId: card.id,
+        cardName: card.name,
+        title: card.wikipedia,
+        commonsFile: card.commonsFile,
+      })),
   );
 
   const pinnedCandidates = candidates.filter((candidate) => candidate.commonsFile);
@@ -430,7 +440,8 @@ async function main(): Promise<void> {
       (options.dryRun ? ' (dry run)' : ''),
   );
   console.log(
-    `  ${pinnedCandidates.length} pinned to an exact file, ${leadCandidates.length} using article lead images`,
+    `  ${pinnedCandidates.length} pinned to an exact file, ${leadCandidates.length} using article lead images` +
+      (drawn > 0 ? `, ${drawn} using drawn art already in the repository` : ''),
   );
 
   // Pinned files first: they are the cards somebody has already decided about.

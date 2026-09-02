@@ -340,4 +340,11 @@ describe('formatStatValue', () => {
       formatStatValue({ id: 'x', label: 'X', higherWins: true, prefix: '$', unit: 'k' }, 250),
     ).toBe('$250k');
   });
+
+  it('drops the thousands separator when a stat asks it to', () => {
+    // A founding year is written 1759, not 1,759.
+    expect(
+      formatStatValue({ id: 'founded', label: 'Founded', higherWins: false, grouped: false }, 1759),
+    ).toBe('1759');
+  });
 });

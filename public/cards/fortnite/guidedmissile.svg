@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" role="img" aria-label="guidedmissile">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0883e"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#bg)"/>
+  <rect width="320" height="180" fill="url(#glow)"/>
+  <g opacity="0.14" fill="#000000">
+    <rect x="0" y="0" width="18" height="180"/>
+    <rect x="36" y="0" width="18" height="180"/>
+    <rect x="72" y="0" width="18" height="180"/>
+    <rect x="108" y="0" width="18" height="180"/>
+    <rect x="144" y="0" width="18" height="180"/>
+    <rect x="180" y="0" width="18" height="180"/>
+    <rect x="216" y="0" width="18" height="180"/>
+    <rect x="252" y="0" width="18" height="180"/>
+    <rect x="288" y="0" width="18" height="180"/>
+  </g>
+  <g>
+    <rect x="56" y="80" width="178" height="28" rx="8" fill="#12161f"/>
+    <polygon points="56,80 56,108 34,118 34,70" fill="#12161f"/>
+    <polygon points="204,80 232,60 232,80" fill="#12161f"/>
+    <polygon points="204,108 232,128 232,108" fill="#12161f"/>
+    <rect x="232" y="84" width="24" height="20" rx="3" fill="#12161f"/>
+    <rect x="114" y="60" width="56" height="20" rx="3" fill="#12161f"/>
+    <rect x="126" y="66" width="20" height="9" rx="2" fill="#e2e8f0"/>
+    <polygon points="112,108 126,108 118,136 103,136" fill="#12161f"/>
+    <polygon points="258,94 276,85 271,94 276,103" fill="#f0883e"/><circle cx="260" cy="94" r="4" fill="#f0883e"/>
+  </g>
+</svg>

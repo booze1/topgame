@@ -23,6 +23,12 @@ export interface StatDef {
    * is good, such as a 0-60 time or kerb weight.
    */
   higherWins: boolean;
+  /**
+   * Whether to group thousands with a separator. True by default, which is
+   * right for a mass or a price and wrong for a year: "1,759" is not how a
+   * founding date is written.
+   */
+  grouped?: boolean;
   /** Shown in the deck browser to explain what the stat measures. */
   description?: string;
 }
@@ -47,6 +53,14 @@ export interface CardDef {
    * a card is made permanently correct.
    */
   commonsFile?: string;
+  /**
+   * Filename of a drawing committed alongside the deck, in
+   * public/cards/<deck>/. Set on cards where no free photograph exists and one
+   * was drawn instead - the Fortnite weapons, where every real image is Epic's
+   * copyright. Takes precedence over anything the fetcher found, and is
+   * skipped by `npm run fetch-images` entirely.
+   */
+  localArt?: string;
   /**
    * Where to anchor the photo inside the card's 16:9 band, as a CSS
    * object-position value ("top", "50% 20%"). Encyclopedia photographs are not

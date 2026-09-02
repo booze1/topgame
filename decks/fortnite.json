@@ -1,0 +1,328 @@
+{
+  "id": "fortnite",
+  "name": "Fortnite Guns",
+  "tagline": "Thirty weapons from the loot pool, most of them long since vaulted",
+  "emoji": "🔫",
+  "theme": {
+    "primary": "#1e1b4b",
+    "accent": "#a78bfa",
+    "ink": "#ede9fe"
+  },
+  "art": { "fit": "cover" },
+  "stats": [
+    {
+      "id": "damage",
+      "label": "Damage",
+      "higherWins": true,
+      "description": "Body damage from a single shot at the rarity shown"
+    },
+    {
+      "id": "firerate",
+      "label": "Fire rate",
+      "unit": "/s",
+      "decimals": 2,
+      "higherWins": true,
+      "description": "Shots per second held down"
+    },
+    {
+      "id": "magazine",
+      "label": "Magazine",
+      "higherWins": true,
+      "description": "Rounds before you have to reload"
+    },
+    {
+      "id": "reload",
+      "label": "Reload",
+      "unit": "s",
+      "decimals": 2,
+      "higherWins": false,
+      "description": "Seconds spent defenceless. Lower wins."
+    },
+    {
+      "id": "range",
+      "label": "Range",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How far out it is still worth firing"
+    },
+    {
+      "id": "hype",
+      "label": "Hype",
+      "unit": "/100",
+      "higherWins": true,
+      "description": "How loud the lobby gets when this drops out of a chest"
+    }
+  ],
+  "cards": [
+    {
+      "id": "zapotron",
+      "name": "Zapotron",
+      "subtitle": "Exotic · in the game for days, talked about for years",
+      "emoji": "⚡",
+      "wikipedia": "Fortnite",
+      "localArt": "zapotron.svg",
+      "stats": { "damage": 150, "firerate": 0.4, "magazine": 1, "reload": 3.5, "range": 92, "hype": 94 }
+    },
+    {
+      "id": "heavysniper",
+      "name": "Heavy Sniper Rifle",
+      "subtitle": "Legendary · goes through the wall and the player behind it",
+      "emoji": "🎯",
+      "wikipedia": "Fortnite",
+      "localArt": "heavysniper.svg",
+      "stats": { "damage": 157, "firerate": 0.33, "magazine": 1, "reload": 4.05, "range": 98, "hype": 92 }
+    },
+    {
+      "id": "rocketlauncher",
+      "name": "Rocket Launcher",
+      "subtitle": "Legendary · ends a build battle in one press",
+      "emoji": "🚀",
+      "wikipedia": "Fortnite",
+      "localArt": "rocketlauncher.svg",
+      "stats": { "damage": 121, "firerate": 0.7, "magazine": 1, "reload": 3.24, "range": 70, "hype": 85 }
+    },
+    {
+      "id": "boltsniper",
+      "name": "Bolt-Action Sniper Rifle",
+      "subtitle": "Epic · one shot, then a very long second",
+      "emoji": "🔭",
+      "wikipedia": "Fortnite",
+      "localArt": "boltsniper.svg",
+      "stats": { "damage": 116, "firerate": 0.33, "magazine": 1, "reload": 3, "range": 100, "hype": 88 }
+    },
+    {
+      "id": "doublebarrel",
+      "name": "Double Barrel Shotgun",
+      "subtitle": "Legendary · two shells and a prayer",
+      "emoji": "💥",
+      "wikipedia": "Fortnite",
+      "localArt": "doublebarrel.svg",
+      "stats": { "damage": 114, "firerate": 1.6, "magazine": 2, "reload": 2.7, "range": 22, "hype": 66 }
+    },
+    {
+      "id": "pumpshotgun",
+      "name": "Pump Shotgun",
+      "subtitle": "Legendary · the gold pump, and the reason nobody trusts a ramp",
+      "emoji": "🟡",
+      "wikipedia": "Fortnite",
+      "localArt": "pumpshotgun.svg",
+      "stats": { "damage": 110, "firerate": 0.7, "magazine": 5, "reload": 4.6, "range": 25, "hype": 96 }
+    },
+    {
+      "id": "guidedmissile",
+      "name": "Guided Missile",
+      "subtitle": "Legendary · you fly it yourself, which was the problem",
+      "emoji": "🛰️",
+      "wikipedia": "Fortnite",
+      "localArt": "guidedmissile.svg",
+      "stats": { "damage": 105, "firerate": 0.5, "magazine": 1, "reload": 3.9, "range": 90, "hype": 87 }
+    },
+    {
+      "id": "grenadelauncher",
+      "name": "Grenade Launcher",
+      "subtitle": "Epic · six bounces looking for a floor",
+      "emoji": "🧨",
+      "wikipedia": "Fortnite",
+      "localArt": "grenadelauncher.svg",
+      "stats": { "damage": 100, "firerate": 0.9, "magazine": 6, "reload": 2.4, "range": 55, "hype": 72 }
+    },
+    {
+      "id": "boombow",
+      "name": "Boom Bow",
+      "subtitle": "Mythic · an explosive arrow, drawn silently",
+      "emoji": "🏹",
+      "wikipedia": "Fortnite",
+      "localArt": "boombow.svg",
+      "stats": { "damage": 100, "firerate": 0.8, "magazine": 1, "reload": 1.7, "range": 68, "hype": 79 }
+    },
+    {
+      "id": "chargeshotgun",
+      "name": "Charge Shotgun",
+      "subtitle": "Epic · hold it, and hope they stand still",
+      "emoji": "🔋",
+      "wikipedia": "Fortnite",
+      "localArt": "chargeshotgun.svg",
+      "stats": { "damage": 92, "firerate": 0.85, "magazine": 4, "reload": 4.7, "range": 34, "hype": 70 }
+    },
+    {
+      "id": "leveraction",
+      "name": "Lever Action Shotgun",
+      "subtitle": "Rare · a cowboy gun that hit like a truck",
+      "emoji": "🤠",
+      "wikipedia": "Fortnite",
+      "localArt": "leveraction.svg",
+      "stats": { "damage": 90, "firerate": 0.75, "magazine": 6, "reload": 5, "range": 30, "hype": 60 }
+    },
+    {
+      "id": "huntingrifle",
+      "name": "Hunting Rifle",
+      "subtitle": "Uncommon · no scope, all confidence",
+      "emoji": "🌲",
+      "wikipedia": "Fortnite",
+      "localArt": "huntingrifle.svg",
+      "stats": { "damage": 86, "firerate": 0.85, "magazine": 1, "reload": 1.9, "range": 82, "hype": 66 }
+    },
+    {
+      "id": "flintknock",
+      "name": "Flint-Knock Pistol",
+      "subtitle": "Epic · shoots them backwards, and you too",
+      "emoji": "🪶",
+      "wikipedia": "Fortnite",
+      "localArt": "flintknock.svg",
+      "stats": { "damage": 86, "firerate": 0.65, "magazine": 2, "reload": 2.2, "range": 28, "hype": 71 }
+    },
+    {
+      "id": "tacticalshotgun",
+      "name": "Tactical Shotgun",
+      "subtitle": "Rare · the safe pick, and everybody knew it",
+      "emoji": "🔩",
+      "wikipedia": "Fortnite",
+      "localArt": "tacticalshotgun.svg",
+      "stats": { "damage": 83, "firerate": 1.5, "magazine": 8, "reload": 6.3, "range": 30, "hype": 74 }
+    },
+    {
+      "id": "handcannon",
+      "name": "Hand Cannon",
+      "subtitle": "Legendary · a Deagle, and it goes through builds",
+      "emoji": "🤜",
+      "wikipedia": "Fortnite",
+      "localArt": "handcannon.svg",
+      "stats": { "damage": 78, "firerate": 0.8, "magazine": 7, "reload": 2.16, "range": 65, "hype": 82 }
+    },
+    {
+      "id": "revolver",
+      "name": "Revolver",
+      "subtitle": "Uncommon · six shots, and a satisfying noise",
+      "emoji": "🎰",
+      "wikipedia": "Fortnite",
+      "localArt": "revolver.svg",
+      "stats": { "damage": 63, "firerate": 1.15, "magazine": 6, "reload": 2.5, "range": 60, "hype": 65 }
+    },
+    {
+      "id": "combatshotgun",
+      "name": "Combat Shotgun",
+      "subtitle": "Epic · tight spread, fast follow-up, no complaints",
+      "emoji": "🎽",
+      "wikipedia": "Fortnite",
+      "localArt": "combatshotgun.svg",
+      "stats": { "damage": 60, "firerate": 1.85, "magazine": 8, "reload": 4.2, "range": 38, "hype": 80 }
+    },
+    {
+      "id": "heavyar",
+      "name": "Heavy Assault Rifle",
+      "subtitle": "Epic · an AK that punishes anyone who taps it",
+      "emoji": "🪖",
+      "wikipedia": "Fortnite",
+      "localArt": "heavyar.svg",
+      "stats": { "damage": 44, "firerate": 4.35, "magazine": 25, "reload": 2.52, "range": 72, "hype": 76 }
+    },
+    {
+      "id": "scar",
+      "name": "SCAR",
+      "subtitle": "Legendary · the gold one everybody wanted",
+      "emoji": "🥇",
+      "wikipedia": "Fortnite",
+      "localArt": "scar.svg",
+      "stats": { "damage": 36, "firerate": 5.5, "magazine": 30, "reload": 2.1, "range": 78, "hype": 90 }
+    },
+    {
+      "id": "crossbow",
+      "name": "Crossbow",
+      "subtitle": "Rare · silent, infinite ammo, and never quite good enough",
+      "emoji": "🎯",
+      "wikipedia": "Fortnite",
+      "localArt": "crossbow.svg",
+      "stats": { "damage": 34, "firerate": 1.8, "magazine": 1, "reload": 1.4, "range": 70, "hype": 64 }
+    },
+    {
+      "id": "burstar",
+      "name": "Burst Assault Rifle",
+      "subtitle": "Rare · three at a time, whether you like it or not",
+      "emoji": "🔢",
+      "wikipedia": "Fortnite",
+      "localArt": "burstar.svg",
+      "stats": { "damage": 33, "firerate": 4, "magazine": 30, "reload": 2.1, "range": 74, "hype": 58 }
+    },
+    {
+      "id": "lmg",
+      "name": "Light Machine Gun",
+      "subtitle": "Rare · a hundred rounds aimed at somebody's walls",
+      "emoji": "🧱",
+      "wikipedia": "Fortnite",
+      "localArt": "lmg.svg",
+      "stats": { "damage": 32, "firerate": 6.5, "magazine": 100, "reload": 5, "range": 65, "hype": 64 }
+    },
+    {
+      "id": "suppressedpistol",
+      "name": "Suppressed Pistol",
+      "subtitle": "Epic · quiet, accurate, wildly underrated",
+      "emoji": "🤫",
+      "wikipedia": "Fortnite",
+      "localArt": "suppressedpistol.svg",
+      "stats": { "damage": 26, "firerate": 6.75, "magazine": 16, "reload": 1.3, "range": 50, "hype": 55 }
+    },
+    {
+      "id": "drumgun",
+      "name": "Drum Gun",
+      "subtitle": "Epic · vaulted for being too much fun, then brought back",
+      "emoji": "🥁",
+      "wikipedia": "Fortnite",
+      "localArt": "drumgun.svg",
+      "stats": { "damage": 26, "firerate": 9, "magazine": 50, "reload": 3.2, "range": 45, "hype": 89 }
+    },
+    {
+      "id": "scopedar",
+      "name": "Scoped Assault Rifle",
+      "subtitle": "Rare · glass on a rifle that did not really need it",
+      "emoji": "🔍",
+      "wikipedia": "Fortnite",
+      "localArt": "scopedar.svg",
+      "stats": { "damage": 25, "firerate": 5.5, "magazine": 20, "reload": 2.3, "range": 85, "hype": 54 }
+    },
+    {
+      "id": "pistol",
+      "name": "Pistol",
+      "subtitle": "Common · the grey one you drop within ten seconds",
+      "emoji": "🩶",
+      "wikipedia": "Fortnite",
+      "localArt": "pistol.svg",
+      "stats": { "damage": 24, "firerate": 6.75, "magazine": 16, "reload": 1.5, "range": 55, "hype": 40 }
+    },
+    {
+      "id": "compactsmg",
+      "name": "Compact SMG",
+      "subtitle": "Epic · the P90, and the reason walls stopped mattering",
+      "emoji": "🌀",
+      "wikipedia": "Fortnite",
+      "localArt": "compactsmg.svg",
+      "stats": { "damage": 23, "firerate": 11, "magazine": 50, "reload": 2.4, "range": 40, "hype": 78 }
+    },
+    {
+      "id": "smg",
+      "name": "Submachine Gun",
+      "subtitle": "Common · spray, pray, and rebuild",
+      "emoji": "💨",
+      "wikipedia": "Fortnite",
+      "localArt": "smg.svg",
+      "stats": { "damage": 21, "firerate": 10, "magazine": 30, "reload": 2.2, "range": 38, "hype": 58 }
+    },
+    {
+      "id": "minigun",
+      "name": "Minigun",
+      "subtitle": "Epic · no magazine and no reload, it simply never stops",
+      "emoji": "🌪️",
+      "wikipedia": "Fortnite",
+      "localArt": "minigun.svg",
+      "stats": { "damage": 18, "firerate": 12, "magazine": 0, "reload": 0, "range": 55, "hype": 80 }
+    },
+    {
+      "id": "tacticalsmg",
+      "name": "Tactical SMG",
+      "subtitle": "Rare · the fastest trigger in the loot pool",
+      "emoji": "⏱️",
+      "wikipedia": "Fortnite",
+      "localArt": "tacticalsmg.svg",
+      "stats": { "damage": 17, "firerate": 13, "magazine": 35, "reload": 2.2, "range": 35, "hype": 62 }
+    }
+  ]
+}

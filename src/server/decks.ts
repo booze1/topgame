@@ -37,6 +37,13 @@ const SAFE_ID = /^[a-z0-9][a-z0-9_-]*$/i;
 const isColour = (value: unknown): boolean =>
   typeof value === 'string' && /^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(value);
 
+/**
+ * A drawing committed next to the deck, named by bare filename. Restricted to
+ * the same safe alphabet as an id plus an image extension, so a deck file
+ * copied from somewhere else cannot point the client at an arbitrary path.
+ */
+const SAFE_ART = /^[a-z0-9][a-z0-9_-]*\.(?:svg|png|jpg|jpeg|webp)$/i;
+
 const SAFE_FOCUS =
   /^(?:(?:top|bottom|left|right|center)(?: (?:top|bottom|left|right|center))?|\d{1,3}% \d{1,3}%)$/;
 
@@ -45,6 +52,9 @@ function validateStat(file: string, value: unknown, index: number): StatDef {
   if (!stat || typeof stat.id !== 'string' || !stat.id) fail(file, `stat ${index} has no id`);
   if (typeof stat.label !== 'string' || !stat.label) fail(file, `stat "${stat.id}" has no label`);
   if (typeof stat.higherWins !== 'boolean') fail(file, `stat "${stat.id}" needs higherWins`);
+  if (stat.grouped !== undefined && typeof stat.grouped !== 'boolean') {
+    fail(file, `stat "${stat.id}" has a non-boolean grouped`);
+  }
   return stat as StatDef;
 }
 
@@ -87,6 +97,9 @@ function validateDeck(file: string, raw: unknown): Deck {
     }
     if (card.commonsFile !== undefined && typeof card.commonsFile !== 'string') {
       fail(file, `card "${card.id}" has a non-string commonsFile`);
+    }
+    if (card.localArt !== undefined && (typeof card.localArt !== 'string' || !SAFE_ART.test(card.localArt))) {
+      fail(file, `card "${card.id}" has an invalid localArt "${String(card.localArt)}"`);
     }
     if (card.focus !== undefined && (typeof card.focus !== 'string' || !SAFE_FOCUS.test(card.focus))) {
       fail(file, `card "${card.id}" has an invalid focus "${String(card.focus)}"`);
@@ -144,6 +157,11 @@ export function loadDecks(rootDir: string): Deck[] {
 
     const photos = manifest[deck.id] ?? {};
     deck.cards = deck.cards.map((card) => {
+      // A drawing committed with the deck was chosen deliberately, so it beats
+      // anything the fetcher happened to find. It carries no photo credit
+      // because there is no photographer to credit.
+      if (card.localArt) return { ...card, image: `/cards/${deck.id}/${card.localArt}` };
+
       const photo = photos[card.id];
       if (!photo) return card;
 
@@ -169,12 +187,14 @@ export function loadDecks(rootDir: string): Deck[] {
   }
 
   const withPhotos = decks.reduce(
-    (total, deck) => total + deck.cards.filter((c) => c.image).length,
+    (total, deck) => total + deck.cards.filter((c) => c.image && !c.localArt).length,
     0,
   );
+  const drawn = decks.reduce((total, deck) => total + deck.cards.filter((c) => c.localArt).length, 0);
   const totalCards = decks.reduce((total, deck) => total + deck.cards.length, 0);
   console.log(
     `[decks] loaded ${decks.length} decks, ${totalCards} cards, ${withPhotos} with photos` +
+      (drawn > 0 ? `, ${drawn} with drawn art` : '') +
       (withPhotos === 0 ? ' (run `npm run fetch-images` to add real photos)' : ''),
   );
   return decks;
